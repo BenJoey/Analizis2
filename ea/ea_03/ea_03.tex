@@ -1,0 +1,160 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[textwidth=170mm, textheight=230mm, inner=20mm, top=10mm, bottom=20mm]{geometry}
+\usepackage[normalem]{ulem}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\PassOptionsToPackage{defaults=hu-min}{magyar.ldf}
+\usepackage[magyar]{babel}
+\usepackage{amsmath, amsthm,amssymb,paralist,array, ellipsis, graphicx, float}
+
+\begin{document}
+\def\defi{\normalsize \textbf{Definíció: }}
+\def\Z{\mathbb{Z}}
+\def\Q{\mathbb{Q}}
+\def\R{\mathbb{R}}
+\def\N{\mathbb{N}}
+\def\bizva{\quad\blacksquare}
+\def\biz{\normalsize{\underline{Bizonyítás:} }\hspace*{0.5cm}}
+\def\tetel{\normalsize \textbf{\underline{Tétel}: }}
+\def\limh{\displaystyle\lim_{h\to0}}
+\begin{center}
+	{\LARGE\textbf{Analízis 2.}}\\[0.2cm]
+	
+	{\Large 3. Előadás jegyzet}\\[0.5cm]	
+\end{center}
+{\small A jegyzetet \textsc{Bauer Bence} készítette \textsc{Dr. Weisz Ferenc} előadása alapján.}\\[0.2cm]
+\textbf{{\Large Inverzfüggvény folytonossága}}\\[0.2cm]
+\tetel Ha $f:[a,b]\to\R$ folytonos és injektív, akkor $f^{-1}$ is folytonos.\\[0.1cm]
+\biz \underline{1. lépés:} $f^{-1}$  $\exists$ Indirekt.\\[0.1cm] Tfh. $f^{-1}$ nem
+folytonos. $\Rightarrow\exists y_{0}\in R_f, f^{-1}\notin C(y_0)\Rightarrow$
+átviteli elv.\\[0.1cm] $\exists y_n\in R_f,\lim(y_n)=y_0$ : $\lim(f^{-1}(y_n))\neq
+f^{-1}(y_0)$\\[0.1cm] Legyen $x_n=f^{-1}(y_n),n\in\N\Rightarrow\lim(x_n)\neq
+x_0\Rightarrow\exists\delta>0$: $\{n:|x_n-x_0|\geq\delta\}$ végtelen.\\[0.1cm]
+Legyen $n_k$ indexsorozat, hogy: $|x_{n_k}-x_0|\geq\delta\\[0.1cm](x_{n_k}):
+\N\to[a,b]\Rightarrow(x_{n_k})$ korlátos. $\Rightarrow\exists$ konvergens
+részsorozat.\\[0.1cm] $(x_{n_k})':\quad\lim(x_{n_k})':=\alpha\quad$\textbf{De!}
+$\quad|(x_{n_k})'-x_0|\geq\delta\Rightarrow|\alpha-x_0|\geq\delta\Rightarrow\alpha
+\neq x_0$\\[0.1cm]\underline{2. lépés:} $f\in C(\alpha)\quad\alpha\in[a,b]$\\[0.1cm]
+átviteli elv $\Rightarrow\lim\underbrace{f(x_{n_k})'}_{(y_{n_k})'}=
+f(\alpha)\Rightarrow\lim(y_{n_k})'=f(\alpha)$\\[0.1cm]\textbf{De!}
+$\lim(y_{n_k})'=y_0=f(x_0)\Rightarrow f(\alpha)=f(x_0)\quad f$ injektív.
+$\Rightarrow\alpha=x_0\quad$ Ez ellentmondás. $\bizva$\\[0.3cm]
+\tetel $I\in\R$ intervallum, $f:I\to\R$ folytonos és injektív $\Rightarrow f^{-1}$ folytonos.\\[0.1cm]
+\biz Legyen $y_0\in R_f$ tetszőleges, igazoljuk, hogy $f^{-1}\in C(y_0)$.
+\\[0.1cm]Legyen $x_0=f^{-1}(y_0)$ és $[a,b]$ olyan intervallum, hogy: $x_0\in[a,b]$
+és $[a,b]\in I$\\[0.1cm]Ekkor az előző tétel miatt: $(f|[a,b])^{-1}$ folytonos.
+\textbf{De!} $(f|[a,b])^{-1}=f^{-1}|_J$\\[0.1cm]ahol $J:=f[a,b]$ intervallummal.
+Ekkor $y_0\in J$ belsejében $\Rightarrow f^{-1}\in C(y_0)\bizva$\\[0.2cm]
+\tetel $f:[a,b]\to\R$ folytonos és injektív $\Rightarrow f$ szig. mon.\\[0.1cm]
+\biz Ha $f(a)<f(b)$, ekkor $f$ szig. mon. nő\\[0.1cm] \textbf{1.} Igazoljuk, hogy
+$f(a)=min\{f(x):x\in[a,b]\}$ és $f(b)=max\{f(x):x\in[a,b]\}$\\[0.1cm] Csak az
+elsőt. Indirekten, Tfh:\\[0.1cm] $f(a)>min f$ (< nem lehet) Weierstrass-tétel
+$\Rightarrow\exists\alpha\in[a,b]:f(\alpha)=min f\quad\alpha\neq a,b$\\[0.1cm]
+Tekintsük az $f:[\alpha,b]\to\R$ függvényt. A Bolzano-tétel miatt $c=f(a)
+\in(f(\alpha),f(b))$-hoz is\\[0.1cm] $\exists\xi\in[\alpha,b]:f(a)=f(\xi)\quad f$
+injektív $\Rightarrow a=\xi\quad$ Ellentmondás.\\[0.1cm]\textbf{2.} Igazoljuk, ha
+$x_1<x_2\Rightarrow f(x_1)<f(x_2)\quad(x_1,x_2\in[a,b])$\\[0.1cm]Indirekt, Tfh:
+$f(x_1)>f(x_2)$\\[0.1cm]Ekkor $f(x_1)\in(f(x_2),f(b))\quad$ Tekintsük az $f:[x_2,b]
+\to\R$ függvényt.\\[0.1cm]$c=f(x_1)$-hez is $\exists\xi\in(x_2,b):
+f(x_1)=f(\xi)\quad f$ injektív $\Rightarrow x_1=\xi\quad$ Ellentmondás.\\[0.2cm]
+\textbf{{\Large Szakadási helyek}}\\[0.2cm]
+\defi Az $f\in\R\to\R$ függvénynek az $a\in D_f$ pontban:
+\begin{enumerate}
+	\item Szakadási helye van, ha $f\notin C(a)$
+	\item Megszüntethető szakadása van, ha \[ \exists\lim_{a} f\text{\quad véges, és\quad } \lim_a f\not=f(a)\]
+	\item Elsőfajú szakadása van, ha
+	\[ \exists \lim_{a+0} f,\quad \exists\lim_{a-0}f \text{\quad végesek, és\quad } \lim_{a+0} f \not= \lim_{a-0}f \]
+	\item Másodfajú szakadás az összes többi esetben.
+\end{enumerate}
+\newpage
+Pl: \textbf{1.} \[\displaystyle f(x) = 
+\left\{
+\begin{gathered}
+\frac{\sin x}{x}: \quad x\neq 0\hspace{5.7cm} \\
+\quad0\hspace{0.3cm}:\quad x=0\hspace{5.7cm}
+\end{gathered}\right. \]\\[0.2cm]
+$f\in C(a),a\neq 0\quad$Tudjuk, hogy $\displaystyle\lim_{n\to +\infty} \frac{\sin x}{x} =1\neq 0\Rightarrow$ Megszüntethető szakadás\\[0.1cm]
+\[\text{Legyen }\displaystyle\tilde f(x) = 
+\left\{
+\begin{gathered}
+\frac{\sin x}{x}: \quad x\neq 0\hspace{5.7cm} \\
+\quad1\hspace{0.3cm}:\quad x=0\hspace{5.7cm}
+\end{gathered}\right. \]\\[0.1cm]Ekkor $\tilde f\in C(0)$. Ezért megszüntethető szakadás.\\[0.4cm] \textbf{2.}\[\displaystyle f(x) = sign x
+\left\{
+\begin{gathered}
+\quad1\quad: \quad x > 0\hspace{5.7cm} \\
+\quad0\hspace{0.4cm}:\quad x=0\hspace{5.7cm} \\
+\quad -1\hspace{0.2cm}:\quad x<0\hspace{5.7cm}
+\end{gathered}\right. \]\\[0.2cm]
+$f\in C(a), a\neq 0$
+\[1=\lim_{a+0} f \neq \lim_{a-0} f = -1 \Rightarrow\text{Elsőfajú szakadás.}\]\\[0.4cm] \textbf{3.}
+\[\displaystyle f(x) = 
+\left\{
+\begin{gathered}
+\quad x\quad: \quad x\in \Q\hspace{5.7cm} \\
+\quad -x\hspace{0.2cm}:\quad x\notin\Q\hspace{5.7cm}
+\end{gathered}\right. \]\\[0.2cm]
+$f\notin C(0)\text{ de }f\in C(a), a\neq 0$
+\[\nexists\lim_{a+0} f , \lim_{a-0} f\Rightarrow\text{Másodfajú szakadás.} \]\\
+\tetel Ha $f:(a,b)\to\R$ monoton és $\alpha\in(a,b)$, akkor
+\begin{enumerate}
+	\item $f\in C(\alpha)$\\[0.3cm] \hspace*{0.1cm} vagy
+	\item Elsőfajú szakadása van
+\end{enumerate}
+\biz Tudjuk, hogy $\exists\displaystyle\lim_{\alpha-0} f,
+\displaystyle\lim_{\alpha+0} f$ és $\displaystyle\lim_{\alpha-0} f < f(\alpha)\leq
+\displaystyle\lim_{\alpha+0} f$\\[0.1cm] Ha $\displaystyle\lim_{\alpha-0} f=
+\displaystyle\lim_{\alpha+0} f\Rightarrow f\in C(\alpha)$\\[0.1cm] Ha
+$\displaystyle\lim_{\alpha-0} f\neq\displaystyle\lim_{\alpha+0} f\Rightarrow$
+elsőfajú szakadása van.$\quad\blacksquare$\\[0.3cm]
+\textbf{{\Large Nevezetes függvények}}
+\begin{enumerate}
+	\item Gyökfüggyvény \\ Legyen $f(x)=x^n,\quad x\in[0,+\infty), n\in\N_+$, ekkor
+	$f$ szig. mon. nő és folytonos\\[0.1cm] $\Rightarrow$ az inverze is folytonos (az előző tételek alapján).\\[0.1cm] \defi $\sqrt[n]{} := f^{-1}$. Az $n$-edik
+	gyökfüggvény.
+	\item Logaritmusfüggyvény \\ \tetel Az $exp:\R\to\R^+$ szig. mon. nő folytonos
+	és $\R_{exp}=\R_+$ \\[0.1cm] \biz Biz. nélkül\\[0.1cm]$\Rightarrow
+	ln:=exp^{-1}$ fgv. is szig. mon. nő és folytonos.\\[0.1cm] \defi
+	$ln:=exp^{-1}:\R_+\to\R$
+	\item $a$ alapú exp. és logaritmikus függvények\\[0.1cm]\defi
+	$exp_a(x)=exp(x\cdot ln(a))=a^x$, ahol $x\in\R$ és $a>0$\\[0.1cm] Az $a$ alapú
+	exp. fgv.\\[0.1cm]\hspace*{0.3cm} \underline{Megj:} $a^x=exp(ln(a^x))
+	=exp(x\cdot ln(a))$ \\[0.1cm]Ekkor az exp. fgv. szig. mon. nő, ha
+	$a>1$\\[0.1cm]\hspace*{4.6cm} fogy, ha $0<a<1$\\[0.1cm]\hspace*{3.9cm}
+	konstans, ha $a=1$\\[0.1cm] \defi $\log_a=(exp_a)^{-1}:
+	\R_+\to\R\quad(a>0,a\neq1)$
+	\item $\alpha$ kitevőjű hatványfüggvény\\[0.1cm]\defi
+	$x^{\alpha}:=exp(\alpha\cdot ln(x))\quad\alpha\in\R,x\in(0,+\infty)$
+	\\[0.1cm]\hspace*{0.3cm} \underline{Megj:} $x^\alpha=exp(ln(x^\alpha))=
+	exp(\alpha\cdot ln(x))$
+\end{enumerate}
+\textbf{{\Large Differenciálszámítás}}\\[0.1cm]
+\defi $a\in A\subset\R$ az $A$ belső pontja, ha $\exists K(a)\subset A\quad$
+\underline{Jelölés:} int $A$\\[0.1cm]\hspace*{0.3cm} \underline{Megj:}
+\begin{itemize}
+	\item határérték: $a\in D_f'$
+	\item folytonosság: $a\in D_f$
+	\item derivál: $a\in int D_f$
+\end{itemize}
+\defi Az $f\in\R\to\R$ deriválható (differenciálható) az $a\in int D_f$ pontban, ha
+$\exists$ és véges a\\[0.1cm]$\displaystyle\lim_{h\to0}\frac{f(a+h)-f(a)}{h}=f'(a)$
+határérték.\hspace{1.5cm} $f'(a)$ a derivált.\hspace{1cm} Jelölés: $f\in D(a)$
+\\[0.1cm]Pl:\\[0.1cm] \textbf{1.} $f(x)=c\in\R$\\[0.1cm]
+$\displaystyle\lim_{h\to0}\frac{f(a+h)-f(a)}{h}=\displaystyle\lim_{h\to0}
+\underbrace{\frac{c-c}{h}}_{0}=0\Rightarrow f'(a)=0,\quad a\in\R$
+\\[0.1cm]\textbf{2.} $f(x)=x^n\quad(x\in\R,n\in\N_+)$\\[0.1cm]$n=1:
+\quad\displaystyle\lim_{h\to0} \frac{f(a+h)-f(a)}{h}=\displaystyle\lim_{h\to0}
+\frac{a+h-a}{h}=1\Rightarrow f'(a)=1,\quad a\in\R$\\[0.1cm]$n>1:\quad a^n-b^n=(a-b)
+(a^{n-1}+a^{n-2}\cdot b+...+a\cdot b^{n-2}+b^{n-1})$
+\\[0.1cm]$\limh\frac{f(a+h)-f(a)}{h}=\limh\frac{(a+h)^n-a^n}{h}
+\limh\frac{(a+h-a)((a+h)^{n-1}+(a+h)^{n-2}\cdot a+...+a^{n-1})}{h}=\\[0.1cm]=n\cdot
+a^{n-1},\quad f'(a)=n\cdot a^{n-1},\quad a\in\R$\\[0.3cm]\textbf{3.} Abszolút érték
+függyvény. $\quad f(x)=|x|$\\[0.3cm]
+\[\displaystyle \displaystyle\lim_{h\to0}\frac{f(a+h)-f(a)}{h}=\frac{|h|}{h} = 
+\left\{
+\begin{gathered}
+\quad 1\quad: \quad h>0\hspace{5.7cm} \\
+\quad -1\hspace{0.2cm}:\quad h<0\hspace{5.7cm}
+\end{gathered}\right. \]\\[0.2cm]
+$\Rightarrow\nexists\lim\hspace{2cm}f\notin D(0)$
+\end{document}
