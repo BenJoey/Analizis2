@@ -1,0 +1,154 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[textwidth=170mm, textheight=230mm, inner=20mm, top=10mm, bottom=20mm]{geometry}
+\usepackage[normalem]{ulem}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{physics}
+\PassOptionsToPackage{defaults=hu-min}{magyar.ldf}
+\usepackage[magyar]{babel}
+\usepackage{amsmath, amsthm,amssymb,paralist,array, ellipsis, graphicx, float}
+
+\begin{document}
+\def\N{\mathbb{N}}
+\def\Z{\mathbb{Z}}
+\def\R{\mathbb{R}}
+\def\biz{\normalsize{\underline{Bizonyítás:} }\hspace*{0.5cm}}
+\def\tetel{\normalsize \textbf{\underline{Tétel}: }}
+\def\defi{\normalsize \textbf{Definíció: }}
+\def\pl{\textbf{Pl:}}
+\def\cab{\in C[a,b]}
+\def\dab{\in\D(a,b)}
+\def\rtr{\R\to\R}
+\def\D{\mathcal{D}}
+\def\lima{\displaystyle\lim_{a}}
+\def\bizva{\quad\blacksquare}
+\def\fda{f\in\D(a)}
+\begin{center}
+	{\LARGE\textbf{Analízis 2.}}\\[0.2cm]
+	
+	{\Large 6. Előadás jegyzet}\\[0.5cm]	
+\end{center}
+{\small A jegyzetet \textsc{Bauer Bence} készítette \textsc{Dr. Weisz Ferenc} előadása alapján.}\\[0.4cm]
+Előző előadás vége: a hatványsor végtelenszer deriválható.\\[0.1cm]
+\underline{Következmény:} $\exp,\cos,\sin,ch,sh\in\D^{\infty}(\R)$\\[0.1cm]
+\defi Az $f\in\rtr$ függvénynek a $c\in int\D_f$ pontban lokális maximuma 
+(minimuma) van, ha\\[0.1cm]$\exists K(c)\subset\D_f,\forall x\in K(c): f(x)\leq 
+f(c)\quad(f(x)\geq f(c))$\\[0.2cm]\tetel (Elsőrendű szükséges feltétel)\\[0.1cm] 
+$f\in\rtr,f\in\D(c)$ és $f$-nek lokális szélső értéke van $c$-ben $\Rightarrow 
+f'(c)=0$\\[0.1cm]\biz Tfh. $f$-nek lokális minimuma van $c$-ben\\[0.2cm] 
+$\Rightarrow\exists\delta>0:f(x)\geq f(c),\forall x\in(c-\delta,c+\delta)\subset 
+D_f$\\[0.2cm]$\exists\lim\limits_{x\to c+0}\underbrace{\frac{f(x)-f(c)}{x-c}}
+_{\geq0}\geq0$ és $\exists\lim\limits_{x\to c-0}\underbrace{ \frac{f(x)-f(c)}
+{x-c}}_{\leq0}\leq0\\[0.2cm]\Rightarrow\exists\lim\limits_{x\to c} 
+\frac{f(x)-f(c)}{x-c}=\underbrace{\lim\limits_{x\to c+0}\frac{f(x)-f(c)}{x-c}}_ 
+{\geq0}=\underbrace{\lim\limits_{x\to c-0}\frac{f(x)-f(c)}{x-c}}_{\leq0} 
+\Rightarrow f'(c)=0\bizva\\[0.4cm]$\hspace*{0.6cm}\underline{Megj:} A feltétel 
+nem elégséges, hiszen: $f(x)=x^3,\quad f'(0)=3x^2|_{x=0}$\\[0.2cm]
+\underline{Jelölés:} $f\cab$ $f$ folytonos $[a,b]$-n, 
+$\quad f\dab$ $f$ deriválható $(a,b)$-n\\[0.3cm]
+\textbf{\underline{{\large Középérték-tételek}}}\\[0.2cm]\textbf{1. 
+Rolle-tétel}\\[0.1cm] \tetel Tfh. $f\cab$ és $f\dab$\\[0.2cm]Ha $f(a)=f(b)$, 
+ekkor $\exists\xi\in(a,b):f'(\xi)=0$\\[0.2cm]\biz $f\cab\Rightarrow$ 
+Weierstrass-tétel miatt\\[0.2cm]$\Rightarrow\exists\alpha\in[a,b]:f(\alpha)= 
+\min\limits_{[a,b]}f=:m$ és $\exists\beta\in[a,b]:f(\beta)= 
+\max\limits_{[a,b]}f=:M$
+\\[0.2cm]\underline{1. lépés:} Tfh. $m=M\Rightarrow f=m\quad([a,b]$-n$)$, a 
+függvény konstans $\Rightarrow f'=0\quad[a,b]$-n\\[0.2cm]\underline{2. lépés:} 
+$m\neq M$ és $m\neq f(a)=f(b)\Rightarrow m=f(\alpha)\Rightarrow\alpha\neq a,b 
+\Rightarrow\alpha\in(a,b)\\[0.2cm]\Rightarrow\alpha$-ban lokális minimum van. 
+$\Rightarrow f'(\alpha)=0$\\[0.2cm]\underline{3. lépés:} Tfh. $m\neq M$ és 
+$m=f(a) =f(b)$\\[0.2cm]$\Rightarrow M\neq f(a)=f(b)\Rightarrow\beta\neq 
+a,b\Rightarrow\beta \in(a,b)\Rightarrow\beta$-ban lokális maximum van 
+$\Rightarrow f'(\beta)=0\bizva$ \\[0.2cm]\hspace*{0.6cm}\underline{Megj:} Ha 
+$c$-ben abszolút szélső érték van és $c$ belső pont, akkor $c$-ben lokális 
+szélső érték is van.\\[0.2cm]\textbf{2. Cauchy-tétel}\\[0.1cm]\tetel Tfh. 
+$f,g\cab$, $f,g\dab$ és $g'(x)\neq0\quad(x\in(a,b))$\\[0.2cm]Ekkor: 
+$\exists\xi\in(a,b):\frac{f(b)-f(a)}{g(b)-g(a)}=\frac{f'(\xi)}{g'(\xi)}$
+\\[0.2cm]\biz$g(b)\neq g(a)$, hiszen különben $\exists\xi\in(a,b):g'(\xi)=0$
+\\[0.2cm]Válasszuk meg $\lambda$-t úgy, hogy az $F:=f-\lambda g$ függvényre 
+alkalmazhassuk a Rolle-tételt\\[0.2cm]$F\cab,F\dab, F(a)=F(b)\Leftrightarrow 
+f(a)-\lambda g(a)= f(b)-\lambda g(b)\Leftrightarrow\lambda=
+\frac{f(b)-f(a)}{g(b)-g(a)}\\[0.2cm] \Rightarrow$ Rolle-tétel miatt 
+$\exists\xi\in(a,b):F'(\xi)=0\Leftrightarrow F'(\xi) =f'(\xi)-\lambda 
+g'(\xi)=0\Leftrightarrow\lambda=\frac{f'(\xi)}{g'(\xi)}\bizva$ 
+\\[0.2cm]\hspace*{0.6cm}\underline{Megj:} Ha $f(a)=f(b)$, akkor visszakapjuk a 
+Rolle tételt.\newpage\textbf{3. Lagrange-tétel}\\[0.1cm]\tetel Tfh. 
+$f\cab,f\dab$\\[0.2cm]Ekkor $\exists\xi\in(a,b):\frac{f(b)-f(a)}{b-a}= 
+f'(\xi)$\\[0.2cm]\biz Legyen $g(x)=x \Rightarrow g'(x)=1\neq0\quad$ Így 
+alkalmazható rá a Cauchy-tétel$\bizva$\\[0.2cm]\underline{Következmény:}\\[0.2cm]
+\hspace*{0.3cm}\textbf{i,} $f\dab$ és $f'=0\quad(a,b)$-n $\Rightarrow f=c\quad 
+(a,b)$-n\\[0.2cm]\hspace*{0.3cm}\textbf{ii,} $f,g\dab$ és $f'=g'\quad (a,b)$-n 
+$\Rightarrow f=g+c\quad(a,b)\text{-n}\quad(c\in\R)$\\[0.2cm]\biz \textbf{i,}
+Legyen $[x_1,x_2]\subset(a,b)$ A Lagrange tétel miatt
+$\exists\xi\in(x_1,x_2):\\[0.2cm] f(x_2)-f(x_1)=f'(\xi)(x_2-x_1)=0\Rightarrow
+f(x_2)=f(x_1)$\\[0.2cm]\textbf{ii,} Alkalmazzuk az \textbf{i,}-t az $f-g$
+függvényre.\\[0.3cm] \textbf{\underline{{\large Monotonitás}}}\\[0.2cm]\tetel
+Tfh. $f\dab$ Ekkor: \\[0.1cm]\hspace*{0.3cm}\textbf{i,} $f'\geq0\quad(a,b)$-n
+$\Rightarrow f$ monoton nő $(a,b)$-n\\[0.1cm]\hspace*{0.3cm}\textbf{ii,}
+$f'\leq0\quad(a,b)$-n $\Rightarrow f$ monoton fogy $(a,b)$-n\\[0.1cm]
+\hspace*{0.3cm}\textbf{iii,} $f'>0\quad (a,b)$-n $\Rightarrow f$ szigorú monoton
+nő $(a,b)$-n\\[0.1cm]\hspace*{0.3cm}\textbf{iv,} $f'<0\quad (a,b)$-n 
+$\Rightarrow f$ szigorú monoton fogy $(a,b)$-n\\[0.2cm]\biz \\[0.1cm]\textbf{i,} 
+Legyen $[x_1,x_2]\subset(a,b)$ A Lagrange tétel miatt $\exists\xi\in 
+(x_1,x_2):\\[0.2cm]f(x_2)-f(x_1)=f'(\xi)(x_2-x_1)\geq0\Rightarrow f$ monoton 
+nő.\\[0.1cm]\textbf{ii,} Ugyanígy\\[0.1cm]\textbf{iii,} A Lagrange tétel után 
+$\Rightarrow\exists\xi\in (x_1,x_2):\\[0.2cm]f(x_2)-f(x_1)=f'(\xi)(x_2-x_1)>0 
+\Rightarrow f$ szigorú monoton nő\\[0.1cm]\textbf{iv,} Ugyanígy. 
+$\bizva$\\[0.2cm] \hspace*{0.3cm}\underline{Megj:} \textbf{i,} 
+$f(x)=\frac{1}{x}\quad(x\neq0) \Rightarrow f'(x)=-\frac{1}{x^2}<0
+\quad(x\neq0)\\[0.1cm]\nRightarrow f$ szigorú monoton fogy, hiszen a $0$-ban 
+nincs értelmezve.$\\[0.1cm]\Rightarrow$ Az előző tételben fontos az 
+intervallum.\\[0.1cm]\textbf{ii,} Az előző tételben a \textbf{iii,} nem 
+fordítható meg, azaz $f\uparrow\nRightarrow f'>0\quad$\pl $f(x)= 
+x^3$\\[0.3cm]\tetel (A monotonitásra vonatkozó szükséges és elégséges feltétel.) 
+\\[0.2cm]Tfh. $f\dab$ Ekkor: \\[0.2cm]\textbf{i,} $f'\geq0\quad(a,b)$-n 
+$\Leftrightarrow f$ monoton nő $(a,b)$-n\\[0.2cm]\textbf{ii,} 
+$f'\leq0\quad(a,b)$-n $\Leftrightarrow f$ monoton fogy $(a,b)$-n\\[0.2cm]
+\textbf{iii,} $f'\geq0\quad(a,b)$-n, de $\nexists(c,d)\subset(a,b):f'=0
+\quad(c,d)$-n $\Leftrightarrow f$ szigorú monoton nő $(a,b)$-n\\[0.2cm]
+\textbf{iv,} $f'\leq0\quad(a,b)$-n, de $\nexists(c,d)\subset(a,b):f'=0
+\quad(c,d)$-n $\Leftrightarrow f$ szigorú monoton fogy $(a,b)$-n\\[0.2cm]\biz 
+\textbf{i,} "$\Rightarrow$"$\checkmark\quad$"$\Leftarrow$" Tfh. $f$ monoton nő 
+és legyen $\xi\in(a,b)$ tetszőleges\\[0.2cm] \[\displaystyle \frac{f(x)-f(\xi)}{x-\xi} = \left\{
+\begin{gathered}
+\geq0 \quad \text{, ha }x\geq\xi\hspace{5.7cm} \\
+\geq0 \quad \text{, ha }x<\xi\hspace{5.7cm}
+\end{gathered}\right. \]
+\\[0.2cm]$\Rightarrow\exists f'(\xi)=\lim\limits_{x\to\xi}\frac{f(x)-f(\xi)}{x-\xi}$
+\\[0.2cm]\textbf{ii,} Hasonló\newpage\textbf{iii,} "$\Rightarrow$" $f'\geq0 
+\Rightarrow f$ szigorú monoton nő\\[0.2cm]Indirekten Tfh. $f$ nem szigorú 
+monoton \\[0.2cm]$\Rightarrow\exists c,d:f(c)=f(d)\Rightarrow f=f(c)
+\quad(c,d)$-n $\Rightarrow f'=0\quad(c,d)$-n, ez ellentmondás\\[0.2cm]
+$\Rightarrow f$ szigorú monoton nő.\\[0.2cm] "$\Leftarrow$" $f$ szigorú monoton 
+nő $\Rightarrow f$ monoton nő. $\Rightarrow f'\geq0$ Indirekten:\\[0.2cm] Tfh. 
+$\exists(c,d)\subset(a,b):f'=0 \quad(c,d)$-n$\Rightarrow f$ konstans $(c,d)$-n 
+$\Rightarrow f$ nem szigorú monoton nő\\[0.2cm]És így ellentmondásra jutottunk 
+$\Rightarrow\nexists(c,d):f'=0\quad (c,d)\text{-n }$\\[0.2cm]\textbf{iv,} 
+Hasonló $\bizva$\\[0.2cm]\tetel (Elsőrendű elégséges feltétel)\\[0.2cm]Tfh. 
+$f\dab,c\in(a,b)$ és $f'(c)=0$\\[0.1cm]Ha $f'$ előjelet vált $c$-ben, akkor 
+lokális szélső értéke van $c$-ben.\\Ha $f'$ negatívból pozitívba megy akkor 
+lokális minimum.\\Ha $f'$ pozitívból negatívba megy akkor lokális 
+maximum.\\[0.2cm]\biz Tfh. $f'$ negatívból pozitívba megy.\\[0.2cm] 
+$\Rightarrow\exists\delta>0:f'\leq0\quad(c-\delta,c)$-n$\quad\Rightarrow 
+f\searrow\quad(c-\delta,c)$-n\\[0.2cm]\hspace*{1.8cm} $f'\geq0
+\quad(c,c+\delta)$-n$ \quad\Rightarrow f\nearrow\quad(c,c+\delta)$-n
+\\[0.2cm]$\Rightarrow f$-nek lokális minimuma van $c$-ben.$\bizva$\\[0.2cm]
+\hspace*{0.3cm}\underline{Megj:} A feltétel nem szükséges\\[0.2cm] \pl\\[0.2cm] \[\displaystyle f(x) = \left\{
+\begin{gathered}
+x^4(2+\sin\frac{1}{x}) \hspace{1.5cm} \text{, ha }x\neq0\hspace{8.7cm} \\
+0 \hspace{1.5cm} \text{, ha }x=0\hspace{6.7cm}
+\end{gathered}\right. \]\\[0.2cm]
+\tetel (Másodrendű elégséges feltétel)\\[0.2cm]Tfh. $f\dab,c\in(a,b),f'(c)=0, 
+f\in\D^2(c)\\[0.2cm]\text{Ha }f''(c)\neq0$, ekkor $c$-ben lokális szélső értéke 
+van.\\[0.2cm]Ha $f''(c)>0\quad\Rightarrow\quad$lokális minimum\\[0.2cm]Ha 
+$f''(c)<0\quad\Rightarrow\quad$lokális maximum\\[0.2cm]\biz Tfh. $f''(c)>0 
+\Rightarrow f''(c)=\lim\limits_{x\to c}\frac{f'(x)-f'(c)}{x-c}=
+\lim\limits_{x\to c} \frac{f'(x)}{x-c}>0\\[0.2cm]\Rightarrow\exists\delta>0:
+\frac{f'(x)}{x-c}>0\quad \forall x\in(c-\delta,c+\delta)\backslash\{c\}\\[0.2cm]
+\Rightarrow f'(x)<0\quad \forall x\in(c-\delta,c)\quad\text{és}\quad 
+f'(x)>0\quad \forall x\in(c,c+\delta) \\[0.2cm]\Rightarrow f'$ előjelet vált 
+$c$-ben (negatívból pozitívba) $\Rightarrow f$-nek lokális minimuma 
+van.$\bizva$\\[0.3cm]\pl$\quad f(x)=x^2,f'(x)=2x,f''(x)=2$ \\[0.2cm]
+\hspace*{0.4cm}\underline{Megj:} \textbf{i,} Ha $f''(c)=0$, akkor lokális 
+lehet.\\[0.2cm]\hspace*{1.4cm}\textbf{ii,} $\exists$ magasabb rendű feltétel is.
+\end{document}
