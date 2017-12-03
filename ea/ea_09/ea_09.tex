@@ -1,0 +1,149 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[textwidth=170mm, textheight=230mm, inner=20mm, top=10mm, bottom=20mm]{geometry}
+\usepackage[normalem]{ulem}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[makeroom]{cancel}
+\usepackage{physics}
+\PassOptionsToPackage{defaults=hu-min}{magyar.ldf}
+\usepackage[magyar]{babel}
+\usepackage{amsmath, amsthm,amssymb,paralist,array, ellipsis, graphicx, float}
+
+\begin{document}
+\def\R{\mathbb{R}}
+\def\biz{\normalsize{\underline{Bizonyítás:} }\hspace*{0.5cm}}
+\def\tetel{\normalsize \textbf{\underline{Tétel}: }}
+\def\defi{\normalsize \textbf{Definíció: }}
+\def\bizva{\quad\blacksquare}
+\def\pl{\textbf{Pl:}}
+\def\D{\mathcal{D}}
+\def\fabr{f:(a,b)\to\R}
+\def\itr{I\to\R}
+\def\prfv{primitív függvény}
+\begin{center}
+	{\LARGE\textbf{Analízis 2.}}\\[0.2cm]
+	
+	{\Large 9. Előadás jegyzet}\\[0.5cm]	
+\end{center}
+{\small A jegyzetet \textsc{Bauer Bence} készítette \textsc{Dr. Weisz Ferenc} előadása alapján.}\\[0.4cm]
+\tetel Tfh. $\fabr,f\in\D^{(n)}(c),c\in(a,b)\\[0.2cm]
+f'(c)=0=f''(c)=...=f^{(n-1)}(c),\quad f^{(n)}(c)\neq0\quad$Ekkor:\\[0.2cm]
+\textbf{i,} $c$-ben lokális szélső értéke van $\Leftrightarrow n$ páros\\[0.2cm]
+\textbf{ii,} Ha $f$ $n$-szer folytonosan deriválható, akkor $c$-ben inflexiós
+pont van $\Leftrightarrow n$ páratlan.\\[0.2cm]\underline{Bizonyítás nélkül.}
+\begin{center}
+	{\Large\textbf{\underline{Integrált}}}
+\end{center}
+2 féle integrált lehet:
+\begin{itemize}
+	\item Határozatlan integrált (\prfv)
+	\item Határozott integrált
+\end{itemize}
+{\large\underline{Határozatlan integrált}}\\[0.2cm]
+Kérdés: $f:\itr,I\subset\R$ intervallum, ekkor $\exists$-e: $F:\itr,F'=f$\\[0.2cm]
+\pl $f(x)=x^4+x^2,\quad x\in\R\Rightarrow F(x)=\frac{x^5}{5}+\frac{x^3}{3}+c,\quad
+c\in\R$\\[0.2cm]\underline{Megj:} A függvények mindig intervallumon vannak értelmezve.\\[0.2cm]\defi $I\subset\R$ intervallum, $f:\itr$\\[0.1cm]
+Az $F:\itr$ függvény az $f$ \prfv e, ha $F\in\D(I)$ és $F'(x)=f(x),\quad\forall
+x\in I$\\[0.2cm]\underline{Kérdések:}
+\begin{itemize}
+	\item $\exists$-e \prfv ?
+	\item Ha igen, akkor hány $\exists$?
+	\item Primitív függvény meghatározása
+\end{itemize}
+\tetel (Szükséges feltétel)\\[0.2cm]
+Ha $I$ intervallum, és $f:\itr$ függvénynek $\exists$ \prfv e, akkor $f$ Darboux
+tulajdonságú,\\[0.2cm]azaz $\forall a,b\in I,a<b,\forall c\in(f(a),f(b)),\exists\xi
+\in(a,b):f(\xi)=c$\\[0.2cm]\biz Tfh. $f(a)<f(b)$, legyen $f_1=f-c$, $f_1$-nek is
+$\exists$ \prfv e, mégpedig\\[0.2cm]$F_1(x)=F(x)-cx$, ahol $F$ az $f$ \prfv e,
+hiszen $F_1'(x)=F'(x)-c=f(x)-c=f_1(x)$\\[0.2cm]Ekkor:
+$F_1'(a)=f_1(a)=f(a)-c<0\\[0.2cm]\hspace*{1.3cm}F_1'(b)=f_1(b)=f(b)-c>0\\[0.2cm]
+\Rightarrow F_1'(a)=\lim\limits_{x\to a+0}\frac{F_1(x)-F_1(a)}{x-a}=f_1(a)<0
+\quad\Rightarrow\quad\exists\delta>0,\forall x\in(a,a+\delta):
+\frac{F_1(x)-F_1(a)}{x-a}<0$\\[0.2cm]itt $x-a>0\Rightarrow\exists\delta>0,
+\forall x\in(a,a+\delta):F_1(x)<F_1(a)\\[0.2cm]F_1'(b)=\lim
+\limits_{x\to b-0}\frac{F_1(x)-F_1(b)}{x-b}=f_1(b)>0\quad\Rightarrow\quad
+\exists\delta>0,\forall x\in(b-\delta,b):\frac{F_1(x)-F_1(b)}{x-b}>0
+\\[0.2cm]x-b<0\Rightarrow\exists\delta>0,\forall x\in(b-\delta,b):
+F_1(x)<F_1(b)\quad\Rightarrow F_1\in\D(I)\Rightarrow F_1\in C[a,b]$\\[0.2cm]
+A Weierstrass-tétel miatt $F_1$-nek $\exists$ abszolút minimuma, azaz
+$\exists\xi\in[a,b]:F_1(\xi)=\min\limits_{[a,b]}F_1\\[0.2cm]
+\xi\neq a,\xi\neq b\Rightarrow\xi\in(a,b)\Rightarrow\xi$-ben lokális minimum
+$\Rightarrow F_1'(\xi)=0\Rightarrow f_1(\xi)=f(\xi)-c=0\bizva$\\[0.2cm]
+\pl $f(x)=signx\quad\nexists$ \prfv, mert nem Darboux tulajdonságú\newpage
+\tetel (Elégséges feltétel)\\[0.2cm]
+Ha $f:\itr$ folytonos, akkor $\exists$ \prfv\\[0.2cm]Bizonyítás később\\[0.2cm]
+\tetel (Primitív függvények száma) $\quad f:\itr$\\[0.1cm]
+\textbf{i,} Ha $F$ \prfv, akkor $F+c$ is az, ahol $c\in\R$\\[0.1cm]
+\textbf{ii,} Ha $F_1\text{ és }F_2$ is \prfv, akkor $\exists c\in\R:F_1=F_2+c$
+\\[0.2cm]\biz
+\textbf{i,} $(F+c)'=F'=f$\\[0.2cm]\hspace*{2.5cm}\textbf{ii,} $(F_1-F_2)'=F_1'-F_2'
+=f-f=0\quad I\text{-n}\quad\Rightarrow F_1-F_2=c\quad c\in\R\bizva$\\[0.3cm]
+\defi Ha az $f:\itr$ függvény \prfv e $F$, akkor legyen:
+\[\int f:=\{F+c:c\in\R\}\]Neve határozatlan integrál\\[0.1cm]
+Egyszerűsített jelölés: $\int f=F+c\quad c\in\R$ vagy $\int f(x)dx=F(x)+c$\\[0.2cm]
+\pl\textbf{ i,} $\int x^4dx=\frac{x^5}{5}+c\quad x\in\R$\\[0.1cm]
+\textbf{ii,} $\int\frac{1}{1+x^2}dx=\arctan x+c\quad x\in\R$\\[0.1cm]
+\textbf{iii,} $\int\frac{1}{\cos^2x}dx=tgx+c,\quad x\in(-\frac{\pi}{2}
+,\frac{\pi}{2})$\\[0.3cm]\defi $\int\limits_{x_0}f$ jelöli azt az egyetlen $F$
+\prfv t, amelyre $F(x_0)=0$\\[0.1cm]Neve: $x_0$-ban eltűnő \prfv\\[0.2cm]
+\pl $\int\limits_{\frac{\pi}{2}}\cos xdx=\sin x-1$\\[0.3cm]
+\large{\underline{Primitív függvények meghatározása}}\\[0.2cm]
+\pl\textbf{ i,} $\int x^\alpha dx=\frac{x^{\alpha+1}}{\alpha+1},\quad\alpha\neq -1,
+x>0$\\[0.1cm]\textbf{ii,} \[\displaystyle \int\frac{1}{x}dx = 
+\left\{
+\begin{gathered}
+\ln x+c: \quad x>0\hspace{5.2cm} \\
+\ln\abs{x}+c\hspace{0.3cm}:\quad x<0\hspace{5.7cm}
+\end{gathered}\right .\]
+\tetel (Műveletek) $\quad f,g:\itr\\[0.2cm]\exists\int f,\int g\quad$Ekkor\\[0.2cm]
+$\int(\alpha f+\beta g)=\alpha\int f+\beta\int g\\[0.2cm]\int\limits_{x_0}
+(\alpha f+\beta g)=\alpha\int\limits_{x_0} f+\beta\int\limits_{x_0} g\quad
+\alpha,\beta\in\R$\\[0.2cm]\biz elég a másodikat, legyen a jobb oldal $H$\\[0.2cm]
+Ekkor $H(x_0)=0,\quad H'=\alpha f+\beta g\Rightarrow H$ egyenlő a baloldallal is
+$\bizva$\\[0.3cm]\pl polinom: $\int a_nx^n+...+a_1x+a_0dx=a_n\frac{x^{n+1}}{n+1}
++...+a_1\frac{x^2}{2}+a_0x+c$\\[0.2cm]\tetel (Hatványsor)\\[0.2cm]
+A $\sum\alpha_n(x-a)^n,x\in K_R(a),R>0$, hatványsor \prfv e:\\[0.2cm]
+$\sum\limits_{n=0}\alpha_n\frac{(x-a)^{n+1}}{n+1}+c,\quad x\in K_R(a)$\\[0.2cm]
+\underline{Bizonyítás nélkül} (a hatványsor deriválhatóságából kijön)\newpage
+\tetel (Parciális integrálás) $\quad\text{Tfh. }f,g:\itr,f,g\in\D(I)$\\[0.2cm]
+Ha $\exists f'\cdot g$ \prfv e, akkor $\exists f\cdot g'$ \prfv e, és\\[0.2cm]
+$\int f\cdot g'=f\cdot g-\int f'\cdot g\text{ és }\int\limits_{x_0}f\cdot g'=
+f\cdot g-f(x_0)\cdot g(x_0)-\int\limits_{x_0}f'\cdot g$\\[0.2cm]\biz
+A jobb oldal legyen $H$\\[0.2cm]$\Rightarrow H(x_0)=0$ és $H'=(f\cdot g)'-
+(\int\limits_{x_0}f'\cdot g)'=f'\cdot g+f\cdot g'-f'\cdot g=f\cdot g'
+\Rightarrow H$ a baloldal is$\bizva$\\[0.3cm]\underline{Megj:}$\quad\int
+\limits_{x_0}f(x)\cdot g'(x)dx=f(x)\cdot g(x)-f(x_0)\cdot g(x_0)-\int
+\limits_{x_0}f'(x)\cdot g(x)dx$\\[0.2cm]\pl\textbf{ i,} $f=x\quad g'=e^x\quad
+g(x)=e^x\\[0.2cm]\int x\cdot e^xdx=x\cdot e^x-\int1\cdot e^xdx=x\cdot e^x-
+e^x+c$\\[0.2cm]\textbf{ii, }$\int\ln xdx=\int\ln1\cdot xdx=x\cdot\ln x-\int
+\frac{1}{x}\cdot xdx=x\cdot\ln x-x+c\quad x>0$\\[0.3cm]\tetel
+(1. helyettesítéses szabály)\\[0.2cm]$g:I\to J,g\in\D(I),f:J\to\R,I,J\subset\R
+\quad$ intervallum\\[0.1cm]Ha $\exists f$-nek \prfv e, akkor\\[0.2cm]
+$\int f\circ g\cdot g'=(\int f)\circ g\quad\text{és}\\[0.2cm]
+\int\limits_{t_0}f\circ g\cdot g'=(\int\limits_{g(t_0)}f)\circ g$\\[0.2cm]
+\biz A jobb oldal legyen $H\\[0.2cm]\Rightarrow H(t_0)=(\int\limits_{g(t_0)}f)
+\circ g(t_0)=0\text{ és }H'=(\int\limits_{g(t_0)}f)'\circ g\cdot g'=f\circ g
+\cdot g'\Rightarrow H$ a bal oldal is.$\bizva$\\[0.3cm]\pl\textbf{ i,}
+$\int x(1+x^2)^{2017}dx=\frac{1}{2}\int 2x(1+x^2)^{2017}dx=\frac{1}{2}
+\frac{(1+x^2)^{2018}}{2018}+c\\[0.2cm]g(x)=1+x^2\quad\quad f(u)=u^{2017}
+\quad\quad\int f=\frac{u^{2018}}{2018}$\\[0.2cm]\textbf{ii,} $\int\frac{g'}{g}
+=\ln g+c,\quad g>0\\[0.2cm]f(u)=\frac{1}{u},\quad f\circ g\cdot g'=
+\frac{1}{g}\cdot g'$\\[0.2cm]\textbf{iii,} $\int g^\alpha\cdot g'dx=
+\frac{g^{\alpha+1}}{\alpha+1}+c,\quad\alpha\neq-1\\[0.2cm]f(u)=u^\alpha\quad
+\quad f\circ g\cdot g'=g^\alpha\cdot g'$\\[0.4cm]
+\tetel (2. helyettesítéses szabály)\\[0.2cm]
+Tfh. $g:I\to J$ bijekció,$\quad g\in\D(I),\quad g'(x)\neq0,\quad x\in I,\quad
+f:I\to J$\\[0.2cm]Ha $\exists f\circ g\cdot g'$ \prfv, ekkor:\\[0.2cm]
+$\int f=(\int f\circ g\cdot g')\circ g^{-1}\quad\text{és}\quad\quad
+\int\limits_{x_0}f=(\int\limits_{x_0} f\circ g\cdot g')\circ g^{-1}$\\[0.2cm]
+\biz A jobb oldal legyen $H$, azaz:\\[0.2cm]
+$H(x)=(\int\limits_{x_0}f\circ g\cdot g')\circ(g^{-1}(x))\Rightarrow H(x_0)=0
+\quad\text{és}\quad H'(x)=(\int f\circ g\cdot g')'\cdot(g^{-1}(x))\cdot
+(g^{-1})'(x)=\\[0.2cm]=(f\circ g\cdot g')\cdot(g^{-1}(x))\cdot
+\frac{1}{g'(g^{-1}(x))}=f\circ g(g^{-1}(x))\cdot \bcancel{g'(g^{-1}(x))}\cdot
+\frac{1}{\bcancel{g'(g^{-1}(x))}}=f(x)\Rightarrow H$ a bal oldal is $\bizva$
+\\[0.2cm]\underline{Megj:} $\int f(x)dx=\int f(g(t))\cdot g'(t)dt|_{t=g^{-1}(x)}
+\\[0.3cm]\pl\quad\int\sqrt{1-x^2}dx\quad x\in(-1,1)\quad x=\sin t\\[0.2cm]
+\int\sqrt{1-x^2}dx=\int\underbrace{\sqrt{1-\sin^2t}}_{\cos t}\cdot\cos 
+tdt|_{t=\arcsin x}$
+\end{document}
