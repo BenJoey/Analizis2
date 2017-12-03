@@ -1,0 +1,27 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[textwidth=170mm, textheight=230mm, inner=20mm, top=10mm, bottom=20mm]{geometry}
+\usepackage[normalem]{ulem}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\PassOptionsToPackage{defaults=hu-min}{magyar.ldf}
+\usepackage[magyar]{babel}
+\usepackage{amsmath, amsthm,amssymb,paralist,array, ellipsis, graphicx, float}
+
+\begin{document}
+\def\Z{\mathbb{Z}}
+\def\R{\mathbb{R}}
+\def\limn{\displaystyle\lim_{n\to +\infty}}
+\def\limh{\displaystyle\lim_{h\to0}}
+\def\limxa{\displaystyle\lim_{x\to a}}
+\def\rtr{\displaystyle\R\to\R}
+\def\D{\displaystyle\mathcal{D}}
+\def\lima{\displaystyle\lim_{a}}
+\def\fda{f\in\D(a)}
+\begin{enumerate}
+	\item \textbf{Mi a belső pont definíciója?}\\[0.1cm]$a\in A\subset\R$ az $A$ belső pontja, ha $\exists K(a)\subset A$
+	\item \textbf{Mikor mondja azt, hogy egy $f\in\rtr$ függvény differenciálható valamely pontban?}\\[0.1cm]Az $f\in\rtr$ deriválható (differenciálható) az $a\in int D_f$ pontban, ha $\exists$ és véges a\\[0.1cm]$\limh\frac{f(a+h)-f(a)}{h}=f'(a)$ határérték.
+	\item \textbf{Mi a kapcsolat a pontbeli differenciálhatóság és a folytonosság között?}\\[0.1cm]$f\in\rtr,\quad a\in int\D_f$, ekkor\hspace{1cm} $\fda\Rightarrow f\in C(a)$
+	\item \textbf{Mi a jobb oldali derivált definíciója?}\\[0.1cm]Legyen $f\in\rtr,a\in\D_f\\[0.1cm]\displaystyle\lim_{x\to a+0}\frac{f(x)-f(a)} {x-a}=:f'_+(a),\quad$ az $f$ jobboldali deriváltja az $a$-ban.
+	\item \textbf{Milyen ekvivalens átfogalmazást ismer a pontbeli deriválhatóságra a lineáris \\ közelítéssel?}\\[0.1cm]$f\in\rtr,\quad a\in int\D_f\quad$ Ekkor\\[0.1cm]$\fda\Leftrightarrow\exists A\in\R, \exists\epsilon:\D_f\to\R,\lima\epsilon=0$ és $f(x)-f(a)=A(x-a)+ \epsilon(x)(x-a)\quad(x\in\D_f)$\\[0.1cm]Ekkor $A=f'(a)$
+\end{enumerate}
+\end{document}
