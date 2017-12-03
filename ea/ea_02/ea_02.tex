@@ -1,0 +1,116 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[textwidth=170mm, textheight=230mm, inner=20mm, top=10mm, bottom=20mm]{geometry}
+\usepackage[normalem]{ulem}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\PassOptionsToPackage{defaults=hu-min}{magyar.ldf}
+\usepackage[magyar]{babel}
+\usepackage{amsmath, amsthm,amssymb,paralist,array, ellipsis, graphicx, float}
+
+\begin{document}
+\def\biz{\normalsize{\textbf{\underline{Bizonyítás:} }\hspace*{0.3cm}}}
+\def\tetel{\large\textbf{Tétel: }}
+\def\defi{\normalsize\textbf{Definíció: }}
+\def\Z{\mathbb{Z}}
+\def\R{\mathbb{R}}
+\def\N{\mathbb{N}}
+\def\biz{\normalsize{\underline{Bizonyítás:} }\hspace*{0.5cm}}
+\def\tetel{\normalsize \textbf{\underline{Tétel}: }}
+\def\bizva{\quad\blacksquare}
+\begin{center}
+	{\LARGE\textbf{Analízis 2.}}\\[0.2cm]
+	
+	{\Large 2. Előadás jegyzet}\\[1cm]	
+\end{center}
+{\small A jegyzetet \textsc{Bauer Bence} készítette \textsc{Dr. Weisz Ferenc} előadása alapján.}\\[0.2cm]
+\tetel Bolzano: Tfh. $f: [a,b] \to \R$ folytonos. Ha $f(a)\cdot f(b) < 0$ akkor
+$\exists x \in [a,b]: f(x) = 0$\\[0.1cm]
+\biz Legyen $ [x_0,y_0] = [a,b] $ és tfh. $f(a) < 0$ és $f(b) > 0 $\\[0.1cm] Legyen
+$z_0 := \frac{x_0+y_0}{2}$, ekkor 3 eset lehetséges: 
+\begin{enumerate}
+	\item $f(z_0) = 0$ $\checkmark$
+	\item $f(z_0) < 0$, ekkor legyen $[x_1,y_1] := [z_0,y_0]$
+	\item $f(z_0) > 0$, ekkor legyen $[x_1,y_1] := [x_0,z_0]$
+\end{enumerate}
+Ezt az eljárást folytatva véges sok lépésben kapunk $\xi$-t amelyre $f(\xi) = 0$,
+ha nem akkor kapunk egy ($[x_n,y_n]$) intervallum sorozatot, amelyre a következők
+igazak:
+\begin{enumerate}
+	\item $[x_{n+1},y_{n+1}]\subset[x_n,y_n]$
+	\item $f(x_n) < 0,\quad f(y_n) > 0$
+	\item $y_n - x_n = \frac{y_0-x_0}{2^n}$
+\end{enumerate}
+A Cantor-tétel miatt \[ \exists\xi\in\bigcap_{n=0}^{+\infty}[x_n,y_n]\text{ Mivel }
+y_n-x_n=\frac{y_0-x_0}{2^n}\to0\hspace*{0.3cm}(n\to\infty)\text{ ,ezért  }\exists!
+\xi\in\bigcap_{n=0}^{+\infty}[x_n,y_n] \]
+Továbbá $0\leq\xi-x_n\leq y_n-x_n\to0\Rightarrow\underline{\lim(x_n)=\xi}$ ,és
+$\quad y_n-\xi\leq y_n-x_n\to0\Rightarrow\underline{\lim(y_n)=\xi}$\\[0.2cm]
+Tudjuk, hogy $f(x_n)<0$ és $\lim(x_n)=\xi$ és $f\in C(\xi)$ ,ezért az átviteli elv
+miatt\\ $\lim f(x_n)=f(\xi)\Rightarrow f(\xi)\leq0$\\[0.1cm] Hasonlóan $f(y_n)>0,
+\quad\lim(y_n)=\xi\Rightarrow\lim f(y_n)=f(\xi)$\\itt: $f(y_n)>0$ ezért $f(\xi)
+\geq0\Rightarrow f(\xi)=0\bizva$\\[0.2cm]
+\underline{Következmény: } (Bolzano), Tfh. $f:[a,b]\to\R$ folytonos.\\[0.1cm] Ha
+$f(a)<f(b)$, akkor $\forall c\in(f(a),f(b)):\exists\xi\in[a,b]:f(\xi)=c$\\[0.1cm]
+\biz Legyen $g(x)=f(x)-c$, ekkor\\[0.1cm] $g(a)=f(a)-c<0$ és $g(b)=f(b)-c>0
+\Rightarrow$ előző tétel alapja \\[0.1cm] $\exists\xi\in[a,b]:g(\xi)=0
+\Rightarrow f(\xi)-c=0\bizva$\\[0.2cm]
+\defi $f:[a,b]\to\R$ függyvény Darboux tulajdonságú, ha\\ $\forall x_1<x_2,\quad
+(x_1,x_2\in[a,b]),\quad f(x_1)\neq f(x_2),\quad\forall c\in(f(x_2),f(x_1))\quad
+\exists\xi\in[x_1,x_2]:f(\xi)=c$\\[0.2cm]
+\tetel Ha $f:[a,b]\to\R$ függyvény folytonos, akkor Darboux tulajdonságú.\\[0.2cm]
+\tetel Ha $I\subset\R$ intervallum, $f:I\to\R$ függyvény folytonos, ekkor $R_f$ intervallum.\\[0.2cm]
+\biz Legyen $M:=sup\{f(x)|x\in I\}$ és $m:=inf\{f(x)|x\in I\}$\\[0.1cm] Igazoljuk,
+hogy $(m,M)\subset R_F\quad$ Legyen $y_0\in(m,M)$ tetszőleges.\\[0.1cm] Igazoljuk,
+hogy $y_0\in R_f\Rightarrow\exists x_1,x_2\in I:f(x_1)<y_0<f(x_2)$\\[0.1cm]
+Tekintsük az $f:[x_2,x_1]\to\R$ folytonos függvényt. A Bolzano-következmény
+miatt\\[0.1cm] $c=y_0$-ra is $\exists\xi\in[x_2,x_1]:f(\xi)=y_0\Rightarrow y_0\in
+R_f\Rightarrow(m,M)\subset R_f\\[0.2cm]\Rightarrow R_f=[(m,M)]$ vagy nyitott vagy zárt. $\bizva$\newpage
+{\Large \textbf{\underline{Egyenletes folytonosság}}}\\[0.2cm]
+$f:A\to\R\quad(A\subset\R)$ folytonos, azaz $f\in C(A)\Leftrightarrow\forall x\in
+A:f\in C(x)$\\[0.1cm]$\Leftrightarrow\forall x\in A:\forall\varepsilon>0,
+\exists\delta>0:\forall y\in A:|y-x|<\delta,\quad|f(y)-f(x)|<\varepsilon$\\[0.2cm]
+\underline{Megjegyzés:} $\delta$ függ $\varepsilon$-tól és $x$-től.\\[0.1cm]
+\underline{Példa:} 1, $f(x)=x\quad(x\in[0,+\infty])\quad$ Legyen $\delta:=
+\varepsilon$, ekkor\\ Ha $|x-y|<\delta$, akkor $|f(x)-f(y)|=|x-y|<\delta=
+\varepsilon\quad\delta$ itt nem függ $x$-től.\\[0.2cm]
+2, $f(x)=\frac{1}{x},\quad x\in(0,1]\quad$ Tfh. $x<y\quad y-x<\delta\Rightarrow
+y<x+\delta$\\[0.1cm] Ekkor $f(x)-f(y)=\frac{1}{x}-\frac{1}{y}<\frac{1}{x}-
+\frac{1}{x+\delta}=\frac{x+\delta-x}{x(x+\delta)}=\frac{\delta}{x(x+\delta)}<
+\varepsilon$\\[0.1cm] Itt $\delta$ függ az $x$-től, kül. bal oldal $\to\infty$
+\\[0.1cm] Ha $\delta$ nem függ $x$-től: egyenletesen folytonos.\\[0.2cm]
+\defi $f:A\to\R$ függyvény egyneletesen folytonos, ha \\[0.1cm]
+$\forall\varepsilon>0,\exists\delta>0,\forall x,y\in A:|x-y|<\delta:
+|f(x)-f(y)|<\varepsilon$\\[0.2cm]
+\tetel $f: A\to\R$
+\begin{enumerate}
+	\item Ha $f$ egyenletesen folytonos $\Rightarrow$ folytonos.
+	\item Ha $f$ folytonos $\nRightarrow$ egyenletesen folytonos.
+\end{enumerate}
+\biz
+\begin{enumerate}
+	\item Triviális.
+	\item $f(x)=\frac{1}{x}\quad x\in(0,1]\quad$ folytonos, de nem egyenletesen
+	folytonos, azaz:\\[0.1cm] Igazoljuk, hogy $\exists\varepsilon>0,\forall
+	\delta>0,\exists x,y\in A:|x-y|<\delta:|f(x)-f(y)|\geq\varepsilon$\\[0.1cm]
+	Feltehető, hogy $\delta=\frac{1}{n}$ azaz:\\[0.1cm]$\exists\varepsilon>0,
+	\forall n\in\N_+,\exists x_n,y_n\in A:|x_n-y_n|<\frac{1}{n}:
+	|f(x_n)-f(y_n)|\geq\varepsilon\quad(A=(0,1])$\\[0.1cm] Legyen $\varepsilon=
+	\frac{1}{2},x_n=\frac{1}{n},y_n=\frac{1}{n+1}$\\[0.1cm]$x_n-y_n=\frac{1}{n}-
+	\frac{1}{n+1}<\frac{1}{n}$ és $|f(x_n)-f(y_n)|=|n-(n+1)|=1> \frac{1}{2}
+	\bizva$
+\end{enumerate}
+\tetel (Heine): Ha $f:[a,b]\to\R$ folytonos, akkor $f$ egyenletesen folytonos.\\[0.2cm]
+\biz (Indirekt) Tfh. $f$ nem egyenletesen folytonos.\\[0.1cm]
+$\Rightarrow\exists\varepsilon>0,\forall\delta>0,\exists x,y\in[a,b]:|x-y|<\delta:
+|f(x)-f(y)|\geq\varepsilon$\\[0.1cm] Legyen $\delta=\frac{1}{n}\quad n\in\N_+
+\Rightarrow\exists\varepsilon>0,\forall n\in\N_+:\exists x_n,y_n\in[a,b]:|x_n-y_n|
+<\frac{1}{n}:|f(x_n)-f(y_n)|\geq\varepsilon$ \\[0.1cm] Tekintsük az $(x_n): 
+\N\to[a,b]\text{ sorozatot}\Rightarrow (x_n)$ korlátos.\\[0.1cm]
+Bolzano-Weierstrass kiv. tétel miatt $\exists(x_{n_k})$ konvergens részsorozat,
+azaz:\\[0.1cm] $\lim(x_{n_k})=:\alpha,\quad\alpha\in[a,b]$\\[0.1cm]\textbf{De!}
+$|y_{n_k}-\alpha|\leq|y_{n_k}-x_{n_k}|+|x_{n_k}-\alpha|<\frac{1}{n_k}
++|x_{n_k}-\alpha|\to0\quad$ azaz $\lim(y_{n_k})=\alpha$\\[0.1cm] $f\in C(\alpha)$
+átviteli elv miatt\\[0.1cm]$\lim(f(x_{n_k}))=f(\alpha)$ és $\lim(f(y_{n_k}))=
+f(\alpha)\Rightarrow\lim(f(x_{n_k})-f(y_{n_k}))=0$\\[0.1cm] viszont ez
+ellentmondás, azzal, hogy $|f(x_{n_k})-f(y_{n_k})|\geq\varepsilon\bizva$
+\end{document}
