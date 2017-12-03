@@ -1,0 +1,26 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[textwidth=170mm, textheight=230mm, inner=20mm, top=10mm, bottom=20mm]{geometry}
+\usepackage[normalem]{ulem}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{physics}
+\PassOptionsToPackage{defaults=hu-min}{magyar.ldf}
+\usepackage[magyar]{babel}
+\usepackage{amsmath, amsthm,amssymb,paralist,array, ellipsis, graphicx, float}
+
+\begin{document}
+\def\N{\mathbb{N}}
+\def\Z{\mathbb{Z}}
+\def\R{\mathbb{R}}
+\def\rtr{\displaystyle\R\to\R}
+\def\D{\displaystyle\mathcal{D}}
+\def\fda{f\in\D(a)}
+\begin{enumerate}
+	\item \textbf{Mi az érintő definíciója?}\\[0.2cm]Az $f\in\rtr$ függvény grafikonjának az $(a,f(a))$ pontban van érintője, ha $\fda$.\\[0.2cm]Az érintő meredeksége $f'(a)$, egyenlete: $l(x)=f'(a)*(x-a)+f(a)$
+	\item \textbf{Milyen tételt ismer két függvény szorzatának valamely pontbeli differenciálhatóságáról és a deriváltjáról?}\\[0.2cm]Legyen $f,g\in\rtr,a\in int(\D_f\cap\D_g),\quad f,g\in\D(a)$\\[0.2cm]Ekkor: $f*g\in\D(a)\text{ és }(f*g)'(a)= f'(a)*g(a)+f(a)*g'(a)$
+	\item \textbf{Milyen tételt ismer két függvény hányadosának valamely pontbeli differenciálhatóságáról és a deriváltjáról?}\\[0.2cm]Legyen $f,g\in\rtr,a\in int(\D_f\cap\D_g),\quad f,g\in\D(a)$\\[0.2cm]Ekkor, ha $g(a)\neq0$, akkor $\frac{f}{g}\in\D(a)\text{ és } (\frac{f}{g})'(a) =\frac{(f'(a)*g(a)-f(a)*g'(a))}{g^2(a)}$
+	\item \textbf{Milyen tételt ismer két függvény kompozíciójának valamely pontbeli differenciálhatóságáról és a deriváltjáról?}\\[0.1cm] $f,g\in\rtr,R_g\subset D_f,g \in\D(a),f\in\D(g(a))$\\[0.3cm]Ekkor: $f\circ g\in\D(a)\text{ és }(f\circ g)'(a)= f'(g(a))*g'(a)$
+	\item \textbf{Írja fel az $exp_a$ $(a\in\R,a>0)$ függvény deriváltját valamely helyen.}\\[0.2cm]$exp_a(x)=a^x,\quad a>0$\\[0.2cm]$exp_a' (x)=(exp(x*\ln a))'= exp(x*\ln a)*\ln a=a^x*\ln a$
+	\item \textbf{Írja fel az $log_a$ $(a\in\R,0<a\neq1)$ függvény deriváltját valamely helyen.}\\[0.2cm]$\log_a=(exp_a)^{-1},\quad exp_a(\xi)=\eta\quad(a>0,a\neq1) \\[0.3cm]\log_a'(\eta)= \frac{1}{exp_a'(\xi)}=\frac{1}{a^\xi*\ln a}= \frac{1}{\eta*\ln a}\quad(\eta>0,a>0,a\neq1)$
+\end{enumerate}
+\end{document}
