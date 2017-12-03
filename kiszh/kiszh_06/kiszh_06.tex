@@ -1,0 +1,27 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[textwidth=170mm, textheight=230mm, inner=20mm, top=10mm, bottom=20mm]{geometry}
+\usepackage[normalem]{ulem}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{physics}
+\PassOptionsToPackage{defaults=hu-min}{magyar.ldf}
+\usepackage[magyar]{babel}
+\usepackage{amsmath, amsthm,amssymb,paralist,array, ellipsis, graphicx, float}
+
+\begin{document}
+\def\R{\mathbb{R}}
+\def\cab{\in C[a,b]}
+\def\dab{\in\D(a,b)}
+\def\rtr{\R\to\R}
+\def\D{\mathcal{D}}
+\def\fda{f\in\D(a)}
+\begin{enumerate}
+	\item \textbf{Milyen elégséges feltételt ismer differenciálható függvény szigorú monoton \\ növekedésével kapcsolatban?}\\[0.2cm]Tfh. $f\dab$ Ekkor: \\[0.1cm]\hspace*{0.3cm} $f'>0\quad (a,b)$-n $\Rightarrow f$ szigorú monoton nő $(a,b)$-n
+	\item \textbf{Milyen szükséges és elégséges feltételt ismer differenciálható függvény monoton \\ növekedésével kapcsolatban?}\\[0.2cm]Tfh. $f\dab$ Ekkor: \\[0.2cm]\hspace*{0.3cm} $f'\geq0\quad(a,b)$-n $\Leftrightarrow f$ monoton nő $(a,b)$-n
+	\item \textbf{Mit ért azon, hogy az $f\in\rtr$ függvénynek valamely helyen lokális minimuma van?}\\[0.2cm]Az $f\in\rtr$ függvénynek a $c\in int\D_f$ pontban lokális minimuma van, ha\\[0.1cm]$\exists K(c)\subset\D_f,\forall x\in K(c): f(x)\geq f(c)$
+	\item \textbf{Hogyan szól a lokális szélsőértékre vonatkozó elsőrendű szükséges feltétel?}\\[0.2cm]$f\in\rtr,f\in\D(c)$ és $f$-nek lokális szélső értéke van $c$-ben $\Rightarrow f'(c)=0$
+	\item \textbf{Hogyan szól a lokális maximumra vonatkozó elsőrendű elégséges feltétel?}\\[0.2cm]Tfh. $f\dab,c\in(a,b)$ és $f'(c)=0$\\[0.1cm] Ha $f'$ pozitívból negatívba megy akkor lokális maximum.
+	\item \textbf{Írja le a lokális minimumra vonatkozó másodrendű elégséges feltételt.}\\[0.2cm]Tfh. $f\dab,c\in(a,b),f'(c)=0, f\in\D^2(c)$\\[0.2cm] Ha $f''(c)>0\quad\Rightarrow\quad$lokális minimum
+	\item \textbf{Hogyan szól a Weierstrass-tétel?}\\[0.2cm]Ha $ f:[a,b]\to\R\text{ folytonos, akkor } f$-nek létezik abszolút maximuma és minimuma is.
+\end{enumerate}
+\end{document}
