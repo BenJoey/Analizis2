@@ -1,0 +1,45 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[textwidth=170mm, textheight=230mm, inner=20mm, top=10mm, bottom=20mm]{geometry}
+\usepackage[normalem]{ulem}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{physics}
+\PassOptionsToPackage{defaults=hu-min}{magyar.ldf}
+\usepackage[magyar]{babel}
+\usepackage{amsmath, amsthm,amssymb,paralist,array, ellipsis, graphicx, float}
+
+\begin{document}
+\def\dab{\in\D(a,b)}
+\def\D{\mathcal{D}}
+\def\R{\mathbb{R}}
+\def\sumun{\displaystyle\sum_{n=0}}
+\def\sumn{\displaystyle\sum_{n=0}^{\infty}}
+\def\sume{\displaystyle\sum_{n=1}^{\infty}}
+\def\limaj{\displaystyle\lim_{a+0}}
+\def\Rv{\overline{\mathbb{R}}}
+	\begin{enumerate}
+		\item \textbf{Írja le a $\frac{0}{0}$ esetre vonatkozó}
+		\textit{L'Hospital szabályt.}\\[0.1cm]
+		Tfh. \textbf{i,} $f,g\dab,\quad(-\infty\leq a<b<\infty)$
+		\\[0.2cm]\hspace*{0.7cm} \textbf{ii,} $g'(x)\neq0,\quad x\in(a,b)$
+		\\[0.2cm]\hspace*{0.8cm}\textbf{iii,} $\limaj f=\limaj g=0$
+		\\[0.2cm]\hspace*{0.8cm}\textbf{iv,} $\exists\limaj \frac{f'}{g'}$ és $\limaj\frac{f'}{g'}=A\in\Rv$\\[0.2cm] Ekkor: $\exists\limaj
+		\frac{f}{g}$ és $\limaj\frac{f}{g}=\limaj\frac{f'}{g'}$
+		\item \textbf{Írja le a $\frac{+\infty}{-\infty}$ esetre vonatkozó}
+		\textit{L'Hospital szabályt.}\\[0.1cm]
+		Tfh. \textbf{i,} $f,g\dab,\quad(-\infty\leq a<b<\infty)$\\[0.2cm] 
+		\hspace*{0.8cm}\textbf{ii,} $g'(x)\neq0,\quad x\in(a,b)$\\[0.2cm] 
+		\hspace*{0.8cm}\textbf{iii,} $\limaj f=\limaj g=\infty$\\[0.2cm]
+		\hspace*{0.8cm}\textbf{iv,} $\exists\limaj\frac{f'}{g'}$ és $\limaj
+		\frac{f'}{g'}=A\in\Rv$\\[0.2cm] Ekkor: $\exists\limaj\frac{f}{g}$ és $\limaj\frac{f}{g}=\limaj\frac{f'}{g'}$
+		\item \textbf{Fogalmazza meg a hatványsor összegfüggvényének a deriválására vonatkozó tételt.}\\[0.1cm]
+		Legyen $\sumun\alpha_n(x-a)^n$ hatványsor konvergenciasugara $R>0$ és 
+		legyen \\$f(x):=\sumn\alpha_n(x-a)^n\quad x\in K_R(a)$. Ekkor $f\in\D(x_0)\quad\forall x_0\in K_R(a)$ és\\$f'(x_0)=\sume n\cdot
+		\alpha_n\cdot(x_0-a)^{n-1},\quad$ahol $x_0\in K_R(a)$
+		\item \textbf{Mi a kapcsolat a hatványsor összegfüggvénye és a hatványsor együtthatói között?}\\[0.1cm]
+		Legyen $a\in\R\text{ és }\alpha_n\in\R(n=0,1,2,...).$ Tfh. $\sum\alpha_n
+		(x-a)^n(x\in\R)$ hatványsor $R$\\konvergenciasugara pozitív, és jelölje
+		$f$ az összegfüggvényét:\\$f(x):=\sumn\alpha_n(x-a)^n(x\in K_R(a))$ és
+		$\alpha_n=\frac{f^{(n)}(a)}{n!}(n=0,1,2,...)$
+	\end{enumerate}
+\end{document}
