@@ -1,0 +1,40 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[textwidth=170mm, textheight=230mm, inner=20mm, top=10mm, bottom=20mm]{geometry}
+\usepackage[normalem]{ulem}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{physics}
+\PassOptionsToPackage{defaults=hu-min}{magyar.ldf}
+\usepackage[magyar]{babel}
+\usepackage{amsmath, amsthm,amssymb,paralist,array, ellipsis, graphicx, float}
+
+\begin{document}
+\def\N{\mathbb{N}}
+\def\Z{\mathbb{Z}}
+\def\R{\mathbb{R}}
+\def\rtr{\R\to\R}
+\def\D{\mathcal{D}}
+\def\cab{\in C[a,b]}
+\def\dab{\in\D(a,b)}
+\def\fda{f\in\D(a)}
+\def\lima{\displaystyle\lim_{a}}
+\def\fabr{f:(a,b)\to\R}
+\begin{enumerate}
+	\item \textbf{Milyen állítást ismer a ($+\infty$)-beli aszimptota meghatározására?}\\[0.1cm] $f$-nek $+\infty$-ben van aszimptotája, ha
+	$\exists a,b\in\R,l(x)=ax+b$ esetén $\exists\lim\limits_{+\infty}
+	(f-l)=0$
+	\item \textbf{Milyen ekvivalens átfogalmazást ismer a pontbeli deriválhatóságra a lineáris \\ közelítéssel?}\\[0.1cm]$f\in\rtr,\quad a\in int\D_f\quad$ Ekkor\\[0.1cm]$\fda\Leftrightarrow\exists A\in\R, \exists\varepsilon:\D_f\to\R,\lima\varepsilon=0$ és $f(x)-f(a)=A(x-a)+ \varepsilon(x)(x-a)\quad(x\in\D_f)$\\[0.1cm]Ekkor $A=f'(a)$
+	\item \textbf{Milyen elégséges feltételt ismer differenciálható függvény szigorú monoton \\ csökkenésével kapcsolatban?}\\[0.1cm]Tfh. $f\dab$ Ekkor: \\[0.1cm]\hspace*{0.3cm} $f'<0\quad (a,b)$-n $\Rightarrow f$ szigorú monoton csökken $(a,b)$-n
+	\item \textbf{Hogyan szól a lokális minimumra vonatkozó elsőrendű elégséges feltétel?}\\[0.1cm]Tfh. $f\dab,c\in(a,b)$ és $f'(c)=0$\\[0.1cm]Ha $f'$ negatívból pozitívba megy akkor lokális minimum.
+	\item \textbf{Mi a \textit{konkáv} függyvény definíciója?}\\[0.1cm]
+	Az $\fabr$ függvény konkáv, ha\\[0.1cm]
+	$\forall x_1,x_2\in(a,b),x_1<x_2,\forall\lambda\in[0,1]:f(\lambda
+	x_1+(1-\lambda)x_2)\geq\lambda f(x_1)+(1-\lambda)f(x_2)$
+	\item \textbf{Jellemezze egy függvény \textit{konvexitását} a második derivált segítségével}\\[0.1cm]
+	$\fabr$, ha $f\in\D^2(a,b)$, akkor\\[0.1cm]
+	$f$ konvex $\Leftrightarrow f''\geq0\quad(a,b)$-n
+	\item \textbf{Milyen állítást ismer a ($-\infty$)-beli aszimptota meghatározására?}\\[0.1cm] $f$-nek $-\infty$-ben van aszimptotája, ha
+	$\exists a,b\in\R,l(x)=ax+b$ esetén $\exists\lim\limits_{-\infty}
+	(f-l)=0$
+\end{enumerate}
+\end{document}
