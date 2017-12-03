@@ -1,0 +1,153 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[textwidth=170mm, textheight=230mm, inner=20mm, top=10mm, bottom=20mm]{geometry}
+\usepackage[normalem]{ulem}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{physics}
+\PassOptionsToPackage{defaults=hu-min}{magyar.ldf}
+\usepackage[magyar]{babel}
+\usepackage{amsmath, amsthm,amssymb,paralist,array, ellipsis, graphicx, float}
+
+\begin{document}
+\def\R{\mathbb{R}}
+\def\N{\mathbb{N}}
+\def\biz{\normalsize{\underline{Bizonyítás:} }\hspace*{0.5cm}}
+\def\tetel{\normalsize \textbf{\underline{Tétel}: }}
+\def\defi{\normalsize \textbf{Definíció: }}
+\def\bizva{\quad\blacksquare}
+\def\pl{\textbf{Pl:}}
+\def\rtr{\R\to\R}
+\def\D{\mathcal{D}}
+\def\dab{\in\D(a,b)}
+\def\fda{f\in\D(a)}
+\def\fabr{f:(a,b)\to\R}
+\begin{center}
+	{\LARGE\textbf{Analízis 2.}}\\[0.2cm]
+	
+	{\Large 8. Előadás jegyzet}\\[0.5cm]	
+\end{center}
+{\small A jegyzetet \textsc{Bauer Bence} készítette \textsc{Dr. Weisz Ferenc} előadása alapján.}\\[0.4cm]Előző előadás utolsó részének folyatatása\\[0.1cm]
+$f\rightsquigarrow\sum\frac{f^{(k)}(a)}{k!}(x-a)^k$\\[0.2cm]
+\pl\textbf{ ii,} \\[0.2cm]
+\[\displaystyle f(x) = 
+\left\{
+\begin{gathered}
+e^{\frac{-1}{x^2}}: \quad x\neq 0\hspace{5.5cm} \\
+\quad0\hspace{0.3cm}:\quad x=0\hspace{5.7cm}
+\end{gathered}\right. \]\\[0.2cm]
+$a=0\quad f^{(k)}(0)=0\quad k=0,1,...$\\[0.1cm] Taylor sora: $0+0+...+f(x)=f(x)$\\[0.2cm]
+\tetel (Taylor formula Lagrange maradéktaggal)\\[0.1cm]
+Ha $f\in\D^{(n+1)}(K(a))$, akkor $\forall x\in K(a),\exists\xi\in(a,x):f(x)=
+\sum\limits_{k=0}^{n}\frac{f^{(k)}(a)}{k!}(x-a)^k+\frac{f^{(n+1)}(\xi)}{(n+1)!}
+(x-a)^{n+1}$\\[0.2cm]\biz
+Legyen $F(x):=f(x)-\sum\limits_{k=0}^{n}\frac{f^{(k)}(a)}{k!}(x-a)^k\\[0.1cm]
+F(a)=f(a)-f(a)=0\\[0.1cm]F'(x)=f'(x)-\sum\limits_{k=1}^{n}\frac{f^{(k)}(a)}{k!}
+\cdot k\cdot(x-a)^{k-1}\\[0.1cm]\Rightarrow F'(a)=f'(a)-f'(a)=0\\[0.1cm]
+F''(x)=f''(x)-\sum\limits_{k=2}^{n}\frac{f^{(k)}(a)}{k!}\cdot k\cdot(k-1)
+(x-a)^{k-2}\\[0.2cm]F''(a)=f''(a)-f''(a)\quad\Rightarrow\quad F^{(n)}(a)=0,\quad
+F^{(n+1)}(x)=f^{(n+1)}(x)$\\[0.2cm]Legyen $G(x)=(x-a)^{(n+1)}\Rightarrow G(a)=0
+\\[0.2cm]G'(x)=(n+1)(x-a)^n\Rightarrow G'(a)=0,...,G''(a)=0\\[0.2cm]\Rightarrow
+G^{(n)}(a)=0,\quad G^{(n+1)}(a)=(n+1)!$\\[0.2cm]Alkalmazzuk a Cauchy
+középértéktételt:$\quad\exists$ ilyen $\xi_1,\xi_2...\xi_{n+1}\\[0.2cm]$
+\[\frac{f(x)-\sum\limits_{k=0}^{n}\frac{f^{(k)}(a)}{k!}(x-a)^k}{(x-a)^{(n+1)}}=
+\frac{F(x)}{G(x)}=\frac{F(x)-F(a)}{G(x)-G(a)}=\frac{F'(\xi_1)}{G'(\xi_1)}=
+\frac{F'(\xi_1)-F'(a)}{G'(\xi_1)-G'(a)}=\frac{F''(\xi_2)}{G''(\xi_2)}=...=\] 
+\[=\frac{F^{(n)}(\xi_n)}{G^{(n)}(\xi_n)}=\frac{F^{(n)}(\xi_n)-F^{(n)}(a)}
+{G^{(n)}(\xi_n)-G^{(n)}(a)}=\frac{F^{(n+1)}(\xi_{n+1})}{G^{(n+1)}(\xi_{n+1})}=
+\frac{f^{(n+1)}(\xi_{n+1})}{(n+1)!}\]
+Legyen $\xi=\xi_{n+1}\bizva$\\[0.3cm]
+\hspace*{0.8cm}\underline{Megj:} $n=0:\exists\xi:f(x)=f(a)+f'(\xi)(x-a)\\[0.2cm]
+\Rightarrow\exists\xi\in(a,x):\frac{f(x)-f(a)}{x-a}=f'(\xi)\quad$ Lagrange középérték tétel miatt.\\[0.3cm]\tetel
+Tfh. $f\in\D^\infty(K(a))\text{ és }sup\{\abs{f^{(n)}(x)}\quad n\in\N,x\in 
+K(a)\}=M\text{ és }M<\infty$\\[0.2cm]Ekkor: $f(x)=\sum\limits_{k=0}^{\infty}\frac
+{f^{(k)}(a)}{k!}(x-a)^k\quad(x\in K(a))$\\\biz
+$\exists\xi\in(a,x):\abs{f-\sum\limits_{k=0}^{n}\frac{f^{(k)}(a)}{k!}(x-a)^k}=
+\abs{\frac{f^{(n+1)}(\xi)}{(n+1)!}\cdot(x-a)^{n+1}}\leq\\[0.2cm]\leq
+M\cdot\frac{\abs{x-a}^{n+1}}{(n+1)!}\to0\quad(n\to\infty)\quad\Rightarrow\quad
+f(x)=\sum\limits_{k=0}^{\infty}\frac{f^{(k)}(a)}{k!}(x-a)^k\bizva$\newpage
+\pl $f(x)=\sin x\\[0.2cm]f'(x)=\cos x,\quad f''(x)=-\sin x,\quad f'''(x)=- \cos x,\quad f^{(4)}=\sin x,\quad...\quad a=0\\[0.2cm]
+\abs{f^{(n)}(x)}\leq1\Rightarrow f(x)=\sum\limits_{k=0}^{\infty}(-1)^k
+\frac{x^{2k+1}}{(2k+1)!}$\\[0.4cm]
+\large{\textbf{\underline{Konvexitás, Konkávitás}}}\\[0.2cm]
+\defi Az $\fabr$ függvény:\\[0.1cm]
+\hspace*{0.4cm}\textbf{i,} konvex, ha $\forall x_1,x_2\in(a,b),x_1<x_2,
+\forall\lambda\in[0,1]:f(\lambda x_1+(1-\lambda)x_2)\leq\lambda f(x_1)+
+(1-\lambda)f(x_2)$\\[0.1cm]
+\hspace*{0.4cm}\textbf{ii,} szigorúan konvex, ha\hspace{7.6cm}$<$\\[0.1cm]
+\hspace*{0.4cm}\textbf{iii,} konkáv, ha\hspace{9.2cm}$\geq$\\[0.1cm]
+\hspace*{0.4cm}\textbf{iv,} szigorúan konkáv, ha\hspace{7.5cm}$>$\\[0.2cm]
+\pl Az $f(x)=\alpha x+\beta$ függvény konvex és konkáv is.\\[0.3cm]
+\tetel $\fabr$ konvex $\Leftrightarrow\forall x_1,x_2\in(a,b),x_1<x_2
+\text{ és }\forall x\in(x_1,x_2):\\[0.2cm]
+f(x)\leq\frac{f(x_2)-f(x_1)}{x_2-x_1}\cdot(x-x_1)+f(x_1)$\\[0.2cm]
+\underline{Bizonyítás nélkül.}\\[0.2cm]
+\tetel (2. átfogalmazás)\\[0.3cm]
+$\fabr$ konvex $\Leftrightarrow\forall r,s,t\in(a,b),r<s<t:
+\frac{f(s)-f(r)}{s-r}\leq\frac{f(t)-f(r)}{t-r}\leq\frac{f(t)-f(s)}{t-s}$
+\\[0.2cm]\biz Az előző tételben behelyettesítjük az alábbi értékeket:
+$s=x,t=x_2,r=x_1\\[0.2cm]f(s)\leq\frac{f(t)-f(r)}{t-r}\cdot(s-r)+f(r)\bizva$
+\\[0.2cm]\tetel $\fabr$\\[0.1cm]
+\hspace*{0.5cm}\textbf{i,} Ha $f\dab$, akkor\\[0.1cm]
+\hspace*{1cm}\textbf{a,} $f$ konvex $\Leftrightarrow f'\nearrow\quad(a,b)$-n
+\\[0.1cm]\hspace*{1cm}\textbf{b,} $f$ szigorúan konvex $\Leftrightarrow f'
+\uparrow\quad(a,b)$-n\\[0.2cm]
+\hspace*{0.5cm}\textbf{ii,} Ha $f\in\D^2(a,b)$, akkor\\[0.1cm]
+\hspace*{1cm}\textbf{a,} $f$ konvex $\Leftrightarrow f''\geq0\quad(a,b)$-n
+\\[0.1cm]\hspace*{1cm}\textbf{b,} $f$ szigorúan konvex $\Leftarrow f''>0
+\quad(a,b)$-n
+\\[0.1cm]\hspace*{4.8cm}$\nRightarrow\hspace{2cm}\pl f(x)=x^4$\\[0.2cm]
+\biz Elég \textbf{i,}-t bizonyítani\\[0.1cm]\hspace*{0.5cm}\textbf{a,}
+"$\Rightarrow$" Tfh. $f$ konvex\\[0.1cm]Legyen $x_1<x_2$ tetszőleges és 
+$x_1<y_1<y_2<x_2\\[0.2cm]\hspace*{1.3cm}\frac{f(y_1)-f(x_1)}{y_1-x_1}\quad
+\leq\quad\frac{f(x_2)-f(x_1)}{x_2-x_1}\quad\leq\quad\frac{f(y_2)-f(x_2)}
+{y_2-x_2}\\[0.2cm]\lim\limits_{y_1\to x_1+0}\frac{f(y_1)-f(x_1)}{y_1-x_1}=
+f'(x_1)\hspace{0.6cm}\text{és}\hspace{0.4cm}\lim\limits_
+{y_2\to x_2-0}\frac{f(y_2)-f(x_2)}{y_2-x_2}=f'(x_2)
+\Rightarrow f'(x_1)\leq f'(x_2)\Rightarrow f'\nearrow$\\[0.2cm]
+"$\Leftarrow$" Tfh. $f'\nearrow$ Elég:\\[0.2cm]
+$\forall x_1,x_2\in(a,b),x_1<x_2,x\in(x_1,x_2):f(x)\leq\frac{f(x_2)-f(x_1)}
+{x_2-x_1}\cdot(x-x_1)+f(x_1)$\\[0.1cm]Azaz 
+$r(x):=f(x)-(\frac{f(x_2)-f(x_1)}{x_2-x_1}\cdot(x-x_1)+f(x_1))\leq0
+\quad\Rightarrow\quad r(x_1)=0,\quad r(x_2)=0\\[0.2cm]\Rightarrow$
+Rolle középértéktétel miatt: $\exists\xi\in(x_1,x_2):r'(\xi)=0\\[0.2cm]
+r'(x)=f'(x)-\frac{f(x_2)-f(x_1)}{x_2-x_1}\quad\nearrow$\\[0.2cm]
+$\Rightarrow r'\leq0\quad(x_1,\xi)\text{-n}\quad\Rightarrow r\searrow
+\quad(x_1,\xi)\text{-n\quad és}\\[0.1cm]\hspace*{0.5cm}r'\geq0\quad(\xi,x_2)
+\text{-n}\quad\Rightarrow r\nearrow\quad(\xi,x_2)$-n\\[0.2cm]
+$\Rightarrow r\leq0\quad(x_1,x_2)\text{-n}$\\[0.2cm]
+\hspace*{0.5cm}\textbf{b,} Hasonló $\bizva$\newpage
+\defi $\fabr,x_0\in(a,b),f\in\D(x_0)\\[0.2cm]x_0$ infelxiós pontja $f$-nek, ha
+$l(x):=f(x)-(\underbrace{f'(x_0)(x-x_0)+f(x_0)}_{\text{érintő}})\quad$
+szigorúan előjelet vált\\[0.2cm]azaz $\exists\delta>0,l(x)<0,\forall x\in
+(x_0-\delta,x_0)\quad\text{és}\quad l(x)>0,\forall x\in(x_0,x_0+\delta)\quad$
+vagy fordítva\\[0.2cm]\tetel $f\dab,x_0\in(a,b)$ Ha $\exists\delta>0,f$
+szigorúan konvex $(x_0-\delta,x_0)$-n és \\[0.1cm]$f$ szigorúan konkáv
+$(x_0,x_0+\delta)$-n, akkor $x_0$ inflexiós pont.\\[0.2cm]
+\biz $f$ szigorúan konvex $\Rightarrow f'\uparrow\quad(x_0-\delta,x_0)$-n\\[0.2cm]
+\hspace*{2.4cm} $f$ szigorúan konkáv $\Rightarrow f'\downarrow\quad
+(x_0,x_0+\delta)$-n\\[0.2cm]$l'(x)=f'(x)-f'(x_0)\Rightarrow l'(x_0)=0$\\[0.2cm]
+$\left.
+\begin{gathered}
+l'\uparrow\quad(x_0-\delta,x_0)\text{-n}\quad\Rightarrow\quad l'<0\quad
+(x_0-\delta,x_0)\text{-n}\quad\Rightarrow\quad l\downarrow(x_0-\delta,x_0)\text{-n} \\
+l'\downarrow\quad(x_0,x_0+\delta)\text{-n}\quad\Rightarrow\quad l'<0\quad
+(x_0,x_0+\delta)\text{-n}\quad\Rightarrow\quad l\downarrow(x_0,x_0+\delta)\text{-n}
+\end{gathered}
+\right\}\Rightarrow l\downarrow\quad(x_0-\delta,x_0+\delta)\text{-n}$\\[0.2cm]
+\textbf{De!} $l(x_0)=0\Rightarrow l>0\quad(x_0-\delta,x_0)\quad\text{és}\quad
+l<0\quad(x_0,x_0+\delta)\bizva$\\[0.3cm]
+\tetel $\fabr,x_0\in(a,b)$\\[0.1cm]\textbf{i,} Ha $f$ kétszer folytonosan
+deriválható és $x_0$ inflexiós pont, ekkor $f''(x_0)=0$\\[0.1cm]\textbf{ii,}
+Ha $f$ háromszor folytonosan deriválható és $f''(x_0)=0$ és $f'''(x_0)\neq0$, ekkor
+$x_0$ inflexiós pont.\\[0.2cm]\biz
+\textbf{i,} Indirekten Tfh. $f''(x_0)\neq0$, pl: $f''(x_0)>0$\\[0.1cm]
+$f''$ folytonos $\Rightarrow\exists K(x_0):f''>0\quad K(x_0)$-n\\[0.1cm]
+Taylor formula\\[0.1cm] $n=1:\exists\xi:\underbrace{f(x)-(f(x_0)+f'(x_0)
+(x-x_0)}_{l(x)})=\underbrace{\frac{f''(\xi)}{2!}(x-x_0)^2}_{\geq0}$\\[0.1cm]
+$\Rightarrow l$ nem vált előjelet $\Rightarrow x_0$ nem inflexiós pont.\\[0.2cm]
+\textbf{ii,} Tfh. $f'''(x_0)>0\Rightarrow\exists K(x_0):f'''>0\quad K(x_0)$-n
+\\[0.1cm]Taylor formula $n=2:\\[0.1cm]\exists\xi:l(x)=f(x)-(f(x_0)+f'(x_0)(x-x_0)+
+\frac{f''(x_0)}{2}(x-x_0)^2)=\underbrace{\frac{f'''(\xi)}{3!}}_{>0}
+\cdot(x-x_0)^3\quad x\in K(x_0)$\\[0.2cm]A jobb oldal szigorúan előjelet
+vált$\quad\Rightarrow\quad x_0$ inflexiós pont.$\bizva$
+\end{document}
