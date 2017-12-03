@@ -1,0 +1,37 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[textwidth=170mm, textheight=230mm, inner=20mm, top=10mm, bottom=20mm]{geometry}
+\usepackage[normalem]{ulem}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\PassOptionsToPackage{defaults=hu-min}{magyar.ldf}
+\usepackage[magyar]{babel}
+\usepackage{amsmath, amsthm,amssymb,paralist,array, ellipsis, graphicx, float}
+
+
+\begin{document}
+\def\R{\mathbb{R}}
+\begin{enumerate}
+	\item \textbf{Mit mond ki a Bolzano-tétel?}\\[0.1cm]
+	Tfh. $f: [a,b] \to \R$ folytonos.\\[0.1cm] Ha $f(a)*f(b) < 0$ akkor $\exists x \in [a,b]: f(x) = 0$
+	\item \textbf{Fogalmazza meg a Bolzano-Darboux-tételt.}\\[0.1cm]
+	Tfh. $f: [a,b]\to\R$ folytonos.\\[0.1cm] Ha $f(a) < f(b)$, akkor $\forall c \in (f(a),f(b)): \exists \xi \in [a,b]: f(\xi) = c$
+	\item \textbf{Mit jelent az, hogy egy függvény Darboux-tulajdonságú?}\\[0.1cm]
+	$f:[a,b]\to\R$ függyvény Darboux tulajdonságú, ha\\ $\forall x_1<x_2,\quad (x_1,x_2\in[a,b]), \quad f(x_1) \neq f(x_2), \quad \forall c \in(f(x_2),f(x_1)) \quad \exists \xi \in [x_1,x_2]: f(\xi)=c$
+	\item \textbf{Mi a kapcsolat a Darboux-tulajdonság és a folytonosság között?}\\[0.1cm]
+	Ha $f:[a,b]\to\R$ függyvény folytonos, akkor Darboux tulajdonságú.
+	\item \textbf{Mit tud mondani az $f:[a,b]\to\R\quad(a<b,a,b\in\R)$ inverz függyvényének folytonosságáról?}\\[0.1cm]
+	Ha $f:[a,b]\to\R$ folytonos és injektív, akkor $f^{-1}$ is folytonos.
+	\item \textbf{Milyen állítást ismer tetszőleges intervallumon értelmezett függvény inverzé-nek a folytonosságáról?}\\[0.1cm]
+	$I\in\R$ intervallum, ha $f:I\to\R$ folytonos és injektív, akkor $f^{-1}$ is folytonos.
+	\item \textbf{Definiálja a megszüntethető szakadási hely fogalmát.}\\[0.1cm]
+	Az $f\in\R\to\R$ függvénynek az $a\in D_f$ pontban megszüntethető szakadása van, ha \[ \exists\lim_{a} f\text{\quad véges, és\quad } \lim_a f\not=f(a)\]
+	\item \textbf{Definiálja az elsőfajú szakadási hely fogalmát.}\\[0.1cm]
+	Az $f\in\R\to\R$ függvénynek az $a\in D_f$ pontban elsőfajú szakadása van, ha \[ \exists \lim_{a+0} f,\quad \exists\lim_{a-0}f \text{\quad végesek, és\quad } \lim_{a+0} f \not= \lim_{a-0}f \]
+	\item \textbf{Mit tud mondani monoton függvény szakadási helyeiről?}\\[0.1cm]
+	Ha $f:(a,b)\to\R$ monoton és $\alpha\in(a,b)$, akkor
+	\begin{enumerate}
+		\item $f\in C(\alpha)$\\[0.1cm] \hspace*{0.1cm} vagy
+		\item Elsőfajú szakadása van $\alpha$-ban
+	\end{enumerate}
+\end{enumerate}
+\end{document}
