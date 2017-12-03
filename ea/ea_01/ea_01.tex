@@ -1,0 +1,103 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[textwidth=170mm, textheight=230mm, inner=20mm, top=10mm, bottom=20mm]{geometry}
+\usepackage[normalem]{ulem}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\PassOptionsToPackage{defaults=hu-min}{magyar.ldf}
+\usepackage[magyar]{babel}
+\usepackage{amsmath, amsthm,amssymb,paralist,array, ellipsis, graphicx, float}
+
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks = true	
+}
+\begin{document}
+\def\biz{\normalsize{\textbf{\underline{Bizonyítás:} }\hspace*{0.3cm}}}
+\def\tetel{\large \textbf{Tétel: }}
+\def\defi{\normalsize \textbf{Definíció: }}
+\def\Z{\mathbb{Z}}
+\def\R{\mathbb{R}}
+\def\N{\mathbb{N}}
+\def\Q{\mathbb{Q}}
+\def\sumn{\displaystyle\sum_{n=0}^{\infty}}
+\def\biz{\normalsize{\underline{Bizonyítás:} }\hspace*{0.5cm}}
+\def\tetel{\normalsize \textbf{\underline{Tétel}: }}
+\def\bizva{\quad\blacksquare}
+\begin{center}
+	{\LARGE\textbf{Analízis 2.}}\\[0.2cm]
+	
+	{\Large 1. Előadás jegyzet}\\[1cm]	
+\end{center}
+{\small A jegyzetet \textsc{Bauer Bence} készítette \textsc{Dr. Weisz Ferenc} előadása alapján.}\\[0.2cm]
+Tantárgyi követelmények: \url{http://numanal.inf.elte.hu/~weisz/oktanyagok/Kov_An.pdf}\\[0.2cm]
+\textbf{{\large Folytonos függvények}}\\[0.1cm]
+\defi $f\in\R\to\R$ folytonos az $a\in D_f$ pontban, ha\\[0.2cm]
+$\forall\varepsilon>0,\exists\delta>0,\forall x\in D_f, |x-a|<\delta:
+|f(x)-f(a)|<\varepsilon$\\[0.1cm] Pl: \[\displaystyle f(x) = 
+\left\{
+\begin{gathered}
+x: \quad x\in\Q\Rightarrow f\in C(0)\hspace{5.7cm} \\
+\quad\quad-x: \quad x\notin\Q\Rightarrow f\notin C(0), a\neq 0\hspace{5.7cm}
+\end{gathered}\right. \]\\[0.1cm]
+\underline{Jelölés:}  $f\in C(a)$ folytonos az $a$ pontban.\\[0.2cm]
+\tetel Folytonosság és határérték kapcsolata\\[0.1cm]
+Ha $a\in D_f\cap D_f'$, akkor: \[ f\in C(a)\Leftrightarrow \exists\lim_a f \text{ és } \lim_a f=f(a)\]\\[0.1cm]
+\biz Lásd az előző definíciót. $\quad\blacksquare$\\[0.3cm]
+\defi $a\in D_f$ izolált pont, ha $\exists K(a)$, hogy $K(a)\cap D_f=\{a\}$
+\\[0.1cm] \textit{Állítás:} Ha $a\in D_f$, akkor $a\in D_f'$ vagy izolált pont.
+\\[0.1cm]\biz Triviális $\quad\blacksquare$\\[0.2cm] \tetel Ha $a\in D_f$ izolált, 
+akkor $f\in C(a)$\\[0.1cm]\biz Triviális $\quad\blacksquare$\\[0.2cm]\tetel
+Hatványsor összegfüggvénye folytonos a konvergenciahalmaz belsejében.
+\\[0.1cm]\biz $\exists R\geq0:$ a hatványsor konvergens az ($a-R,a+R$)
+intervallumon.\\[0.1cm]Ezen kívül divergens, $x=a-R$, vagy $x=a+R$?
+\\[0.1cm]Hatványsor:\[f(x)=\sumn \alpha_n(x-a)^n\]
+Valamint tanultuk korábban, hogy:\[\exists\lim_x f=f(x)\text{, ha }
+x\in(a-R,a+R)\quad\blacksquare\]\textbf{Következmény:} Az $exp,sin,cos,sh,ch$
+függyvények folytonosak $\R$-en.\\[0.2cm]
+\tetel Folytonosságra vonatkozó átviteli elv\\[0.1cm] Tfh. $a\in D_f$, ekkor:
+\[f\in C(a)\Leftrightarrow\forall(x_n):\N\to D_f,
+\lim(x_n)=a:\quad\lim(f(x_n))=f(a)\]
+\biz Ha $a\in D_f$, akkor előző + a tavalyi határértékre vonatkozó átviteli elv.
+Különben $a$ izolált pont. Ekkor mindkét oldal igaz.$\quad\blacksquare$\\[0.1cm] 
+\tetel
+\begin{itemize}
+	\item Ha $f,g\in C(a)$, akkor $f+g\in C(a),\lambda f\in C(a), \lambda\in\R,f\cdot g\in C(a)$. Ha még $g(a)\neq0$, akkor $\frac{f}{g}\in C(a)$.
+	\item $g\in C(a), f\in C(g(a)), R_g\subset D_f$, akkor $f\circ g\in C(a)$.
+\end{itemize}
+\newpage\biz $(x_n):\N\to D_f, \lim(x_n)=a,\quad f,g\in C(a)\Rightarrow 
+\lim(f(x_n))=f(a), \lim(g(x_n))=g(a)\\[0.1cm]\Rightarrow\lim(f(x_n)+g(x_n))= 
+f(a)+g(a)\Rightarrow f+g\in C(a)\quad\blacksquare$\\[0.2cm]\defi $f$ folytonos 
+$A$-n, ha $f\in C(a)\quad(\forall a\in A)$\\[0.3cm]
+\textbf{{\large Korlátos és zárt intervallumon értelmezett függvények}}\\[0.2cm]
+Ezután $f:[a,b]\to\R$\\[0.2cm] \defi Az $f:[a,b]\to\R$ függvénynek létezik abszolút 
+maximuma (minimuma), ha\\[0.2cm] $\exists\alpha\in[a,b],\forall x\in [a,b]:f(x)\leq 
+f(\alpha)\quad (f(x)\geq f(\alpha))$\\[0.1cm] Ahol $\alpha$ az abszolút maximum 
+(minimum) hely.\\[0.2cm]
+\tetel Ha $f:[a,b]\to\R \text{ folytonos, akkor } f $ korlátos. \\[0.1cm]	
+\biz $f$ korlátos, ha $\exists K>0, \quad \forall x \in [a,b]: \quad |f(x)|\leq K$ \\[0.1cm]
+Indirekt: Tegyük fel, hogy ez nem igaz, azaz\\[0.2cm]	
+$\Rightarrow \forall K>0,\exists x \in[a,b]:|f(x)|> K\text{. Legyen a }K=n\text{. } 
+\Rightarrow\forall n\in\N\text{, }\exists x_n\in[a,b]:|f(x_n)|>n\\[0.1cm] 
+\Rightarrow x_n\in[a,b]\Rightarrow(x_n)\text{ korlátos}\Rightarrow$ Bolzano -
+Weierstrass tétel miatt \\[0.1cm] $\exists(x_{n_k})\text{ konvergens részsorozat }
+\Rightarrow\lim(x_{n_k})=:\alpha\text{. Ekkor }\alpha\in[a,b]\\[0.1cm]
+\text{hiszen, ha }\alpha\notin[a,b]\text{, akkor }\exists\varepsilon>0:[a,b]\cap
+K_\varepsilon(\alpha)=\emptyset\\[0.1cm]\Rightarrow\exists k_0,\forall k\geq k_0:
+x_{n_k}\in K_\varepsilon(\alpha)$, viszont ez ellentmondás. \\[0.1cm]$x_{n_k}\in
+[a,b]\Rightarrow\alpha\in[a,b]\Rightarrow f\in C(\alpha)$\\[0.1cm] Alkalmazzuk az
+átviteli elvet, $\lim(x_{n_k})=\alpha\Rightarrow\lim f(x_{n_k})=f(\alpha)
+\Rightarrow(f (x_{n_k}))$ konvergens. \\[0.1cm] $\Rightarrow(f (x_{n_k}))$
+korlátos. És így ellentmondásra juttotunk, hiszen: \\[0.1cm] $|f(x_{n_k})|>n_k
+\Rightarrow(f (x_{n_k}))$ nem korlátos.$\bizva$\\[0.4cm]
+\tetel (Weierstrass-tétel) Ha $ f:[a,b]\to\R\text{ folytonos, akkor } f$-nek
+létezik abszolút maximuma és minimuma is.\\[0.1cm]
+\biz Ha $ f:[a,b]\to\R\text{ folytonos, akkor korlátos} \\[0.1cm]\Rightarrow 
+M:=$sup\{$f(x)\text{,ha } x\in[a,b]$\}, $m:=$inf\{$f(x)\text{,ha }x\in[a,b]$\},
+$M,m\in\R$\\[0.1cm] $\Rightarrow\forall n\geq1$-re, $\exists x\in[a,b]:
+M -\frac{1}{n}<f(x)\leq M\\[0.1cm]\Rightarrow\lim f(x_n)=M\Rightarrow(x_n)
+\text{ korlátos.}\\[0.1cm]\Rightarrow\exists(x_{n_k})$ konvergens részsorozat$ 
+\Rightarrow\lim x_{n_k}=\alpha,\alpha\in[a,b]\Rightarrow\text{átviteli elv, }
+f\in C(\alpha)\\[0.1cm]\Rightarrow\lim f(x_{n_k})=f(\alpha).\\[0.1cm]
+\text{\textbf{De!} }\lim f(x_n)=M\Rightarrow\lim f(x_{n_k})=M\Rightarrow
+M=f(\alpha)\\[0.1cm]m$ -re hasonló.$\bizva$
+\end{document}
