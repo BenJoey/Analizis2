@@ -1,0 +1,34 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[textwidth=170mm, textheight=230mm, inner=20mm, top=10mm, bottom=20mm]{geometry}
+\usepackage[normalem]{ulem}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{physics}
+\PassOptionsToPackage{defaults=hu-min}{magyar.ldf}
+\usepackage[magyar]{babel}
+\usepackage{amsmath, amsthm,amssymb,paralist,array, ellipsis, graphicx, float}
+
+\begin{document}
+	\def\D{\displaystyle\mathcal{D}}
+	\def\N{\mathbb{N}}
+	\begin{enumerate}
+		\item\textbf{Hogyan definiálja egy függvény}
+		\textit{Taylor-sorát?}\\[0.1cm]
+		Ha $f\in\D^{\infty}(a)$, ekkor a $\sum\frac{f^{(n)}(a)}{n!} 
+		\cdot(x-a)^{n}$ sort, az $f$ függyvény Taylor sorának nevezzük.
+		\item\textbf{Mi a} \textit{Taylor-polinom} \textbf{definíciója?}\\[0.1cm]
+		Ha $f\in\D^{(n)}(a)$, akkor $\sum\limits_{k=0}^{n} 
+		\frac{f^{(k)}(a)}{k!}(x-a)^k$ az $f$-nek $n$-edik Taylor 
+		polinomja\hspace{1cm}Jel: $T_nf(x)$
+		\item\textbf{Fogalmazza meg a} \textit{Taylor-formula Lagrange maradéktaggal}
+		\textbf{néven tanult tételt.}\\[0.1cm]
+		Ha $f\in\D^{(n+1)}(K(a))$, akkor\\[0.1cm]$\forall x\in K(a),\exists\xi\in(a,x):
+		f(x)=\sum\limits_{k=0}^{n}\frac{f^{(k)}(a)}{k!}(x-a)^k+\frac{f^{(n+1)}(\xi)}{(n+1)!}(x-a)^{n+1}$
+		\item\textbf{Milyen} \textit{elégséges feltételt}
+		\textbf{ismer arra, hogy egy függvény Taylor sora előállítja a\\függvényt?}
+		\\[0.1cm]
+		Tfh. $f\in\D^\infty(K(a))\text{ és }sup\{\abs{f^{(n)}(x)}\quad n\in\N,x\in 
+		K(a)\}=M\text{ és }M<\infty$\\[0.2cm]Ekkor: $f(x)=\sum\limits_{k=0}^{\infty}\frac
+		{f^{(k)}(a)}{k!}(x-a)^k\quad(x\in K(a))$
+	\end{enumerate}
+\end{document}
