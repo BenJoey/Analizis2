@@ -1,0 +1,144 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[textwidth=170mm, textheight=230mm, inner=20mm, top=10mm, bottom=20mm]{geometry}
+\usepackage[normalem]{ulem}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{physics}
+\PassOptionsToPackage{defaults=hu-min}{magyar.ldf}
+\usepackage[magyar]{babel}
+\usepackage{amsmath, amsthm,amssymb,paralist,array, ellipsis, graphicx, float}
+
+\begin{document}
+\def\Q{\mathbb{Q}}
+\def\R{\mathbb{R}}
+\def\biz{\normalsize{\underline{Bizonyítás:} }\hspace*{0.5cm}}
+\def\tetel{\normalsize \textbf{\underline{Tétel}: }}
+\def\defi{\normalsize \textbf{Definíció: }}
+\def\bizva{\quad\blacksquare}
+\def\pl{\textbf{Pl: }}
+\def\D{\mathcal{D}}
+\def\prfv{primitív függvény}
+\def\fab{F[a,b]}
+\def\kab{K[a,b]}
+\def\cab{\in C[a,b]}
+\def\rab{R[a,b]}
+\def\te{\tau_1}
+\def\tk{\tau_2}
+\def\ftau{(f,\tau)}
+\begin{center}
+	{\LARGE\textbf{Analízis 2.}}\\[0.2cm]
+	
+	{\Large 10. Előadás jegyzet}\\[0.5cm]	
+\end{center}
+{\small A jegyzetet \textsc{Bauer Bence} készítette \textsc{Dr. Weisz Ferenc} előadása alapján.}\\[0.4cm]
+Múlt heti példa folytatása:\\[0.2cm]
+\pl $\int\sqrt{1-x^2}dx=\int\sqrt{1-\sin^2t}\cdot\cos tdt\mid_{t=arcsinx}=
+\int\cos^2tdt\mid_{t=arcsinx}=\int\frac{1+\cos2t}{2}dt\mid_{t=arcsinx}=\\[0.2cm]
+x=\sin t\quad t\in(-\frac{\pi}{2},\frac{\pi}{2})\quad x'=\frac{dx}{dt}=\cos t\quad
+(\cos t\geq0)\\[0.2cm]=\frac{1}{2}(t+\frac{\sin2t}{2})\mid_{t=arcsinx}+c=
+\frac{1}{2}(arcsinx+x\sqrt{1-x^2})+c\\[0.2cm]\cos2t=\cos^2t-
+\underbrace{\sin^2t}_{1-\cos^2t}=2\cos^2t-1\hspace{2cm}\sin2t=2\sin t\cdot
+\cos t=2\sin t\cdot\sqrt{1-\sin^2t}\\[0.2cm]\cos^2t=\frac{1+\cos2t}{2}$\\[0.3cm]
+\defi Legyen $f_1(x)=1,f_2(x)=x,f_3(x)=e^x\quad(x\in\R)\\[0.1cm]f_4(x)=\ln x,(x>0)
+\quad f_5(x)=\sin x,(x\in\R)\quad f_6(x)=arcsinx,x\in([-1,1])\\[0.2cm]f$
+elemi függvény, ha előáll az előző 6 függvény a 4 algebrai művelet, a leszűkítés,
+a kompozíció és az inverz véges sokszori alkalmazásával\\[0.2cm]
+\tetel Elemi függvény deriváltja elemi\\[0.2cm]
+\tetel (Elemi függvénynek $\exists$ \prfv e)\\[0.2cm]\biz
+Az elemi függvény folytonos $\bizva$\\[0.2cm]
+\underline{Megj:} De nem biztos, hogy a primitív függvény elemi függvény is\\[0.2cm]
+\pl Nem elemi függvények:\\[0.2cm]
+$\int\frac{\sin x}{x}dx,\int\frac{\cos x}{x}dx,\int e^{-x^2}dx,\int\frac{e^x}{x}dx,
+\int\sin(x^2)dx,\int\cos(x^2)dx,\int\sqrt{1+x^3}dx$\\[0.2cm]
+\pl $(x>0)\quad\int\frac{e^x}{x}dx=\int\frac{1+x+\frac{x^2}{2!}+
+\frac{x^3}{3!}+...}{x}dx=\int\frac{1}{x}+1+\frac{x}{2!}+\frac{x^2}{3!}+...dx=
+\ln x+x+\frac{x^2}{2\cdot2!}+\frac{x^3}{3\cdot3!}+...$\\[0.4cm]
+{\Large \underline{Határozott integrál}}\\[0.4cm]
+\textit{Motiváció:} Síkidomok területe\\[0.2cm]
+\defi $\kab$ jelöli az $[a,b]$ korlátos zárt intervallumon a korlátos függvényeket
+\\[0.2cm]\defi A $\tau=\{x_0,x_1,...x_n\}$ halmaz felosztása az $[a,b]$
+intervallumnak, ha\\[0.2cm]$a=x_0<x_1<...<x_n=b$\hspace{2cm}Jelölés: $\fab$\\[0.2cm]
+\defi $\tk$ finomabb felbontás mint $\te$, ha $\tk\supset\te$\\[0.2cm]
+\defi $f\in\kab,\tau\in\fab$\\[0.2cm]
+\textbf{i,} $s\ftau:=\sum\limits_{i=1}^{n}\inf\limits_{[x_{i-1},x_i]}f\cdot
+(x_i-x_{i-1})$\hspace{0.5cm}ez az alsó közelítő összeg\\[0.2cm]
+\textbf{ii,} $S\ftau:=\sum\limits_{i=1}^{n}\sup\limits_{[x_{i-1},x_i]}f\cdot
+(x_i-x_{i-1})$\hspace{0.4cm}ez a felső közelítő összeg\\[0.3cm]
+\tetel $f\in\kab,\te,\tk\in\fab$, Ekkor:\\[0.2cm]
+\textbf{i,} Ha $\tk\supset\te$, akkor $s(f,\te)\leq s(f,\tk)\text{ és }
+S(f,\te)\geq S(f,\tk)$\\[0.2cm]\textbf{ii,} $s(f,\te)\leq S(f,\tk)$\newpage
+\biz\textbf{i,} Ha $\tk\supset\te$, ekkor feltehető, hogy $\tk=\te\cup\{x'\}\quad
+x'\in[x_{k-1},x_k]\\[0.2cm]s(f,\te)\rightsquigarrow\sum\limits_{i=1}^{n}
+\inf\limits_{[x_{k-1},x_k]}f\cdot(x_k-x_{k-1})=\inf\limits_{[x_{k-1},x_k]}
+f\cdot(x'-x_{k-1})+\inf\limits_{[x_{k-1},x_k]}f\cdot(x_k-x')\leq\\[0.3cm]\leq
+\inf\limits_{[x_{k-1},x']}f\cdot(x'-x_{k-1})+\inf\limits_{[x',x_k]}
+f\cdot(x_k-x')\rightsquigarrow s(f,\tk)$\hspace{0.5cm}
+(a többi összeadandó ugyanaz)\\[0.2cm]$\Rightarrow s(f,\te)\leq s(f,\tk)$\\[0.2cm]
+Hasonló: $S(f,\te)\geq S(f,\tk)$\\[0.2cm]\textbf{ii,} $\te$ és $\tk$ tetszőleges,
+legyen $\tau=\te\cup\tk\\[0.2cm]\Rightarrow s(f,\te)\leq s\ftau\leq S\ftau\leq
+S(f,\tk)\bizva$\\[0.3cm]
+\underline{Következmény:} Az alsó közelítő összegek felülről korlátosak.\\[0.2cm]
+\hspace*{2.7cm}A felső közelítő összegek alulról korlátosak.\\[0.2cm]
+\defi $f\in\kab$\\[0.2cm]\textbf{i,}
+$I_*f:=\sup\limits_{\tau\in\fab}s\ftau\quad$a Darboux féle alsó integrál\\[0.2cm]
+\textbf{ii,} $I^*f:=\inf\limits_{\tau\in\fab}S\ftau\quad$a Darboux féle felső
+integrál\\[0.2cm]\underline{Következmény:} $I_*f\leq I^*f$\\[0.2cm]
+\biz $s(f,\te)\leq S(f,\tk)\bizva$\\[0.2cm]
+\defi $f\in\kab$ függvénynek $\exists$ határozott integrálja, vagy Riemann
+integrálható, ha $I_*f=I^*f$\\[0.1cm]Jelölés: $f\in\rab$\\[0.2cm]
+$I_*f=I^*f=If=\int\limits_{a}^{b}f=\int\limits_{a}^{b}f(x)dx$\\[0.2cm]
+Kérdés:
+\begin{itemize}
+	\item Milyen függvény Riemann integrálható?
+	\item Hogy számoljuk ki?
+\end{itemize}
+\pl $x\in[0,1]$
+\[\displaystyle f(x) := 
+\left\{
+\begin{gathered}
+\quad 1\quad:\quad x\in\Q\hspace{5.7cm} \\
+\quad 0\quad:\quad x\notin\Q\hspace{5.7cm}
+\end{gathered}\right. \]\\[0.2cm]
+$\Rightarrow f\notin R[0,1],\quad s\ftau=0,\quad S\ftau=1$\\[0.2cm]
+\tetel Ha $f\cab$, akkor $f\in\rab$\\[0.1cm]\biz Lásd később\\[0.2cm]
+\defi $f\geq0,\quad f\in\rab\quad$Legyen
+$A:=\{(x,y):a\leq x\leq b,\quad0\leq y\leq f(x)\}$\\[0.2cm]
+$A$ területe $t(A)=\int\limits_{a}^{b}f$\\[0.2cm]
+\defi $\Omega\ftau:=S\ftau-s\ftau\quad$oszcillációs összeg\\[0.2cm]
+\tetel (szükséges és elégséges feltétel)\\[0.2cm]
+$f\in\rab\Leftrightarrow\forall\varepsilon>0,\exists\tau\in\fab:\Omega\ftau<
+\varepsilon$\\[0.2cm]
+\biz "$\Leftarrow$" Tfh. $\varepsilon$-hoz $\exists\tau:\Omega\ftau<\varepsilon
+\\[0.2cm]I^*f-I_*f<\varepsilon,\quad\varepsilon$ tetszőleges\\[0.2cm]
+$\Rightarrow I^*f=I_*f$\newpage
+"$\Rightarrow$" Tfh. $f\in\rab\Rightarrow\forall\varepsilon>0,\exists\te\in\fab
+:If-\frac{\varepsilon}{2}<s(f,\te)\leq If$\\[0.2cm]Hasonlóan:
+$\exists\tk\in\fab:If\leq S(f,\tk)<If+\frac{\varepsilon}{2}$\\[0.2cm]
+Legyen $\tau=\te\cup\tk\Rightarrow\\[0.2cm]If-\frac{\varepsilon}{2}<s(f,\te)\leq
+\underline{s\ftau}\leq If\leq \underline{S\ftau}\leq S(f,\tk)<If
++\frac{\varepsilon}{2}\\[0.3cm]\Rightarrow S\ftau-s\ftau<\varepsilon\bizva$
+\\[0.2cm]\tetel\\[0.2cm]$f\in\rab$ és $\int\limits_{a}^{b}f=I\Leftrightarrow
+\exists\tau_n:\lim s(f,\tau_n)=\lim S(f,\tau_n)=I$\\[0.2cm]\biz
+"$\Rightarrow$" Tfh. $f\in\rab:$\\[0.2cm]Előző bizonyítás vége:
+legyen $\frac{\varepsilon}{2}=\frac{1}{n},\quad\tau=\tau_n\\[0.2cm]
+\underbrace{I-\frac{1}{n}}_{\to I}\leq\underbrace{s(f,\tau_n)}_{\to I}\leq
+\underbrace{S(f,\tau_n)}_{\to I}<\underbrace{I+\frac{1}{n}}_{\to I}$
+\\[0.2cm]"$\Leftarrow$" Tfh. $\lim s(f,\tau_n)=\lim S(f,\tau_n)=I\Rightarrow
+I_*f=I^*f=I\bizva$\\[0.3cm]
+\pl $f(x)=x^2,\quad x\in[0,1]\quad$Legyen $x_0=0,x_i=\frac{i}{n}\\[0.2cm]
+S(f,\tau_n)=\sum\limits_{i=1}^{n}\sup\limits_{[\frac{i-1}{n},\frac{i}{n}]}x^2
+\cdot\frac{1}{n}=\sum\limits_{i=1}^{n}\frac{i^2}{n^3}=
+\frac{n(n+1)(2n+1)}{6n^3}\longrightarrow\frac{1}{3}\\[0.3cm]
+s(f,\tau_n)=\sum\limits_{i=1}^{n}\inf\limits_{[\frac{i-1}{n},\frac{i}{n}]}x^2
+\cdot\frac{1}{n}=\sum\limits_{i=1}^{n}\frac{(i-1)^2}{n^3}=
+\frac{n(n-1)(2n-1)}{6n^3}\longrightarrow\frac{1}{3}\\[0.2cm]
+\Rightarrow\int\limits_{0}^{1}x^2dx=\frac{1}{3}$\\[0.2cm]
+\defi $\sigma(f,\tau,\xi)=\sum\limits_{i=1}^{n}f(\xi_i)(x_i-x_{i-1})$, ahol
+\\[0.2cm]$\tau\in\fab,\quad\xi=(\xi_1,\xi_2,...,\xi_n)\\[0.3cm]
+\xi_1\in[x_0,x_1],...,\xi_n\in[x_{n-1},x_n]\quad$ a Riemann féle közelítő
+összeg\\[0.2cm]Jelölés: $\abs{\tau}=\max\limits_{i=1,...,n}\abs{x_i-x_{i-1}}$
+\\[0.2cm]\tetel $f\in\rab\Leftrightarrow\lim\sigma(f,\tau,\xi)=I\quad$ és
+$\quad\int\limits_{a}^{b}f=I$\\[0.2cm]azaz $\forall\varepsilon>0,
+\exists\delta>0,\forall\tau,\abs{\tau}<\delta,\forall\xi:
+\abs{\sigma(f,\tau,\xi)-I}<\varepsilon$
+\end{document}
