@@ -36,67 +36,267 @@
 \end{center}
 {\small A jegyzetet \textsc{Bauer Bence} készítette \textsc{Dr. Weisz Ferenc} előadása alapján.}
 \section{Korlátos zárt intervallumon értelmezett függvény korlátos is.}
-	\tetel Ha $f:[a,b]\to\R \text{ folytonos, akkor } f $ korlátos. \\[0.1cm]	
-	\biz $f$ korlátos, ha $\exists K>0, \quad \forall x \in [a,b]: \quad |f(x)|\leq K$ \\[0.1cm]
-	Indirekt: Tegyük fel, hogy ez nem igaz, azaz\\[0.2cm]	
-	$\Rightarrow \forall K>0, \exists x \in [a,b]: |f(x)|> K \text{. Legyen a } K = n \text{. } \Rightarrow \forall n \in \N \text{, } \exists x_n \in [a,b]: |f(x_n)| > n \\[0.1cm] \Rightarrow x_n \in [a,b] \Rightarrow (x_n) \text{ korlátos} \Rightarrow $ Bolzano - Weierstrass tétel miatt \\[0.1cm] $  \exists (x_{n_k}) \text{ konvergens részsorozat } \Rightarrow \lim(x_{n_k}) =: \alpha \text{. Ekkor } \alpha \in [a,b] \\[0.1cm] \text{hiszen, ha } \alpha \notin [a,b] \text{, akkor } \exists \varepsilon > 0: [a,b] \cap K_\varepsilon (\alpha) = \emptyset \\[0.1cm] \Rightarrow \exists k_0 , \forall k \geq k_0: x_{n_k} \in K_\varepsilon (\alpha) $, viszont ez ellentmondás. \\[0.1cm] $ x_{n_k} \in [a,b] \Rightarrow \alpha \in [a,b] \Rightarrow f \in C(\alpha) $ \\[0.1cm] Alkalmazzuk az átviteli elvet, $ \lim(x_{n_k}) = \alpha \Rightarrow \lim f(x_{n_k}) = f(\alpha) \Rightarrow (f (x_{n_k})) $ konvergens. \\[0.1cm] $ \Rightarrow (f (x_{n_k}))$ korlátos. És így ellentmondásra juttotunk, hiszen: \\[0.1cm] $ |f (x_{n_k})| > n_k \Rightarrow (f (x_{n_k}))$ nem korlátos. $\bizva$
+\tetel Ha $f:[a,b]\to\R \text{ folytonos, akkor } f $ korlátos. \\[0.1cm]	
+\biz $f$ korlátos, ha $\exists K>0, \quad \forall x \in [a,b]: \quad |f(x)|\leq K$ \\[0.1cm]
+Indirekt: Tegyük fel, hogy ez nem igaz, azaz\\[0.2cm]	
+$\Rightarrow \forall K>0,\exists x \in[a,b]:|f(x)|> K\text{. Legyen a }K=n\text{. } 
+\Rightarrow\forall n\in\N\text{, }\exists x_n\in[a,b]:|f(x_n)|>n\\[0.1cm] 
+\Rightarrow x_n\in[a,b]\Rightarrow(x_n)\text{ korlátos}\Rightarrow$ Bolzano -
+Weierstrass tétel miatt \\[0.1cm] $\exists(x_{n_k})\text{ konvergens részsorozat }
+\Rightarrow\lim(x_{n_k})=:\alpha\text{. Ekkor }\alpha\in[a,b]\\[0.1cm]
+\text{hiszen, ha }\alpha\notin[a,b]\text{, akkor }\exists\varepsilon>0:[a,b]\cap
+K_\varepsilon(\alpha)=\emptyset\\[0.1cm]\Rightarrow\exists k_0,\forall k\geq k_0:
+x_{n_k}\in K_\varepsilon(\alpha)$, viszont ez ellentmondás. \\[0.1cm]$x_{n_k}\in
+[a,b]\Rightarrow\alpha\in[a,b]\Rightarrow f\in C(\alpha)$\\[0.1cm] Alkalmazzuk az
+átviteli elvet, $\lim(x_{n_k})=\alpha\Rightarrow\lim f(x_{n_k})=f(\alpha)
+\Rightarrow(f (x_{n_k}))$ konvergens. \\[0.1cm] $\Rightarrow(f (x_{n_k}))$
+korlátos. És így ellentmondásra juttotunk, hiszen: \\[0.1cm] $|f(x_{n_k})|>n_k
+\Rightarrow(f (x_{n_k}))$ nem korlátos.$\bizva$
 \section{Weierstrass-tétel}
-	\tetel Ha $ f:[a,b]\to\R\text{ folytonos, akkor } f$-nek létezik abszolút maximuma és minimuma is.\\[0.1cm]
-	\biz Ha $ f:[a,b]\to\R\text{ folytonos, akkor korlátos} \\[0.1cm] \Rightarrow M := $sup\{$f(x)\text{,ha } x \in [a,b]$\}, $m := $inf\{$f(x)\text{,ha } x \in [a,b]$\}, $M,m \in \R$\\[0.1cm] $\Rightarrow \forall n \geq 1$ -re, $\exists x \in [a,b]: M - \frac{1}{n} < f(x) \leq M\\[0.1cm] \Rightarrow \lim f(x_n) = M \Rightarrow(x_n)\text{ korlátos.}\\[0.1cm] \Rightarrow \exists (x_{n_k}) $ konvergens részsorozat$ \Rightarrow \lim x_{n_k} = \alpha, \alpha \in [a,b] \Rightarrow \text{átviteli elv, } f \in C(\alpha)\\[0.1cm] \Rightarrow \lim f(x_{n_k}) = f (\alpha). \\[0.1cm] \text{\textbf{De!} } \lim f(x_n) = M \Rightarrow \lim f (x_{n_k}) = M \Rightarrow M = f(\alpha) \\[0.1cm] m$ -re hasonló. $\bizva$
+\tetel Ha $ f:[a,b]\to\R\text{ folytonos, akkor } f$-nek
+létezik abszolút maximuma és minimuma is.\\[0.1cm]
+\biz Ha $ f:[a,b]\to\R\text{ folytonos, akkor korlátos} \\[0.1cm]\Rightarrow 
+M:=$sup\{$f(x)\text{,ha } x\in[a,b]$\}, $m:=$inf\{$f(x)\text{,ha }x\in[a,b]$\},
+$M,m\in\R$\\[0.1cm] $\Rightarrow\forall n\geq1$-re, $\exists x\in[a,b]:
+M -\frac{1}{n}<f(x)\leq M\\[0.1cm]\Rightarrow\lim f(x_n)=M\Rightarrow(x_n)
+\text{ korlátos.}\\[0.1cm]\Rightarrow\exists(x_{n_k})$ konvergens részsorozat$ 
+\Rightarrow\lim x_{n_k}=\alpha,\alpha\in[a,b]\Rightarrow\text{átviteli elv, }
+f\in C(\alpha)\\[0.1cm]\Rightarrow\lim f(x_{n_k})=f(\alpha).\\[0.1cm]
+\text{\textbf{De!} }\lim f(x_n)=M\Rightarrow\lim f(x_{n_k})=M\Rightarrow
+M=f(\alpha)\\[0.1cm]m$ -re hasonló.$\bizva$
 \section{Bolzano-tétel}
-	\tetel Tfh. $f: [a,b] \to \R$ folytonos. Ha $f(a)\cdot f(b) < 0$ akkor $\exists x \in [a,b]: f(x) = 0$\\[0.1cm]
-	\biz Legyen $ [x_0,y_0] = [a,b] $ és tfh. $f(a) < 0$ és $f(b) > 0 $\\[0.1cm] Legyen $z_0 := \frac{x_0+y_0}{2}$, ekkor 3 eset lehetséges: 
-	\begin{enumerate}
-		\item $f(z_0) = 0$ $\checkmark$
-		\item $f(z_0) < 0$, ekkor legyen $[x_1,y_1] := [z_0,y_0]$
-		\item $f(z_0) > 0$, ekkor legyen $[x_1,y_1] := [x_0,z_0]$
-	\end{enumerate}
-	Ezt az eljárást folytatva véges sok lépésben kapunk $\xi$-t amelyre $f(\xi) = 0$, ha nem akkor kapunk egy ($[x_n,y_n]$) intervallum sorozatot, amelyre a következők igazak:
-	\newpage
-	\begin{enumerate}
-		\item $[x_{n+1},y_{n+1}]\subset[x_n,y_n]$
-		\item $f(x_n) < 0,\quad f(y_n) > 0$
-		\item $y_n - x_n = \frac{y_0-x_0}{2^n}$
-	\end{enumerate}
-	A Cantor-tétel miatt \[ \exists\xi\in\bigcap_{n=0}^{+\infty}[x_n,y_n] \text{ Mivel } y_n-x_n = \frac{y_0-x_0}{2^n} \to 0 \hspace*{0.3cm} (n \to \infty) \text{ ,ezért  } \exists ! \xi \in\bigcap_{n=0}^{+\infty}[x_n,y_n] \]
-	Továbbá $0 \leq \xi - x_n \leq y_n-x_n \to 0 \Rightarrow \underline{\lim(x_n) = \xi}$ ,és $\quad y_n-\xi \leq y_n-x_n \to 0 \Rightarrow \underline{\lim(y_n) = \xi}$ \\[0.2cm] Tudjuk, hogy $f(x_n) < 0$ és $\lim(x_n) = \xi$ és $f\in C(\xi)$ ,ezért az átviteli elv miatt\\ $\lim f(x_n) = f(\xi) \Rightarrow f(\xi) \leq 0$\\[0.1cm] Hasonlóan $f(y_n) > 0,\quad \lim(y_n) = \xi \Rightarrow \lim f(y_n) = f(\xi)$\\itt: $f(y_n) > 0$ ezért $f(\xi) \geq 0 \Rightarrow f(\xi) = 0\bizva$
+\tetel Tfh. $f: [a,b] \to \R$ folytonos. Ha $f(a)\cdot f(b) < 0$ akkor
+$\exists x \in [a,b]: f(x) = 0$\\[0.1cm]
+\biz Legyen $ [x_0,y_0] = [a,b] $ és tfh. $f(a) < 0$ és $f(b) > 0 $\\[0.1cm] Legyen
+$z_0 := \frac{x_0+y_0}{2}$, ekkor 3 eset lehetséges: 
+\begin{enumerate}
+	\item $f(z_0) = 0$ $\checkmark$
+	\item $f(z_0) < 0$, ekkor legyen $[x_1,y_1] := [z_0,y_0]$
+	\item $f(z_0) > 0$, ekkor legyen $[x_1,y_1] := [x_0,z_0]$
+\end{enumerate}
+Ezt az eljárást folytatva véges sok lépésben kapunk $\xi$-t amelyre $f(\xi) = 0$,
+ha nem akkor kapunk egy ($[x_n,y_n]$) intervallum sorozatot, amelyre a következők
+igazak:\newpage
+\begin{enumerate}
+	\item $[x_{n+1},y_{n+1}]\subset[x_n,y_n]$
+	\item $f(x_n) < 0,\quad f(y_n) > 0$
+	\item $y_n - x_n = \frac{y_0-x_0}{2^n}$
+\end{enumerate}
+A Cantor-tétel miatt \[ \exists\xi\in\bigcap_{n=0}^{+\infty}[x_n,y_n]\text{ Mivel }
+y_n-x_n=\frac{y_0-x_0}{2^n}\to0\hspace*{0.3cm}(n\to\infty)\text{ ,ezért  }\exists!
+\xi\in\bigcap_{n=0}^{+\infty}[x_n,y_n] \]
+Továbbá $0\leq\xi-x_n\leq y_n-x_n\to0\Rightarrow\underline{\lim(x_n)=\xi}$ ,és
+$\quad y_n-\xi\leq y_n-x_n\to0\Rightarrow\underline{\lim(y_n)=\xi}$\\[0.2cm]
+Tudjuk, hogy $f(x_n)<0$ és $\lim(x_n)=\xi$ és $f\in C(\xi)$ ,ezért az átviteli elv
+miatt\\ $\lim f(x_n)=f(\xi)\Rightarrow f(\xi)\leq0$\\[0.1cm] Hasonlóan $f(y_n)>0,
+\quad\lim(y_n)=\xi\Rightarrow\lim f(y_n)=f(\xi)$\\itt: $f(y_n)>0$ ezért $f(\xi)
+\geq0\Rightarrow f(\xi)=0\bizva$
 \section{Heine-tétel}
-	\tetel Ha $f:[a,b]\to\R$ folytonos, akkor $f$ egyenletesen folytonos.\\[0.2cm]
-	\biz (Indirekt) Tfh. $f$ nem egyenletesen folytonos.\\[0.1cm] $\Rightarrow\exists\varepsilon > 0, \forall\delta > 0, \exists x,y\in[a,b]: |x-y| < \delta : |f(x) - f(y)| \geq\varepsilon$\\[0.1cm] Legyen $\delta = \frac{1}{n}\quad n\in\N_+ \Rightarrow \exists\varepsilon > 0, \forall n\in\N_+: \exists x_n,y_n\in[a,b]: |x_n-y_n| < \frac{1}{n}: |f(x_n)-f(y_n)|\geq\varepsilon$ \\[0.1cm] Tekintsük az $(x_n): \N\to[a,b]\text{ sorozatot}\Rightarrow (x_n)$ korlátos.\\[0.1cm] Bolzano-Weierstrass kiv. tétel miatt $\exists(x_{n_k})$ konvergens részsorozat, azaz:\\[0.1cm] $\lim(x_{n_k}) =: \alpha,\quad\alpha\in[a,b]$\\[0.1cm] \textbf{De!} $|y_{n_k}-\alpha|\leq|y_{n_k}-x_{n_k}|+|x_{n_k}-\alpha| < \frac{1}{n_k}+|x_{n_k}-\alpha|\to0\quad$ azaz $\lim(y_{n_k}) = \alpha$\\[0.1cm] $f\in C(\alpha)$ átviteli elv miatt\\[0.1cm]$\lim(f(x_{n_k})) = f(\alpha)$ és $\lim(f(y_{n_k})) = f(\alpha)\Rightarrow\lim(f(x_{n_k})-f(y_{n_k})) = 0$\\[0.1cm] viszont ez ellentmondás, azzal, hogy $|f(x_{n_k})-f(y_{n_k})|\geq\varepsilon\bizva$
+\tetel Ha $f:[a,b]\to\R$ folytonos, akkor $f$ egyenletesen folytonos.\\[0.1cm]
+\biz (Indirekt) Tfh. $f$ nem egyenletesen folytonos.\\[0.1cm]
+$\Rightarrow\exists\varepsilon>0,\forall\delta>0,\exists x,y\in[a,b]:|x-y|<\delta:
+|f(x)-f(y)|\geq\varepsilon$\\[0.1cm] Legyen $\delta=\frac{1}{n}\quad n\in\N_+
+\Rightarrow\exists\varepsilon>0,\forall n\in\N_+:\exists x_n,y_n\in[a,b]:|x_n-y_n|
+<\frac{1}{n}:|f(x_n)-f(y_n)|\geq\varepsilon$ \\[0.1cm] Tekintsük az $(x_n): 
+\N\to[a,b]\text{ sorozatot}\Rightarrow (x_n)$ korlátos.\\[0.1cm]
+Bolzano-Weierstrass kiv. tétel miatt $\exists(x_{n_k})$ konvergens részsorozat,
+azaz:\\[0.1cm] $\lim(x_{n_k})=:\alpha,\quad\alpha\in[a,b]$\\[0.1cm]\textbf{De!}
+$|y_{n_k}-\alpha|\leq|y_{n_k}-x_{n_k}|+|x_{n_k}-\alpha|<\frac{1}{n_k}
++|x_{n_k}-\alpha|\to0\quad$ azaz $\lim(y_{n_k})=\alpha$\\[0.1cm] $f\in C(\alpha)$
+átviteli elv miatt\\[0.1cm]$\lim(f(x_{n_k}))=f(\alpha)$ és $\lim(f(y_{n_k}))=
+f(\alpha)\Rightarrow\lim(f(x_{n_k})-f(y_{n_k}))=0$\\[0.1cm] viszont ez
+ellentmondás, azzal, hogy $|f(x_{n_k})-f(y_{n_k})|\geq\varepsilon\bizva$
 \section{Az inverzfüggvény folytonossága}
-	\tetel Ha $f:[a,b]\to\R$ folytonos és injektív, akkor $f^{-1}$ is folytonos.\\[0.1cm]
-	\biz \underline{1. lépés:} $f^{-1}$  $\exists$ Indirekt.\\[0.1cm] Tfh. $f^{-1}$ nem folytonos. $\Rightarrow\exists y_{0}\in R_f, f^{-1}\notin C(y_0)\Rightarrow$ átviteli elv.\\[0.1cm] $\exists y_n\in R_f, \lim(y_n)=y_0$ : $\lim(f^{-1}(y_n)) \neq f^{-1}(y_0)$\\[0.1cm] Legyen $x_n=f^{-1}(y_n), n\in\N\Rightarrow\lim(x_n)\neq x_0\Rightarrow\exists\delta >0$: $\{n:|x_n-x_0|\geq\delta\}$ végtelen.\\[0.1cm] Legyen $n_k$ indexsorozat, hogy: $|x_{n_k}-x_0| \geq\delta\\[0.1cm](x_{n_k}):\N\to[a,b]\Rightarrow(x_{n_k})$ korlátos. $\Rightarrow\exists$ konvergens részsorozat.\\[0.1cm] $(x_{n_k})':\quad\lim (x_{n_k})':=\alpha\quad$\textbf{De!}$\quad|(x_{n_k})'-x_0|\geq\delta\Rightarrow|\alpha-x_0|\geq\delta\Rightarrow\alpha\neq x_0$\\[0.1cm]\underline{2. lépés:} $f\in C(\alpha)\quad\alpha\in[a,b]$\\[0.1cm] átviteli elv $\Rightarrow\lim\underbrace{f (x_{n_k})'}_{(y_{n_k})'}=f(\alpha)\Rightarrow \lim(y_{n_k})'=f(\alpha)$\\[0.1cm]\textbf{De!} $\lim(y_{n_k})'=y_0=f(x_0) \Rightarrow f(\alpha)=f(x_0)\quad f$ injektív. $\Rightarrow \alpha = x_0\quad$ Ez ellentmondás. $\bizva$
+\tetel Ha $f:[a,b]\to\R$ folytonos és injektív, akkor $f^{-1}$ is folytonos.\\[0.1cm]
+\biz \underline{1. lépés:} $f^{-1}$  $\exists$ Indirekt.\\[0.1cm] Tfh. $f^{-1}$ nem
+folytonos. $\Rightarrow\exists y_{0}\in R_f, f^{-1}\notin C(y_0)\Rightarrow$
+átviteli elv.\\[0.1cm] $\exists y_n\in R_f,\lim(y_n)=y_0$ : $\lim(f^{-1}(y_n))\neq
+f^{-1}(y_0)$\\[0.1cm] Legyen $x_n=f^{-1}(y_n),n\in\N\Rightarrow\lim(x_n)\neq
+x_0\Rightarrow\exists\delta>0$: $\{n:|x_n-x_0|\geq\delta\}$ végtelen.\\[0.1cm]
+Legyen $n_k$ indexsorozat, hogy: $|x_{n_k}-x_0|\geq\delta\\[0.1cm](x_{n_k}):
+\N\to[a,b]\Rightarrow(x_{n_k})$ korlátos. $\Rightarrow\exists$ konvergens
+részsorozat.\\[0.1cm] $(x_{n_k})':\quad\lim(x_{n_k})':=\alpha\quad$\textbf{De!}
+$\quad|(x_{n_k})'-x_0|\geq\delta\Rightarrow|\alpha-x_0|\geq\delta\Rightarrow\alpha
+\neq x_0$\\[0.1cm]\underline{2. lépés:} $f\in C(\alpha)\quad\alpha\in[a,b]$\\[0.1cm]
+átviteli elv $\Rightarrow\lim\underbrace{f(x_{n_k})'}_{(y_{n_k})'}=
+f(\alpha)\Rightarrow\lim(y_{n_k})'=f(\alpha)$\\[0.1cm]\textbf{De!}
+$\lim(y_{n_k})'=y_0=f(x_0)\Rightarrow f(\alpha)=f(x_0)\quad f$ injektív.
+$\Rightarrow\alpha=x_0\quad$ Ez ellentmondás. $\bizva$
 \newpage
 \section{Folytonos invertálható függvény jellemzése a monotonitással.}
 \tetel $f:[a,b]\to\R$ folytonos és injektív $\Rightarrow f$ szig. mon.\\[0.1cm]
-\biz Ha $f(a)<f(b)$, ekkor $f$ szig. mon. nő\\[0.1cm] \textbf{1.} Igazoljuk, hogy $f(a)=min\{f(x):x\in[a,b]\}$ és $f(b)=max\{f(x):x\in[a,b]\}$\\[0.1cm] Csak az elsőt. Indirekten, Tfh:\\[0.1cm] $f(a)>min f$ (< nem lehet) Weierstrass-tétel $\Rightarrow\exists\alpha\in[a,b]:f(\alpha)=min f\quad\alpha\neq a,b$\\[0.1cm] Tekintsük az $f:[\alpha,b]\to\R$ függvényt. A Bolzano-tétel miatt $c=f(a)\in(f(\alpha),f(b))$-hoz is\\[0.1cm] $\exists\xi\in[\alpha,b]:f(a)=f(\xi)\quad f$ injektív $\Rightarrow a=\xi\quad$ Ellentmondás.\\[0.1cm]\textbf{2.} Igazoljuk, ha $x_1<x_2\Rightarrow f(x_1)<f(x_2)\quad(x_1,x_2\in[a,b])$\\[0.1cm]Indirekt, Tfh: $f(x_1)>f(x_2)$\\[0.1cm]Ekkor $f(x_1)\in(f(x_2),f(b))\quad$ Tekintsük az $f:[x_2,b] \to\R$ függvényt.\\[0.1cm]$c=f(x_1)$-hez is $\exists\xi\in(x_2,b):f(x_1)=f(\xi)\quad f$ injektív $\Rightarrow x_1=\xi\quad$ Ellentmondás.$\bizva$
+\biz Ha $f(a)<f(b)$, ekkor $f$ szig. mon. nő\\[0.1cm] \textbf{1.} Igazoljuk, hogy
+$f(a)=min\{f(x):x\in[a,b]\}$ és $f(b)=max\{f(x):x\in[a,b]\}$\\[0.1cm] Csak az
+elsőt. Indirekten, Tfh:\\[0.1cm] $f(a)>min f$ (< nem lehet) Weierstrass-tétel
+$\Rightarrow\exists\alpha\in[a,b]:f(\alpha)=min f\quad\alpha\neq a,b$\\[0.1cm]
+Tekintsük az $f:[\alpha,b]\to\R$ függvényt. A Bolzano-tétel miatt $c=f(a)
+\in(f(\alpha),f(b))$-hoz is\\[0.1cm] $\exists\xi\in[\alpha,b]:f(a)=f(\xi)\quad f$
+injektív $\Rightarrow a=\xi\quad$ Ellentmondás.\\[0.1cm]\textbf{2.} Igazoljuk, ha
+$x_1<x_2\Rightarrow f(x_1)<f(x_2)\quad(x_1,x_2\in[a,b])$\\[0.1cm]Indirekt, Tfh:
+$f(x_1)>f(x_2)$\\[0.1cm]Ekkor $f(x_1)\in(f(x_2),f(b))\quad$ Tekintsük az $f:[x_2,b]
+\to\R$ függvényt.\\[0.1cm]$c=f(x_1)$-hez is $\exists\xi\in(x_2,b):
+f(x_1)=f(\xi)\quad f$ injektív $\Rightarrow x_1=\xi\quad$ Ellentmondás.$\bizva$
 \section{Differenciálható függvények összege, szorzata, hányadosa.}
-\tetel Legyen $f,g\in\rtr,a\in int(\D_f\cap\D_g),\quad f,g\in\D(a)$ Ekkor:\\[0.2cm]\hspace*{0.7cm}\textbf{i,} $f+g\in\D(a)\text{ és }(f+g)'(a)=f'(a)+g'(a)$ \\[0.1cm]\hspace*{0.7cm}\textbf{ii,} $f\cdot g\in\D(a)\text{ és }(f\cdot g)'(a)= f'(a)\cdot g(a)+f(a)\cdot g'(a)$\\[0.1cm]\hspace*{0.7cm}\textbf{iii,} Ha $g(a)\neq0$, akkor $\frac{f}{g}\in\D(a)\text{ és } (\frac{f}{g})'(a) =\frac{(f'(a)\cdot g(a)-f(a)\cdot g'(a))}{g^2(a)}$\\[0.1cm]\biz \\[0.1cm]\hspace*{0.3cm}\textbf{i,} $a\in int(\D_f\cap\D_g)=int\D_{f+g}\\[0.2cm]\limxa \frac{(f+g)(x)-(f+g)(a)}{x-a}=\limxatelj+\limxa\frac{g(x)-g(a)}{x-a}=f'(a)+g'(a) \\[0.2cm]\Rightarrow(f+g)'(a)=f'(a)+g'(a)$
-\\[0.3cm]\hspace*{0.3cm}\textbf{ii,} $\limxa\frac{(f\cdot g)(x)-(f\cdot g)(a)}{x-a}=\limxa\frac{f(x)\cdot g(x)-f(a)\cdot g(a)}{x-a}=\\[0.4cm]=\limxa\frac{f(x)\cdot g(x)-g(x)\cdot f(a)+g(x)\cdot f(a)-f(a)\cdot g(a)}{x-a}=\\[0.4cm]=\limxa g(x)\cdot\underbrace{\frac{f(x)-f(a)}{x-a}}_{\to f'(a)}+ \limxa f(a)\cdot\underbrace{\frac{g(x)-g(a)}{x-a}}_{\to g'(a)}\longrightarrow f'(a)\cdot g(a)+f(a)\cdot g'(a)\quad(x\to a)\\[0.2cm]\Rightarrow(f\cdot g)'(a)= f'(a)\cdot g(a)+f(a)\cdot g'(a)$\\[0.3cm]\hspace*{0.3cm}\textbf{iii,} Először igazoljuk, hogy $(\frac{1}{g})'(a)=-\frac{g'(a)}{g^2(a)}\\[0.2cm]\limxa\frac{\frac{1}{g}(x)-\frac{1}{g}(a)}{x-a}=\limxa\frac{\frac{1}{g(x)}-\frac{1}{g(a)}}{x-a}=\limxa\frac{g(a)-g(x)}{g(x)\cdot g(a)\cdot(x-a)}=\\[0.4cm]=\limxa\underbrace{(-\frac{1}{g(x)\cdot g(a)})}_{\to\frac{-1}{g^2(a)}}\cdot\underbrace{(\frac{g(x)-g(a)}{x-a})}_{\to g'(a)}\longrightarrow -\frac{g'(a)}{g^2(a)}\quad(x\to a)\\[0.4cm]\Rightarrow (\frac{f}{g})'(a)=(f\cdot\frac{1}{g})'(a)=f'(a)\cdot\frac{1}{g(a)}+f(a)\cdot(\frac{1}{g})'(a)= \frac{f'(a)}{g(a)}-\frac{f(a)\cdot g'(a)}{g^2(a)}=\frac{f'(a)\cdot g(a)-f(a)\cdot g'(a)}{g^2(a)} \\[0.25cm]\bizva$
+\tetel Legyen $f,g\in\rtr,a\in int(\D_f\cap\D_g),\quad f,g\in\D(a)$ Ekkor:
+\\[0.2cm]\hspace*{0.7cm}\textbf{i,} $f+g\in\D(a)\text{ és }(f+g)'(a)=f'(a)+g'(a)$
+\\[0.1cm]\hspace*{0.7cm}\textbf{ii,} $f\cdot g\in\D(a)\text{ és }(f\cdot g)'(a)=
+f'(a)\cdot g(a)+f(a)\cdot g'(a)$\\[0.1cm]\hspace*{0.7cm}\textbf{iii,} Ha $g(a)\neq0$, akkor 
+$\frac{f}{g}\in\D(a)\text{ és }(\frac{f}{g})'(a)=\frac{(f'(a)\cdot g(a)-f(a)\cdot g'(a))}{g^2(a)}$
+\\[0.1cm]\biz\\[0.1cm]\hspace*{0.3cm}\textbf{i,} $a\in int(\D_f\cap\D_g)=int\D_{f+g}
+\\[0.2cm]\limxa \frac{(f+g)(x)-(f+g)(a)}{x-a}=\limxatelj+\limxa
+\frac{g(x)-g(a)}{x-a}=f'(a)+g'(a) \\[0.2cm]\Rightarrow(f+g)'(a)=f'(a)+g'(a)$
+\\[0.3cm]\hspace*{0.3cm}\textbf{ii,} $\limxa\frac{(f\cdot g)(x)-(f\cdot g)(a)}{x-a}=
+\limxa\frac{f(x)\cdot g(x)-f(a)\cdot g(a)}{x-a}=\\[0.4cm]=\limxa\frac{f(x)\cdot
+g(x)-g(x)\cdot f(a)+g(x)\cdot f(a)-f(a)\cdot g(a)}{x-a}=\\[0.4cm]=\limxa
+g(x)\cdot\underbrace{\frac{f(x)-f(a)}{x-a}}_{\to f'(a)}+\limxa
+f(a)\cdot\underbrace{\frac{g(x)-g(a)}{x-a}}_{\to g'(a)}\longrightarrow f'(a)\cdot
+g(a)+f(a)\cdot g'(a)\quad(x\to a)\\[0.2cm]\Rightarrow(f\cdot g)'(a)= f'(a)\cdot
+g(a)+f(a)\cdot g'(a)$\\[0.3cm]\hspace*{0.3cm}\textbf{iii,} Először igazoljuk, hogy
+$(\frac{1}{g})'(a)=-\frac{g'(a)}{g^2(a)}\\[0.2cm]\limxa\frac{\frac{1}{g}(x)-
+\frac{1}{g}(a)}{x-a}=\limxa\frac{\frac{1}{g(x)}-\frac{1}{g(a)}}{x-a}=\limxa
+\frac{g(a)-g(x)}{g(x)\cdot g(a)\cdot(x-a)}=\\[0.4cm]=\limxa
+\underbrace{(-\frac{1}{g(x)\cdot g(a)})}_{\to\frac{-1}{g^2(a)}}
+\cdot\underbrace{(\frac{g(x)-g(a)}{x-a})}_{\to g'(a)}\longrightarrow
+-\frac{g'(a)}{g^2(a)}\quad(x\to a)\\[0.4cm]\Rightarrow 
+(\frac{f}{g})'(a)=(f\cdot\frac{1}{g})'(a)=f'(a)\cdot\frac{1}{g(a)}+f(a)\cdot
+(\frac{1}{g})'(a)= \frac{f'(a)}{g(a)}-\frac{f(a)\cdot g'(a)}{g^2(a)}=\frac{f'(a)\cdot g(a)-f(a)\cdot g'(a)}{g^2(a)} \\[0.25cm]\bizva$
 \newpage
 \section{Differenciálható függvények kompozíciója.}
-\tetel $f,g\in\rtr,R_g\subset D_f,g \in\D(a),f\in\D(g(a))$, ekkor\\[0.1cm] $f\circ g\in\D(a)\text{ és }(f\circ g)'(a)= f'(g(a))\cdot g'(a)\\[0.2cm]$\biz $g\in\D(a)\Rightarrow a\in int\D_g\Rightarrow int\D_{f\circ g}\\[0.2cm]g\in\D(a)\Rightarrow\exists\varepsilon_1\in\rtr,\lima \varepsilon_1=0\text{ és }g(x)-g(a)=g'(a)(x-a)+\varepsilon_1(x)(x-a)\quad(x\in D_f)\\[0.2cm]f\in\D(g(a))\Rightarrow\exists\varepsilon_2\in\rtr,\displaystyle\lim_{g(a)}\varepsilon_2=0\text{ és }f(y)-f(g(a))=f'(g(a))\cdot(y-g(a))+ \varepsilon_2(y)\cdot(y-g(a))$ \\[0.1cm]Legyen $y=g(x)$\\[0.1cm]$f(g(x))-f(g(a))=f'(g(a))\cdot(g(x)-g(a))+ \varepsilon_2(g(x))\cdot(g(x)- g(a))=\\[0.2cm]=f'(g(a))\cdot(g'(a)(x-a)+
-\varepsilon_1(x)(x-a))+ \varepsilon_2(g(x))\cdot(g'(a)(x-a)+\varepsilon_1(x)
-(x-a))=\\[0.2cm]=f'(g(a))\cdot g'(a)\cdot(x-a)+ (x-a)\cdot\underbrace{(f'(g(a))
-\cdot\varepsilon_1(x)+\varepsilon_2(g(x))\cdot g'(a)+ \varepsilon_1(x)\cdot \varepsilon_2(g(x)))}_{\varepsilon(x)}$\\[0.2cm]$ \varepsilon_1\to0,\quad(x\to a)\\[0.1cm] g(x)\to g(a)\\[0.1cm]\Rightarrow\limxa \varepsilon_2(g(x))=\displaystyle\lim_{g(a)} \varepsilon_2=0\Rightarrow\lima \varepsilon=0\\[0.2cm]\Rightarrow(f\circ g)'(a)= f'(g(a))\cdot g'(a)\bizva$
+\tetel $f,g\in\rtr,R_g\subset D_f,g \in\D(a),f\in\D(g(a))$, ekkor\\[0.1cm] $f\circ
+g\in\D(a)\text{ és }(f\circ g)'(a)= f'(g(a))\cdot g'(a)\\[0.2cm]$\biz$g\in\D(a)
+\Rightarrow a\in int\D_g\Rightarrow int\D_{f\circ g}\\[0.1cm]
+g\in\D(a)\Rightarrow\exists\varepsilon_1\in\rtr,\lima \varepsilon_1=0
+\text{ és }g(x)-g(a)=g'(a)(x-a)+\varepsilon_1(x)(x-a)\quad(x\in D_f)\\[0.2cm]
+f\in\D(g(a))\Rightarrow\exists\varepsilon_2\in\rtr,\displaystyle\lim_{g(a)}
+\varepsilon_2=0\text{ és }f(y)-f(g(a))=f'(g(a))\cdot(y-g(a))+\varepsilon_2(y)
+\cdot(y-g(a))$\\[0.1cm]Legyen $y=g(x)$\\[0.1cm]$f(g(x))-f(g(a))=f'(g(a))\cdot 
+(g(x)-g(a))+ \varepsilon_2(g(x))\cdot (g(x)-g(a))=\\[0.2cm]=f'(g(a))\cdot 
+(g'(a)(x-a)+\varepsilon_1(x)(x-a))+ \varepsilon_2(g(x))\cdot(g'(a)(x-a)
++\varepsilon_1(x)(x-a))=\\[0.2cm]=f'(g(a))\cdot g'(a)\cdot (x-a)+ (x-a)\cdot 
+\underbrace{(f'(g(a))\cdot\varepsilon_1(x)+\varepsilon_2(g(x))\cdot 
+g'(a)+\varepsilon_1(x)\cdot  \varepsilon_2(g(x)))}_{\varepsilon(x)}$
+\\[0.2cm]$\varepsilon_1\to0,\quad(x\to a)\\[0.1cm] g(x)\to g(a)\\[0.1cm]
+\Rightarrow\limxa\varepsilon_2(g(x))=\displaystyle\lim_{g(a)}\varepsilon_2=0
+\Rightarrow\lima\varepsilon=0\\[0.2cm]\Rightarrow(f\circ g)'(a)= f'(g(a))\cdot 
+g'(a)\bizva$
 \section{Az inverz függvény deriváltja.}
-\tetel Legyen $f:(a,b)\to\R$, szig. mon. növő és folytonos függvény.\\[0.1cm]Ha $\xi\in(a,b),f\in\D(\xi) \text{ és }f'(\xi)\neq0$, akkor\\[0.1cm] $(f^{-1})\in\D(\eta)\text{ és }(f^{-1})'(\eta)=\frac{1}{f'(\xi)}\text{, ahol }\eta=f(\xi)$\\[0.2cm]\biz $f:(a,b)\to\R\text{ folytonos }\Rightarrow R_f$ intervallum.\\[0.2cm] $f$ szig. mon. növő $\Rightarrow R_f$ nyílt intervallum $\Rightarrow\eta\in int R_f\quad\quad f^{-1}:R_f\to D_f$\\[0.2cm] $\displaystyle\lim_{y\to\eta}\frac{f^{-1}(y)-f^{-1}(\eta)}{y-\eta}=\displaystyle\lim_{x\to\xi}\frac{x-\xi}{f(x)-f(\xi)}=\displaystyle\lim_{x\to\xi}\frac{1}{\frac{f(x)-f(\xi)}{x-\xi}}\longrightarrow\frac{1}{f'(\xi)}\quad(x\to\xi)$\\[0.2cm] Legyen $f(x)=y\Leftrightarrow x=f^{-1}(y)\quad\quad\xi=f^{-1}(\eta)$\\[0.2cm] Ui. $x\to\xi$, mert $y\to\eta:\quad f:(a,b)\to\R$ folytonos és injektív $\Rightarrow f^{-1}$ folytonos $\Rightarrow f^{-1}(y)\to f^{-1}(\eta)\\[0.1cm]\Rightarrow x\to\xi\\[0.2cm](f^{-1})'(\eta)=\displaystyle\lim_{y\to\eta}\frac{f^{-1}(y)-f^{-1}(\eta)}{y-\eta}=\displaystyle\lim_{x\to\xi}\frac{1}{\frac{f(x)-f(\xi)}{x-\xi}}= \frac{1}{f'(\xi)}\bizva$
+\tetel Legyen $f:(a,b)\to\R$, szig. mon. növő és folytonos függvény.\\[0.1cm]Ha 
+$\xi\in(a,b),f\in\D(\xi) \text{ és }f'(\xi)\neq0$, akkor\\[0.1cm] 
+$(f^{-1})\in\D(\eta)\text{ és }(f^{-1})'(\eta)=\frac{1}{f'(\xi)}
+\text{, ahol }\eta=f(\xi)$\\[0.2cm]\biz $f:(a,b)\to\R\text{ folytonos }
+\Rightarrow R_f$ intervallum.\\[0.2cm] $f$ szig. mon. növő $\Rightarrow R_f$ 
+nyílt intervallum $\Rightarrow\eta\in int R_f\quad\quad f^{-1}:R_f\to D_f$
+\\[0.2cm] $\displaystyle\lim_{y\to\eta}\frac{f^{-1}(y)-f^{-1}(\eta)}{y-\eta}=
+\displaystyle\lim_{x\to\xi}\frac{x-\xi}{f(x)-f(\xi)}=\displaystyle\lim_{x\to\xi}
+\frac{1}{\frac{f(x)-f(\xi)}{x-\xi}}\longrightarrow\frac{1}{f'(\xi)}\quad
+(x\to\xi)$\\[0.2cm] Legyen $f(x)=y\Leftrightarrow x=f^{-1}(y)\quad
+\quad\xi=f^{-1}(\eta)$\\[0.2cm] Ui. $x\to\xi$, mert $y\to\eta:\quad 
+f:(a,b)\to\R$ folytonos és injektív $\Rightarrow f^{-1}$ folytonos $\Rightarrow 
+f^{-1}(y)\to f^{-1}(\eta)\\[0.1cm]\Rightarrow x\to\xi\\[0.2cm](f^{-1})'(\eta)
+=\displaystyle\lim_{y\to\eta}\frac{f^{-1}(y)-f^{-1}(\eta)}{y-\eta}=\lim
+\limits_{x\to\xi}\frac{1}{\frac{f(x)-f(\xi)}{x-\xi}}= \frac{1}{f'(\xi)}\bizva$
 \section{Hatványsor összegfüggvényének deriváltja}
-\tetel Legyen $\sumun\alpha_n(x-a)^n$ hatványsor konvergenciasugara $R>0$ és legyen \\$f(x):=\sumn\alpha_n(x-a)^n\quad x\in K_R(a)$. Ekkor $f\in\D(x_0)\quad\forall x_0\in K_R(a)$ és\\$f'(x_0)=\sume n\cdot\alpha_n\cdot(x_0-a)^{n-1},\quad$ahol $x_0\in K_R(a)$\newpage\biz \underline{1. lépés:} Igazoljuk, hogy $\sumun n\cdot\alpha_n\cdot r^n$ abszolút konvergens $\forall0<r<R$\\Legyen $0<r<r'<R$ és $x=a+r'$\\[0.1cm]$x$-ben konvergens a hatványsor $\Rightarrow\sumun\alpha_n(r')^n$ konvergens $\Rightarrow\limn \alpha_n(r')^n=0\Rightarrow(\alpha_n(r')^n)$ korlátos\\[0.1cm] $\Rightarrow\exists M>0:|\alpha_n(r')^n|\leq M\Rightarrow |\alpha_n|\leq \frac{M}{(r')^n}\Rightarrow\sumun|n\cdot\alpha_n\cdot r^n|\leq M\cdot\sumun n\cdot$($\frac{r}{r'}$)$^n$\\ez konvergens, hiszen a gyökkritérium miatt\\ $\sqrt[n]{n\cdot(\frac{r}{r'})^n}=\sqrt[n]{n}\cdot$($\frac{r}{r'}$)$\to$($\frac{r}{r'}$)$<1 \Rightarrow\sumun n\cdot\alpha_n\cdot r^n$ abszolút konvergens\\$\Rightarrow\sumeu n\cdot\alpha_n\cdot r^{n-1}$ is abszolút konvergens $\Rightarrow\forall\varepsilon>0,\exists N:\displaystyle\sum_{n=N+1}^{\infty}|n\cdot\alpha_n\cdot r^{n-1}|<\frac{\varepsilon}{2}$ \\[0.1cm] \underline{2. lépés:}\\$\abs{\frac{f(x)-f(x_0)}{x-x_0}-\sume n\cdot\alpha_n (x_0-a)^{n-1}}=\abs{\frac{\sumn\alpha_n (x-a)^n-\sumn\alpha_n (x_0-a)^n}{x-x_0}-\sume n\cdot\alpha_n (x_0-a)^{n-1}}\leq\\[0.2cm]\leq\underbrace{\abs{ \displaystyle\sum_{n=1}^{N}\frac{\alpha_n(x-a)^n-\alpha_n(x_0-a)^n}{x-x_0}- \displaystyle\sum_{n=1}^{N}n\cdot\alpha_n(x_0-a)^{n-1}}}_{(I)}+\underbrace{\abs{\displaystyle\sum_{n=N+1}^{\infty}\alpha_n\frac{(x-a)^n-(x_0-a)^n}{x-x_0}}}_{(II)}+\\[0.2cm]+\underbrace{\abs{\displaystyle\sum_{n=N+1}^{\infty}n\cdot\alpha_n(x_0-a)^{n-1}}}_{(III)}= (I)+(II)+(III)$\\[0.1cm]Tfh. $\abs{x_0-a}<r<R$\\[0.1cm]Mivel $x\to x_0$ ezért feltehető, hogy $|x-a|<r\Rightarrow(III)\leq\displaystyle\sum_{n=N+1}^{\infty}n\cdot \abs{\alpha_n}\cdot r^{n-1}<\frac{\varepsilon}{2}\\[0.1cm](II)\leq\displaystyle\sum_{n=N+1}^{\infty}|\alpha_n|\abs{\frac{((x-a)-(x_0-a))((x-a)^{n-1}+(x-a)^{n-2}(x_0-a)+...+ (x_0-a)^{n-1})}{x-x_0}}=\\[0.3cm]=\displaystyle\sum_{n=N+1}^{\infty}|\alpha_n|\abs{(x-a)^{n-1}+(x-a)^{n-2}(x_0-a)+...+ (x_0-a)^{n-1}}=\displaystyle\sum_{n=N+1}^{\infty}|\alpha_n|\cdot n\cdot r^{n-1}<
-\frac{\varepsilon}{2}\\[0.3cm](I)\leq\sum_{n=1}^{N}|\alpha_n|\abs{\underbrace{\frac{(x-a)^n-(x_0-a)^n}{x-x_0}-n\cdot(x_0-a)^{n-1}}_{\to0\text{, ha }x\to x_0}}\\[0.3cm]g(x)=(x-a)^n \Rightarrow$ a tört határértéke$\quad g'(x_0)=n\cdot(x_0-a)^{n-1}\quad(x\to x_0) \\[0.2cm]\Rightarrow\exists\delta>0, (I)<\varepsilon$, ha $|x-x_0|<\delta\\[0.3cm] \Rightarrow\abs{\frac{f(x)-f(x_0)}{x-x_0}-\sume n\cdot\alpha_n (x_0-a)^{n-1}}< \varepsilon+\varepsilon=2\varepsilon\quad(\text{ ha }|x-x_0|<\delta)\\[0.1cm] \Rightarrow lim\abs{\frac{f(x)-f(x_0)}{x-x_0}-\sume n\cdot\alpha_n (x_0-a)^{n-1}}=0 \\[0.1cm]f\in\D(x_0)\text{ és }f'(x_0)=\sume n\cdot\alpha_n\cdot(x_0-a)^{n-1}\bizva$
+\tetel Legyen $\sumun\alpha_n(x-a)^n$ hatványsor konvergenciasugara $R>0$ és legyen
+\\$f(x):=\sumn\alpha_n(x-a)^n\quad x\in K_R(a)$. Ekkor $f\in\D(x_0)\quad\forall
+x_0\in K_R(a)$ és\\$f'(x_0)=\sume n\cdot\alpha_n\cdot(x_0-a)^{n-1},\quad$ahol $x_0\in K_R(a)$\newpage
+\biz \underline{1. lépés:} Igazoljuk, 
+hogy $\sumun n\cdot\alpha_n\cdot r^n$ abszolút konvergens $\forall0<r<R$\\Legyen 
+$0<r<r'<R$ és $x=a+r'$\\[0.1cm]$x$-ben konvergens a hatványsor $\Rightarrow\
+sumun\alpha_n(r')^n$ konvergens $\Rightarrow\limn\alpha_n(r')^n=0
+\Rightarrow(\alpha_n(r')^n)$ korlátos\\[0.1cm] $\Rightarrow\exists M>0:
+|\alpha_n(r')^n|\leq M\Rightarrow |\alpha_n|\leq \frac{M}{(r')^n}
+\Rightarrow\sumun|n\cdot\alpha_n\cdot r^n|\leq M\cdot\sumun n\cdot
+$($\frac{r}{r'}$)$^n$\\ez konvergens, hiszen a gyökkritérium miatt\\
+$\sqrt[n]{n\cdot(\frac{r}{r'})^n}=\sqrt[n]{n}\cdot$($\frac{r}{r'}$)$\to$
+($\frac{r}{r'}$)$<1 \Rightarrow\sumun n\cdot\alpha_n\cdot r^n$ abszolút 
+konvergens\\$\Rightarrow\sumeu n\cdot\alpha_n\cdot r^{n-1}$ is abszolút 
+konvergens $\Rightarrow\forall\varepsilon>0,\exists N:\displaystyle
+\sum_{n=N+1}^{\infty}|n\cdot\alpha_n\cdot r^{n-1}|< 
+\frac{\varepsilon}{2}$\\[0.1cm]\underline{2. lépés:}\\
+$\abs{ \frac{f(x)-f(x_0)}{x-x_0}-\sume n\cdot \alpha_n (x_0-a)^{n-1}}
+=\abs{\frac{\sumn\alpha_n (x-a)^n-\sumn\alpha_n (x_0-a)^n}{x-x_0}-\sume 
+n\cdot\alpha_n (x_0-a)^{n-1}}\leq\\[0.2cm]\leq\underbrace{\abs{ 
+\displaystyle\sum_{n=1}^{N}\frac{\alpha_n(x-a)^n-\alpha_n(x_0-a)^n}{x-x_0}- 
+\displaystyle\sum_{n=1}^{N}n\cdot\alpha_n(x_0-a)^{n-1}}}_{(I)}+\underbrace
+{\abs{\displaystyle\sum_{n=N+1}^{\infty}\alpha_n\frac{(x-a)^n-(x_0-a)^n}{x-x_0}}}
+_{(II)}+\\[0.2cm]+\underbrace{\abs{\displaystyle\sum_{n=N+1}^{\infty}n\cdot\alpha
+_n(x_0-a)^{n-1}}}_{(III)}= (I)+(II)+(III)$\\[0.1cm]Tfh. $\abs{x_0-a}<r<R$
+\\[0.1cm]Mivel $x\to x_0$ ezért feltehető, hogy $|x-a|<r\Rightarrow(III)
+\leq\displaystyle \sum_{n=N+1}^{\infty}n\cdot \abs{\alpha_n}\cdot r^{n-1}<
+\frac{\varepsilon}{2} \\[0.1cm](II)\leq\displaystyle
+\sum_{n=N+1}^{\infty}|\alpha_n|\abs{\frac{((x-a)-(x_0-a))((x-a)^{n-1}+(x-a)^{n-2}
+(x_0-a)+...+ (x_0-a)^{n-1})}{x-x_0}}=\\[0.3cm]=\displaystyle
+\sum_{n=N+1}^{\infty}|\alpha_n|\abs{(x-a)^{n-1}+(x-a)^{n-2}(x_0-a)+...+ 
+(x_0-a)^{n-1}}=\displaystyle \sum_{n=N+1}^{\infty}|\alpha_n|\cdot n\cdot 
+r^{n-1}<\frac{\varepsilon}{2} \\[0.3cm](I)\leq\sum_{n=1}^{N}|\alpha_n|
+\abs{\underbrace{\frac{(x-a)^n-(x_0-a)^n}{x-x_0}-n\cdot(x_0-a)^{n-1}}_
+{\to0\text{, ha }x\to x_0}}\\[0.3cm]g(x)=(x-a)^n \Rightarrow$ a tört határértéke
+$\quad g'(x_0)=n\cdot(x_0-a)^{n-1}\quad(x\to x_0) \\[0.2cm]\Rightarrow\exists
+\delta>0, (I)<\varepsilon$, ha $|x-x_0|<\delta\\[0.3cm] \Rightarrow
+\abs{\frac{f(x)-f(x_0)}{x-x_0}-\sume n\cdot\alpha_n (x_0-a)^{n-1}}< 
+\varepsilon+\varepsilon=2\varepsilon\quad(\text{ ha }|x-x_0|<\delta)\\[0.1cm] 
+\Rightarrow \lim\abs{\frac{f(x)-f(x_0)}{x-x_0}-\sume n\cdot\alpha_n 
+(x_0-a)^{n-1}}=0 \\[0.1cm]f\in\D(x_0)\text{ és }f'(x_0)=\sume n\cdot\alpha_n 
+\cdot(x_0-a)^{n-1}\bizva$
 \section{A differenciálszámítás középértéktételei (Rolle-, Cauchy-, Lagrange-tétel).}
-\textbf{1. Rolle-tétel}\\[0.1cm]\tetel Tfh. $f\cab$ és $f\dab$\\[0.2cm]Ha $f(a)=f(b)$, ekkor $\exists\xi\in(a,b):f'(\xi)=0$\\[0.2cm]\biz $f\cab\Rightarrow$ Weierstrass-tétel miatt\\[0.2cm]$\Rightarrow\exists\alpha\in[a,b]:f(\alpha)= \min\limits_{[a,b]}f=:m$ és $\exists\beta\in[a,b]:f(\beta)= \max\limits_{[a,b]}f=:M$
-\\[0.2cm]\underline{1. lépés:} Tfh. $m=M\Rightarrow f=m\quad([a,b]$-n$)$, a függvény konstans $\Rightarrow f'=0\quad[a,b]$-n\\[0.2cm]\underline{2. lépés:} $m\neq M$ és $m\neq f(a)=f(b)\Rightarrow m=f(\alpha)\Rightarrow\alpha\neq a,b \Rightarrow\alpha\in(a,b)\\[0.2cm]\Rightarrow\alpha$-ban lokális minimum van. $\Rightarrow f'(\alpha)=0$\\[0.2cm]\underline{3. lépés:} Tfh. $m\neq M$ és $m=f(a) =f(b)$\\[0.2cm]$\Rightarrow M\neq f(a)=f(b)\Rightarrow\beta\neq a,b\Rightarrow\beta \in(a,b)\Rightarrow\beta$-ban lokális maximum van $\Rightarrow f'(\beta)=0\bizva$ \\[0.2cm]\textbf{2. Cauchy-tétel}\\[0.1cm]\tetel Tfh. $f,g\cab$, $f,g\dab$ és $g'(x)\neq0\quad(x\in(a,b))$\\[0.2cm]Ekkor: $\exists\xi\in(a,b): \frac{f(b)-f(a)}{g(b)-g(a)}=\frac{f'(\xi)}{g'(\xi)}$\\[0.2cm]\biz
-$g(b)\neq g(a)$, hiszen különben $\exists\xi\in(a,b):g'(\xi)=0$\\[0.2cm]Válasszuk meg $\lambda$-t úgy, hogy az $F:=f-\lambda g$ függvényre alkalmazhassuk a Rolle-tételt\\[0.2cm]$F\cab,F\dab, F(a)=F(b)\Leftrightarrow f(a)-\lambda g(a)= f(b)-\lambda g(b)\Leftrightarrow\lambda=\frac{f(b)-f(a)}{g(b)-g(a)}\\[0.2cm] \Rightarrow$ Rolle-tétel miatt $\exists\xi\in(a,b):F'(\xi)=0\Leftrightarrow F'(\xi) =f'(\xi)-\lambda g'(\xi)=0\Leftrightarrow\lambda=\frac{f'(\xi)}{g'(\xi)}\bizva$ \\[0.2cm]\textbf{3. Lagrange-tétel}\\[0.1cm]\tetel Tfh. $f\cab,f\dab$\\[0.2cm]Ekkor $\exists\xi\in(a,b):\frac{f(b)-f(a)}{b-a}=f'(\xi)$\\[0.2cm]\biz Legyen $g(x)=x \Rightarrow g'(x)=1\neq0\quad$ Így alkalmazható rá a Cauchy-tétel$\bizva$
+\textbf{1. Rolle-tétel}\\[0.1cm]\tetel Tfh. $f\cab$ és $f\dab$\\[0.2cm]Ha
+$f(a)=f(b)$, ekkor $\exists\xi\in(a,b):f'(\xi)=0$\\[0.2cm]\biz $f\cab\Rightarrow$
+Weierstrass-tétel miatt\\[0.2cm]$\Rightarrow\exists\alpha\in[a,b]:f(\alpha)=
+\min\limits_{[a,b]}f=:m$ és $\exists\beta\in[a,b]:f(\beta)= \max\limits_{[a,b]}f=:M$
+\\[0.2cm]\underline{1. lépés:} Tfh. $m=M\Rightarrow f=m\quad([a,b]$-n$)$, a függvény
+konstans $\Rightarrow f'=0\quad[a,b]$-n\\[0.2cm]\underline{2. lépés:} $m\neq M$ és
+$m\neq f(a)=f(b)\Rightarrow m=f(\alpha)\Rightarrow\alpha\neq a,b
+\Rightarrow\alpha\in(a,b)\\[0.2cm]\Rightarrow\alpha$-ban lokális minimum van.
+$\Rightarrow f'(\alpha)=0$\\[0.2cm]\underline{3. lépés:} Tfh. $m\neq M$ és $m=f(a)
+=f(b)$\\[0.2cm]$\Rightarrow M\neq f(a)=f(b)\Rightarrow\beta\neq a,b\Rightarrow\beta
+\in(a,b)\Rightarrow\beta$-ban lokális maximum van $\Rightarrow f'(\beta)=0\bizva$
+\\[0.2cm]\textbf{2. Cauchy-tétel}\\[0.1cm]\tetel Tfh. $f,g\cab$, $f,g\dab$ és
+$g'(x)\neq0\quad(x\in(a,b))$\\[0.2cm]Ekkor: $\exists\xi\in(a,b):
+\frac{f(b)-f(a)}{g(b)-g(a)}=\frac{f'(\xi)}{g'(\xi)}$\\[0.2cm]\biz
+$g(b)\neq g(a)$, hiszen különben $\exists\xi\in(a,b):g'(\xi)=0$\\[0.2cm]Válasszuk meg
+$\lambda$-t úgy, hogy az $F:=f-\lambda g$ függvényre alkalmazhassuk a
+Rolle-tételt\\[0.2cm]$F\cab,F\dab, F(a)=F(b)\Leftrightarrow f(a)-\lambda g(a)=
+f(b)-\lambda g(b)\Leftrightarrow\lambda=\frac{f(b)-f(a)}{g(b)-g(a)}\\[0.2cm]
+\Rightarrow$ Rolle-tétel miatt $\exists\xi\in(a,b):F'(\xi)=0\Leftrightarrow F'(\xi)
+=f'(\xi)-\lambda g'(\xi)=0\Leftrightarrow\lambda=\frac{f'(\xi)}{g'(\xi)}\bizva$
+\\[0.2cm]\textbf{3. Lagrange-tétel}\\[0.1cm]\tetel Tfh. $f\cab,f\dab$\\[0.2cm]Ekkor
+$\exists\xi\in(a,b):\frac{f(b)-f(a)}{b-a}=f'(\xi)$\\[0.2cm]\biz Legyen $g(x)=x
+\Rightarrow g'(x)=1\neq0\quad$ Így alkalmazható rá a Cauchy-tétel$\bizva$
 \section{A monotonitásra vonatkozó szükséges, és \\ szükséges és elégséges feltételek.}
 \subsection{Szükséges Feltétel}
-\tetel Tfh. $f\dab$ Ekkor: \\[0.1cm]\hspace*{0.3cm}\textbf{i,} $f'\geq0\quad(a,b)$-n $\Rightarrow f$ monoton nő $(a,b)$-n\\[0.1cm]\hspace*{0.3cm}\textbf{ii,} $f'\leq0\quad(a,b)$-n $\Rightarrow f$ monoton fogy $(a,b)$-n\\[0.1cm]\hspace*{0.3cm}\textbf{iii,} $f'>0\quad (a,b)$-n $\Rightarrow f$ szigorú monoton nő $(a,b)$-n\\[0.1cm]\hspace*{0.3cm}\textbf{iv,} $f'<0\quad (a,b)$-n $\Rightarrow f$ szigorú monoton fogy $(a,b)$-n\\[0.2cm]\biz \\[0.1cm]\textbf{i,} Legyen $[x_1,x_2]\subset(a,b)$ A Lagrange tétel miatt $\exists\xi\in (x_1,x_2):\\[0.2cm]f(x_2)-f(x_1)=f'(\xi)(x_2-x_1)\geq0\Rightarrow f$ monoton nő.\\[0.1cm]\textbf{ii,} Ugyanígy\newpage\textbf{iii,} A Lagrange tétel után $\Rightarrow\exists\xi\in (x_1,x_2):\\[0.2cm]f(x_2)-f(x_1)=f'(\xi)(x_2-x_1)>0 \Rightarrow f$ szigorú monoton nő\\[0.1cm]\textbf{iv,} Ugyanígy. $\bizva$
+\tetel Tfh. $f\dab$ Ekkor: \\[0.1cm]\hspace*{0.3cm}\textbf{i,} $f'\geq0\quad(a,b)$-n
+$\Rightarrow f$ monoton nő $(a,b)$-n\\[0.1cm]\hspace*{0.3cm}\textbf{ii,}
+$f'\leq0\quad(a,b)$-n $\Rightarrow f$ monoton fogy $(a,b)$-n\\[0.1cm]
+\hspace*{0.3cm}\textbf{iii,} $f'>0\quad (a,b)$-n $\Rightarrow f$ szigorú monoton nő
+$(a,b)$-n\\[0.1cm]\hspace*{0.3cm}\textbf{iv,} $f'<0\quad (a,b)$-n $\Rightarrow f$
+szigorú monoton fogy $(a,b)$-n\\[0.2cm]\biz \\[0.1cm]\textbf{i,} Legyen
+$[x_1,x_2]\subset(a,b)$ A Lagrange tétel miatt $\exists\xi\in
+(x_1,x_2):\\[0.2cm]f(x_2)-f(x_1)=f'(\xi)(x_2-x_1)\geq0\Rightarrow f$ monoton
+nő.\\[0.1cm]\textbf{ii,} Ugyanígy\newpage\textbf{iii,} A Lagrange tétel után
+$\Rightarrow\exists\xi\in (x_1,x_2):\\[0.2cm]f(x_2)-f(x_1)=f'(\xi)(x_2-x_1)>0
+\Rightarrow f$ szigorú monoton nő\\[0.1cm]\textbf{iv,} Ugyanígy. $\bizva$
 \subsection{Szükséges és elégséges feltétel}
-\tetel Tfh. $f\dab$ Ekkor: \\[0.2cm]\textbf{i,} $f'\geq0\quad(a,b)$-n $\Leftrightarrow f$ monoton nő $(a,b)$-n\\[0.2cm]\textbf{ii,} $f'\leq0\quad(a,b)$-n $\Leftrightarrow f$ monoton fogy $(a,b)$-n\\[0.2cm]\textbf{iii,} $f'\geq0\quad(a,b)$-n, de $\nexists(c,d)\subset(a,b):f'=0\quad(c,d)$-n $\Leftrightarrow f$ szigorú monoton nő $(a,b)$-n\\[0.2cm]\textbf{iv,} $f'\leq0\quad(a,b)$-n, de $\nexists(c,d)\subset(a,b):f'=0\quad(c,d)$-n $\Leftrightarrow f$ szigorú monoton fogy $(a,b)$-n\\[0.2cm]\biz \textbf{i,} "$\Rightarrow$"$\checkmark\quad$"$\Leftarrow$" Tfh. $f$ monoton nő és legyen $\xi\in(a,b)$ tetszőleges\\[0.2cm] \[\displaystyle \frac{f(x)-f(\xi)}{x-\xi} = \left\{
+\tetel Tfh. $f\dab$ Ekkor: \\[0.2cm]\textbf{i,} $f'\geq0\quad(a,b)$-n
+$\Leftrightarrow f$ monoton nő $(a,b)$-n\\[0.2cm]\textbf{ii,} $f'\leq0\quad(a,b)$-n
+$\Leftrightarrow f$ monoton fogy $(a,b)$-n\\[0.2cm]\textbf{iii,}
+$f'\geq0\quad(a,b)$-n, de $\nexists(c,d)\subset(a,b):f'=0\quad(c,d)$-n
+$\Leftrightarrow f$ szigorú monoton nő $(a,b)$-n\\[0.2cm]\textbf{iv,}
+$f'\leq0\quad(a,b)$-n, de $\nexists(c,d)\subset(a,b):f'=0\quad(c,d)$-n
+$\Leftrightarrow f$ szigorú monoton fogy $(a,b)$-n\\[0.2cm]\biz \textbf{i,}
+"$\Rightarrow$"$\checkmark\quad$"$\Leftarrow$" Tfh. $f$ monoton nő és legyen
+$\xi\in(a,b)$ tetszőleges\\[0.2cm] \[\displaystyle \frac{f(x)-f(\xi)}{x-\xi} = \left\{
 \begin{gathered}
 \geq0 \quad \text{, ha }x\geq\xi\hspace{5.7cm} \\
 \geq0 \quad \text{, ha }x<\xi\hspace{5.7cm}
 \end{gathered}\right. \]
 \\[0.2cm]$\Rightarrow\exists f'(\xi)=\lim\limits_{x\to\xi}\frac{f(x)-f(\xi)}{x-\xi}$
-\\[0.2cm]\textbf{ii,} Hasonló\\[0.2cm]\textbf{iii,} "$\Rightarrow$" $f'\geq0 \Rightarrow f$ szigorú monoton nő\\[0.2cm]Indirekten Tfh. $f$ nem szigorú monoton \\[0.2cm]$\Rightarrow\exists c,d:f(c)=f(d)\Rightarrow f=f(c)\quad(c,d)$-n $\Rightarrow f'=0\quad(c,d)$-n, ez ellentmondás\\[0.2cm]$\Rightarrow f$ szigorú monoton nő.\\[0.2cm] "$\Leftarrow$" $f$ szigorú monoton nő $\Rightarrow f$ monoton nő. $\Rightarrow f'\geq0$ Indirekten:\\[0.2cm] Tfh. $\exists(c,d)\subset(a,b):f'=0 \quad(c,d)$-n$\Rightarrow f$ konstans $(c,d)$-n $\Rightarrow f$ nem szigorú monoton nő\\[0.2cm]És így ellentmondásra jutottunk $\Rightarrow\nexists(c,d):f'=0\quad (c,d)\text{-n }$\\[0.2cm]\textbf{iv,} Hasonló $\bizva$
+\\[0.2cm]\textbf{ii,} Hasonló\\[0.2cm]\textbf{iii,} "$\Rightarrow$" $f'\geq0
+\Rightarrow f$ szigorú monoton nő\\[0.2cm]Indirekten Tfh. $f$ nem szigorú monoton
+\\[0.2cm]$\Rightarrow\exists c,d:f(c)=f(d)\Rightarrow f=f(c)\quad(c,d)$-n
+$\Rightarrow f'=0\quad(c,d)$-n, ez ellentmondás\\[0.2cm]$\Rightarrow f$ szigorú
+monoton nő.\\[0.2cm] "$\Leftarrow$" $f$ szigorú monoton nő $\Rightarrow f$ monoton
+nő. $\Rightarrow f'\geq0$ Indirekten:\\[0.2cm] Tfh. $\exists(c,d)\subset(a,b):f'=0
+\quad(c,d)$-n$\Rightarrow f$ konstans $(c,d)$-n $\Rightarrow f$ nem szigorú monoton
+nő\\[0.2cm]És így ellentmondásra jutottunk $\Rightarrow\nexists(c,d):f'=0\quad
+(c,d)\text{-n }$\\[0.2cm]\textbf{iv,} Hasonló $\bizva$
 \end{document}
