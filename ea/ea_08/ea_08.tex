@@ -37,14 +37,14 @@ e^{\frac{-1}{x^2}}: \quad x\neq 0\hspace{5.5cm} \\
 \end{gathered}\right. \]\\[0.2cm]
 $a=0\quad f^{(k)}(0)=0\quad k=0,1,...$\\[0.1cm] Taylor sora: $0+0+...+f(x)=f(x)$\\[0.2cm]
 \tetel (Taylor formula Lagrange maradéktaggal)\\[0.1cm]
-Ha $f\in\D^{(n+1)}(K(a))$, akkor $\forall x\in K(a),\exists\xi\in(a,x):f(x)=
-\sum\limits_{k=0}^{n}\frac{f^{(k)}(a)}{k!}(x-a)^k+\frac{f^{(n+1)}(\xi)}{(n+1)!}
-(x-a)^{n+1}$\\[0.2cm]\biz
+Ha $f\in\D^{(n+1)}(K(a))$, akkor $\forall x\in K(a),\exists\xi\in(a,x)\cup(x,a):
+\\[0.1cm]f(x)=\sum\limits_{k=0}^{n}\frac{f^{(k)}(a)}{k!}(x-a)^k+
+\frac{f^{(n+1)}(\xi)}{(n+1)!}(x-a)^{n+1}$\\[0.2cm]\biz
 Legyen $F(x):=f(x)-\sum\limits_{k=0}^{n}\frac{f^{(k)}(a)}{k!}(x-a)^k\\[0.1cm]
 F(a)=f(a)-f(a)=0\\[0.1cm]F'(x)=f'(x)-\sum\limits_{k=1}^{n}\frac{f^{(k)}(a)}{k!}
 \cdot k\cdot(x-a)^{k-1}\\[0.1cm]\Rightarrow F'(a)=f'(a)-f'(a)=0\\[0.1cm]
 F''(x)=f''(x)-\sum\limits_{k=2}^{n}\frac{f^{(k)}(a)}{k!}\cdot k\cdot(k-1)
-(x-a)^{k-2}\\[0.2cm]F''(a)=f''(a)-f''(a)\quad\Rightarrow\quad F^{(n)}(a)=0,\quad
+(x-a)^{k-2}\\[0.2cm]F''(a)=f''(a)-f''(a)=0\quad\Rightarrow\quad F^{(n)}(a)=0,\quad
 F^{(n+1)}(x)=f^{(n+1)}(x)$\\[0.2cm]Legyen $G(x)=(x-a)^{(n+1)}\Rightarrow G(a)=0
 \\[0.2cm]G'(x)=(n+1)(x-a)^n\Rightarrow G'(a)=0,...,G''(a)=0\\[0.2cm]\Rightarrow
 G^{(n)}(a)=0,\quad G^{(n+1)}(a)=(n+1)!$\\[0.2cm]Alkalmazzuk a Cauchy
