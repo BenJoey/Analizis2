@@ -1,0 +1,130 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[textwidth=170mm, textheight=230mm, inner=20mm, top=10mm, bottom=20mm]{geometry}
+\usepackage[normalem]{ulem}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{physics}
+\PassOptionsToPackage{defaults=hu-min}{magyar.ldf}
+\usepackage[magyar]{babel}
+\usepackage{amsmath, amsthm,amssymb,paralist,array, ellipsis, graphicx, float}
+
+\begin{document}
+\def\R{\mathbb{R}}
+\def\Q{\mathbb{Q}}
+\def\biz{\normalsize{\underline{Bizonyítás:} }\hspace*{0.5cm}}
+\def\tetel{\normalsize \textbf{\underline{Tétel}: }}
+\def\defi{\normalsize \textbf{Definíció: }}
+\def\bizva{\quad\blacksquare}
+\def\limh{\displaystyle\lim_{h\to0}}
+\def\pl{\textbf{Pl:}}
+\def\D{\mathcal{D}}
+\def\prfv{primitív függvény}
+\def\sumi{\sum\limits_{i=1}^{n}}
+\def\rab{R[a,b]}
+\def\fab{F[a,b]}
+\def\cab{\in C[a,b]}
+\def\ftau{(f,\tau)}
+\def\intv{[x_{i-1},x_i]}
+\def\intab{\int\limits_{a}^{b}}
+\begin{center}
+	{\LARGE\textbf{Analízis 2.}}\\[0.2cm]
+	
+	{\Large 12. Előadás jegyzet}\\[0.5cm]	
+\end{center}
+{\small A jegyzetet \textsc{Bauer Bence} készítette \textsc{Dr. Weisz Ferenc} előadása alapján.}\\[0.4cm]
+\underline{Megj} előző előadás végéhez: $f\in\rab\Rightarrow\abs{f}\in\rab$\\[0.2cm]
+\hspace*{6.7cm}$\nLeftarrow$\\[0.2cm]\pl $x\in[0,1]$
+\[\displaystyle f(x) := 
+\left\{
+\begin{gathered}
+\quad 1\quad:\quad x\in\Q\hspace{5.7cm} \\
+\quad -1\quad:\quad x\notin\Q\hspace{5.7cm}
+\end{gathered}\right. \]\\[0.2cm]
+$\Rightarrow f\notin R[0,1]\text{, de }\abs{f}=1\in R[0,1]$\\[0.2cm]
+\tetel (1. középértéktétel)\\[0.2cm]
+Tfh. $f,g\in\rab,g\geq0,m:=\inf f\text{ és }M:=\sup f$, ekkor:
+$\quad m\cdot\intab g\leq\intab f\cdot g\leq M\cdot\intab g$\\[0.2cm]
+\biz $m\leq f\leq M\Rightarrow m\cdot g\leq f\cdot g\leq M\cdot g\\[0.2cm]
+\Rightarrow\intab m\cdot g\leq\intab f\cdot g\leq\intab M\cdot g\Rightarrow
+m\cdot\intab g\leq\intab f\cdot g\leq M\cdot\intab g\bizva$\\[0.3cm]
+\tetel (2. középértéktétel)\\
+Tfh. $g\in\rab,g\geq0,f\cab$, ekkor: $\exists\xi\in[a,b]:\intab f\cdot g=
+f(\xi)\cdot\intab g$\\[0.2cm]\biz Előző tétel miatt:
+$m\cdot\intab g\leq\intab f\cdot g\leq M\cdot\intab g\\[0.2cm]
+\Rightarrow\exists c\in[m,M]:\intab f\cdot g=c\cdot\intab g\\[0.2cm]f\cab
+\Rightarrow m$ az abszolút minimum és $M$ az abszolút maximum a Weierstrass-tétel
+miatt \\[0.1cm]$\Rightarrow M$-et és $m$-et is felveszi $f$ értékként $\Rightarrow$
+Bolzano-tétel miatt minden közbülső értéket is felvesz,\\[0.1cm] így $c$-t is
+$\Rightarrow\exists\xi\in[a,b]:c=f(\xi)\bizva$\\[0.2cm]
+\tetel (Newton-Leibniz formula)\\[0.2cm]
+Ha $f\in\rab$ és $f$-nek $\exists F$ \prfv e, akkor: $\intab f=F(b)-F(a)$\\[0.1cm]
+Jelölés: $\big[F\big]_{a}^{b}$\\[0.2cm]
+\biz Legyen $\tau=\{a=x_0<x_1<...<x_n=b\}\in\fab\\[0.2cm]\Rightarrow F(b)-F(a)=
+F(x_n)-F(x_0)=F(x_n)-F(x_{n-1})+F(x_{n-1})-F(x_{n-2})+...+F(x_1)-F(x_0)=\\[0.2cm]=
+\sumi(F(x_i)-F(x_{i-1}))$ Alkalmazzuk a Lagrange középértéktételt az $\intv$
+intervallumon\\[0.2cm]$\exists\xi_i\in\intv:F(x_i)-F(x_{i-1})=F'(\xi_i)
+(x_i-x_{i-1})=f(\xi_i)(x_i-x_{i-1})\\[0.2cm]\Rightarrow
+s\ftau\leq F(b)-F(a)=\sumi(f(\xi_i)\cdot(x_i-x_{i-1}))\leq S\ftau\quad$
+/sup a bal oldalon és inf a jobb oldalon\\
+$\Rightarrow I_*f\leq F(b)-F(a)\leq I^*f\quad\quad$
+Mivel $I_*f=I^*f=\intab f\Rightarrow F(b)-F(a)=\intab f\bizva$\\[0.2cm]
+\pl\textbf{ i,} $\int\limits_0^1x^2dx=\big[\frac{x^3}{3}\big]_0^1=\frac{1}{3}$
+\newpage\textbf{ii,} Félkör területe: $f(x)=\sqrt{1-x^2},\quad x\in[-1,1]\\[0.2cm]
+T=\int\limits_{-1}^1f=\int\limits_{-1}^1\sqrt{1-x^2}dx=
+\bigg[\frac{\arcsin x+x\sqrt{1-x^2}}{2}\bigg]_{-1}^{1}=
+\frac{\frac{\pi}{2}-(\frac{\pi}{2})}{2}=\frac{\pi}{2}$\\[0.2cm]
+\underline{Megj:} Egyik feltétel sem hagyható el, pl:\\[0.2cm]
+\textbf{i,} $\exists f\in\rab$, de $\nexists$ \prfv\\[0.2cm]
+$f(x)=sign(x)\quad x\in[-1,1]\\[0.1cm]f$ szakaszonként folytonos $\Rightarrow f\in
+R[-1,1]$, de $\nexists$ \prfv, mert nem Darboux-tulajdonságú\\[0.2cm]
+\textbf{ii,} $\exists f:[a,b]\to\R,\exists F$ \prfv, de $f\notin\rab\quad$(nehéz)
+\\[0.1cm]\defi Ha $f\in\rab$ és $x_0\in[a,b]$, akkor:
+$\quad F(x)=\int\limits_{x_0}^xf\quad(x\in[a,b])\quad$ az $f$ integrál függvénye
+\\[0.2cm]\tetel (A differenciál- és integrálszámítás alaptétele)\\[0.2cm]
+Legyen $f\in\rab,x_0\in[a,b],F(x)=\int\limits_{x_0}^xf\quad(x\in[a,b])$, ekkor:
+\\[0.2cm]\textbf{i,} $F\cab$\\[0.2cm]
+\textbf{ii,} Ha $f\in C(d)$, akkor $F\in D(d)$ és $F'(d)=f(d)\quad(d\in[a,b])$\\[0.2cm]
+\biz \textbf{i,} $f\in\rab\Rightarrow f$ korlátos $\Rightarrow\exists M:\abs{f}\leq M
+\\[0.2cm]\abs{F(x_2)-F(x_1)}=\abs{\int\limits_{x_0}^{x_2}f-\int\limits_{x_0}^{x_1}f}=
+\abs{\int\limits_{x_1}^{x_2}f}\leq\abs{\int\limits_{x_1}^{x_2}\abs{f}}\leq M\cdot
+\abs{x_2-x_1}\Rightarrow x_2\to x_1\Rightarrow F(x_2)\to F(x_1)\\[0.2cm]
+\Rightarrow F\in C(x_1)\quad x_1$ tetszőleges\\[0.2cm]
+\textbf{ii,} Igazolni kell, hogy $f(d)=F'(d)=\limh\frac{F(d+h)-F(d)}{h}$, azaz
+$\limh\abs{\frac{F(d+h)-F(d)}{h}-f(d)}=0\\[0.2cm]
+\abs{\frac{F(d+h)-F(d)}{h}-f(d)}=\abs{\frac{1}{h}\cdot\int\limits_d^{d+h}f(t)dt-f(d)}=
+\abs{\frac{1}{h}\cdot\int\limits_d^{d+h}f(t)-f(d)dt}\leq\frac{1}{h}\cdot
+\int\limits_d^{d+h}\abs{f(t)-f(d)}dt\\[0.2cm]
+f\in C(d)\Rightarrow\forall\varepsilon>0,\exists\delta>0,\forall t\in[a,b],
+\abs{t-d}<\delta:\abs{f(t)-f(d)}<\varepsilon$\\[0.3cm]Legyen
+$\abs{h}<\delta\Rightarrow\abs{t-d}\leq\abs{h}<\delta\Rightarrow\forall\varepsilon>0,
+\exists\delta>0,\forall\abs{h}<\delta:\abs{\frac{F(d+h)-F(d)}{h}-f(d)}<\varepsilon
+\\[0.2cm]\Rightarrow\limh\abs{\frac{F(d+h)-F(d)}{h}-f(d)}=0\bizva$\\[0.4cm]
+\underline{Megj:} Ha $d=a$ vagy $d=b$, akkor jobb vagy bal oldali deriváltról van szó
+\\[0.4cm]\underline{Következmény:} Ha $f\cab$, akkor $F\in\D[a,b]$ és
+$F'(x)=f(x),\quad\forall x\in[a,b]$\\[0.4cm]
+\underline{Következmény:} Ha $f\cab$, akkor $\exists$ \prfv e\\[0.4cm]
+\tetel (Parciális integrálás)\\
+Ha $f,g\in\D[a,b]$ és $f',g'\in\rab$, akkor $\intab f'\cdot g=f(b)\cdot g(b)-
+f(a)\cdot g(a)-\intab f\cdot g'$\\[0.2cm]\biz
+$f'\cdot g+f\cdot g'$ \prfv e $f\cdot g\\[0.2cm]\Rightarrow\intab f'\cdot g+f\cdot g'=
+\big[f\cdot g\big]_a^b=f(b)\cdot g(b)-f(a)\cdot g(a)\bizva$\\[0.2cm]
+\newpage\tetel (Helyettesítés)\\
+Tfh. $f\in\rab,g:[\alpha,\beta]\to[a,b]$ differenciálható bijekció és $g'\neq0$,
+ekkor: $\intab f=\int\limits_{\alpha}^{\beta}f\circ g\cdot g'$\\[0.2cm]
+\biz $f$-nek $\exists$ \prfv e: $(\int\limits_{\alpha}f\circ g\cdot g')\circ g^{-1}$
+\\[0.2cm]$\intab f=\bigg[(\int\limits_{\alpha}f\circ g\cdot g')\circ g^{-1}\bigg]_a^b
+=\int\limits_{\alpha}^{\beta}f\circ g\cdot g'\bizva$\\[0.6cm]
+\textbf{\underline{Alkalmazás}}
+\begin{enumerate}
+	\item Terület: $T(H)=\intab f,\quad f\geq0$
+	\item Ívhossz: $f:[a,b]\to\R,\quad\gamma=\{(x,f(x)),x\in[a,b]\}$ az $f$ grafikonja
+	\\[0.2cm]$\tau\in\fab:l(\gamma,\tau)=$ töröttvonal hossza\\[0.2cm]
+	$l(\gamma)=\sup\limits_{\tau\in\fab}l(\gamma,\tau)$ a $\gamma$ ívhossza\\[0.2cm]
+	\tetel Ha $f:[a,b]\to\R$ folytonos és differenciálható, ekkor $l(\gamma)=
+	\intab\sqrt{1+(f'(x))^2}dx$
+	\item Térfogat $f\geq0\quad H:=\{(x,y,z):a\leq x\leq b,\quad y^2+z^2\leq f^2(x)\}$
+	forgástest\\[0.2cm]\tetel $V(H)=\pi\cdot\intab f^2\quad(f\in\rab)$
+	\item Felszín:\\[0.2cm]\tetel Ha $f$ folytonosan differenciálható, akkor:
+	$F(H)=2\pi\intab f(x)\cdot\sqrt{1+(f'(x))^2}dx$
+\end{enumerate}
+\end{document}
