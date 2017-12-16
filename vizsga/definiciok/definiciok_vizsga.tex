@@ -96,7 +96,9 @@
 	Tfh. $f\cab,f\dab$\\[0.2cm]Ekkor $\exists\xi\in(a,b):\frac{f(b)-f(a)}{b-a}= f'(\xi)$
 	\item \textbf{Mit ért azon, hogy az $f\in\rtr$ függvénynek valamely helyen lokális minimuma van?}\\[0.1cm]Az $f\in\rtr$ függvénynek a $c\in int\D_f$ pontban lokális minimuma van, ha\\[0.1cm]$\exists K(c)\subset\D_f,\forall x\in K(c): f(x)\geq f(c)$
 	\item \textbf{Mit ért azon, hogy egy függvény valamely helyen jelet vált?}\\[0.1cm]
-	%Bizonytalanság
+	Az $f\in\rtr$ függvény a $c\in D_f$ pontban előjelet vált, ha $f(c)=0$ és\\[0.1cm]
+	$\exists\delta>0,K_{\delta}(c)\subset D_f,f(x)<0,\forall x\in(c-\delta,c)$ és
+	$f(x)>0,\forall x\in(c,c+\delta)$ vagy fordítva
 	\newpage\item \textbf{Hogyan szól a lokális szélsőértékre vonatkozó} 
 	\textit{elsőrendű szükséges} \textbf{feltétel}.\\[0.1cm]$f\in\rtr,f\in\D(c)$ és
 	$f$-nek lokális szélső értéke van $c$-ben $\Rightarrow f'(c)=0$
@@ -166,7 +168,10 @@
 	Ha az $f:\itr$ függvény \prfv e $F$, akkor legyen:
 	$\int f:=\{F+c:c\in\R\}$\\[0.1cm]neve határozatlan integrál.
 	\item\textbf{Mit ért a határozatlan integrál linearitásán?}\\[0.1cm]
-	%Bizonytalanság
+	Legyen $I\subset\R$ nyílt intervallum. Ha $f,g:\itr$ függvényeknek létezik
+	\prfv e. akkor \\ tetszőleges $\alpha,\beta\in\R$ mellett $(\alpha f+\beta g)$-nek
+	is létezik \prfv e és\\[0.1cm]
+	$\int(\alpha f+\beta g)=\alpha\int f+\beta\int g$
 	\item\textbf{Milyen állítást ismer hatványsor összegfüggvényének a \prfv éről?}\\[0.1cm]
 	A $\sum\alpha_n(x-a)^n,x\in K_R(a),R>0$, hatványsor \prfv e:\\[0.2cm]
 	$\sum\limits_{n=0}\alpha_n\frac{(x-a)^{n+1}}{n+1}+c,\quad x\in K_R(a)$
@@ -273,7 +278,7 @@
 	$f\in\rab$, akkor $\tilde{f}\in\rab\text{ és }\intab\tilde{f}=\intab f$\newpage
 	\item\textbf{Mit ért azon, hogy a Riemann-integrál az integrandusban
 	monoton?}\\[0.1cm]
-	%Bizonytalanság
+	Ha $f,g\in\rab$ és $f\leq g$, akkor $\intab f\leq\intab g$
 	\item\textbf{Mit lehet mondani Riemann-integrálható függvény abszolút
 	értékéről \\ integrálhatóság szempontjából?}\\[0.1cm]
 	Ha $f\in\rab$, akkor $\abs{f}\in\rab$ és $\quad-\abs{\int f}\leq\abs{\int f}
