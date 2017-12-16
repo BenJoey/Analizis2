@@ -161,13 +161,13 @@ $\frac{f}{g}\in\D(a)\text{ és }(\frac{f}{g})'(a)=\frac{(f'(a)\cdot g(a)-f(a)\cd
 \frac{g(x)-g(a)}{x-a}=f'(a)+g'(a) \\[0.2cm]\Rightarrow(f+g)'(a)=f'(a)+g'(a)$
 \\[0.3cm]\hspace*{0.3cm}\textbf{ii,} $\limxa\frac{(f\cdot g)(x)-(f\cdot g)(a)}{x-a}=
 \limxa\frac{f(x)\cdot g(x)-f(a)\cdot g(a)}{x-a}=\\[0.4cm]=\limxa\frac{f(x)\cdot
-	g(x)-g(x)\cdot f(a)+g(x)\cdot f(a)-f(a)\cdot g(a)}{x-a}=\\[0.4cm]=\limxa
+g(x)-g(x)\cdot f(a)+g(x)\cdot f(a)-f(a)\cdot g(a)}{x-a}=\\[0.4cm]=\limxa
 g(x)\cdot\underbrace{\frac{f(x)-f(a)}{x-a}}_{\to f'(a)}+\limxa
 f(a)\cdot\underbrace{\frac{g(x)-g(a)}{x-a}}_{\to g'(a)}\longrightarrow f'(a)\cdot
 g(a)+f(a)\cdot g'(a)\quad(x\to a)\\[0.2cm]\Rightarrow(f\cdot g)'(a)= f'(a)\cdot
 g(a)+f(a)\cdot g'(a)$\\[0.3cm]\hspace*{0.3cm}\textbf{iii,} Először igazoljuk, hogy
 $(\frac{1}{g})'(a)=-\frac{g'(a)}{g^2(a)}\\[0.2cm]\limxa\frac{\frac{1}{g}(x)-
-	\frac{1}{g}(a)}{x-a}=\limxa\frac{\frac{1}{g(x)}-\frac{1}{g(a)}}{x-a}=\limxa
+\frac{1}{g}(a)}{x-a}=\limxa\frac{\frac{1}{g(x)}-\frac{1}{g(a)}}{x-a}=\limxa
 \frac{g(a)-g(x)}{g(x)\cdot g(a)\cdot(x-a)}=\\[0.4cm]=\limxa
 \underbrace{(-\frac{1}{g(x)\cdot g(a)})}_{\to\frac{-1}{g^2(a)}}
 \cdot\underbrace{(\frac{g(x)-g(a)}{x-a})}_{\to g'(a)}\longrightarrow
@@ -188,7 +188,7 @@ f\in\D(g(a))\Rightarrow\exists\varepsilon_2\in\rtr,\displaystyle\lim_{g(a)}
 (g'(a)(x-a)+\varepsilon_1(x)(x-a))+ \varepsilon_2(g(x))\cdot(g'(a)(x-a)
 +\varepsilon_1(x)(x-a))=\\[0.2cm]=f'(g(a))\cdot g'(a)\cdot (x-a)+ (x-a)\cdot 
 \underbrace{(f'(g(a))\cdot\varepsilon_1(x)+\varepsilon_2(g(x))\cdot 
-	g'(a)+\varepsilon_1(x)\cdot  \varepsilon_2(g(x)))}_{\varepsilon(x)}$
+g'(a)+\varepsilon_1(x)\cdot  \varepsilon_2(g(x)))}_{\varepsilon(x)}$
 \\[0.2cm]$\varepsilon_1\to0,\quad(x\to a)\\[0.1cm] g(x)\to g(a)\\[0.1cm]
 \Rightarrow\limxa\varepsilon_2(g(x))=\displaystyle\lim_{g(a)}\varepsilon_2=0
 \Rightarrow\lima\varepsilon=0\\[0.2cm]\Rightarrow(f\circ g)'(a)= f'(g(a))\cdot 
@@ -229,28 +229,28 @@ konvergens $\Rightarrow\forall\varepsilon>0,\exists N:\displaystyle
 \frac{\varepsilon}{2}$\\[0.1cm]\underline{2. lépés:}\\
 $\abs{ \frac{f(x)-f(x_0)}{x-x_0}-\sume n\cdot \alpha_n (x_0-a)^{n-1}}
 =\abs{\frac{\sumn\alpha_n (x-a)^n-\sumn\alpha_n (x_0-a)^n}{x-x_0}-\sume 
-	n\cdot\alpha_n (x_0-a)^{n-1}}\leq\\[0.2cm]\leq\underbrace{\abs{ 
-		\displaystyle\sum_{n=1}^{N}\frac{\alpha_n(x-a)^n-\alpha_n(x_0-a)^n}{x-x_0}- 
-		\displaystyle\sum_{n=1}^{N}n\cdot\alpha_n(x_0-a)^{n-1}}}_{(I)}+\underbrace
+n\cdot\alpha_n (x_0-a)^{n-1}}\leq\\[0.2cm]\leq\underbrace{\abs{ 
+\displaystyle\sum_{n=1}^{N}\frac{\alpha_n(x-a)^n-\alpha_n(x_0-a)^n}{x-x_0}- 
+\displaystyle\sum_{n=1}^{N}n\cdot\alpha_n(x_0-a)^{n-1}}}_{(I)}+\underbrace
 {\abs{\displaystyle\sum_{n=N+1}^{\infty}\alpha_n\frac{(x-a)^n-(x_0-a)^n}{x-x_0}}}
 _{(II)}+\\[0.2cm]+\underbrace{\abs{\displaystyle\sum_{n=N+1}^{\infty}n\cdot\alpha
-		_n(x_0-a)^{n-1}}}_{(III)}= (I)+(II)+(III)$\\[0.1cm]Tfh. $\abs{x_0-a}<r<R$
+_n(x_0-a)^{n-1}}}_{(III)}= (I)+(II)+(III)$\\[0.1cm]Tfh. $\abs{x_0-a}<r<R$
 \\[0.1cm]Mivel $x\to x_0$ ezért feltehető, hogy $|x-a|<r\Rightarrow(III)
 \leq\displaystyle \sum_{n=N+1}^{\infty}n\cdot \abs{\alpha_n}\cdot r^{n-1}<
 \frac{\varepsilon}{2} \\[0.1cm](II)\leq\displaystyle
 \sum_{n=N+1}^{\infty}|\alpha_n|\abs{\frac{((x-a)-(x_0-a))((x-a)^{n-1}+(x-a)^{n-2}
-		(x_0-a)+...+ (x_0-a)^{n-1})}{x-x_0}}=\\[0.3cm]=\displaystyle
+(x_0-a)+...+ (x_0-a)^{n-1})}{x-x_0}}=\\[0.3cm]=\displaystyle
 \sum_{n=N+1}^{\infty}|\alpha_n|\abs{(x-a)^{n-1}+(x-a)^{n-2}(x_0-a)+...+ 
-	(x_0-a)^{n-1}}=\displaystyle \sum_{n=N+1}^{\infty}|\alpha_n|\cdot n\cdot 
+(x_0-a)^{n-1}}=\displaystyle \sum_{n=N+1}^{\infty}|\alpha_n|\cdot n\cdot 
 r^{n-1}<\frac{\varepsilon}{2} \\[0.3cm](I)\leq\sum_{n=1}^{N}|\alpha_n|
 \abs{\underbrace{\frac{(x-a)^n-(x_0-a)^n}{x-x_0}-n\cdot(x_0-a)^{n-1}}_
-	{\to0\text{, ha }x\to x_0}}\\[0.3cm]g(x)=(x-a)^n \Rightarrow$ a tört határértéke
+{\to0\text{, ha }x\to x_0}}\\[0.3cm]g(x)=(x-a)^n \Rightarrow$ a tört határértéke
 $\quad g'(x_0)=n\cdot(x_0-a)^{n-1}\quad(x\to x_0) \\[0.2cm]\Rightarrow\exists
 \delta>0, (I)<\varepsilon$, ha $|x-x_0|<\delta\\[0.3cm] \Rightarrow
 \abs{\frac{f(x)-f(x_0)}{x-x_0}-\sume n\cdot\alpha_n (x_0-a)^{n-1}}< 
 \varepsilon+\varepsilon=2\varepsilon\quad(\text{ ha }|x-x_0|<\delta)\\[0.1cm] 
 \Rightarrow \lim\abs{\frac{f(x)-f(x_0)}{x-x_0}-\sume n\cdot\alpha_n 
-	(x_0-a)^{n-1}}=0 \\[0.1cm]f\in\D(x_0)\text{ és }f'(x_0)=\sume n\cdot\alpha_n 
+(x_0-a)^{n-1}}=0 \\[0.1cm]f\in\D(x_0)\text{ és }f'(x_0)=\sume n\cdot\alpha_n 
 \cdot(x_0-a)^{n-1}\bizva$
 \section{A differenciálszámítás középértéktételei \\ (Rolle-, Cauchy-, Lagrange-tétel).}
 \textbf{1. Rolle-tétel}\\[0.1cm]\tetel Tfh. $f\cab$ és $f\dab$\\[0.2cm]Ha
@@ -357,9 +357,9 @@ $\Rightarrow\exists\xi\in(x,x_0):\frac{f(x)-f(x_0)}{g(x)-g(x_0)}=
 \frac{f'(\xi)}{g'(\xi)}$\hspace{1cm} Felthető, hogy $f>0\quad(a,x_0)$-n,
 hiszen $\lim\limits_a f=\infty$\\[0.1cm]Hasonlóan $g>0\quad(a,x_0)$-n.\\[0.2cm]
 $\frac{f(x)}{g(x)}\cdot\frac{1-\frac{f(x_0)}{f(x)}}{1-\frac{g(x_0)}
-	{g(x)}}=\frac{f'(\xi)}{g'(\xi)}\Rightarrow\frac{f(x)}{g(x)}=\frac{f'(\xi)}
+{g(x)}}=\frac{f'(\xi)}{g'(\xi)}\Rightarrow\frac{f(x)}{g(x)}=\frac{f'(\xi)}
 {g'(\xi)}\cdot\underbrace{\frac{1-\frac{g(x_0)}{g(x)}}{1-\frac{f(x_0)}
-		{f(x)}}}_{T(x)}=\frac{f'(\xi)}{g'(\xi)}\cdot T(x)=\frac{f'(\xi)}{g'(\xi)}
+{f(x)}}}_{T(x)}=\frac{f'(\xi)}{g'(\xi)}\cdot T(x)=\frac{f'(\xi)}{g'(\xi)}
 \cdot(T(x)-1)+ \frac{f'(\xi)}{g'(\xi)}\\[0.2cm]\limaj T=1\Rightarrow\limaj(T-1)=0
 \\[0.2cm]\frac{f'(\xi)}{g'(\xi)}\in K_{\varepsilon}
 (A)\quad\Rightarrow\quad A-\varepsilon<\frac{f'(\xi)}{g'(\xi)}
@@ -450,7 +450,7 @@ $x_0$ inflexiós pont.\\[0.2cm]\biz
 \textbf{i,} Indirekten Tfh. $f''(x_0)\neq0$, pl: $f''(x_0)>0$\\[0.1cm]
 $f''$ folytonos $\Rightarrow\exists K(x_0):f''>0\quad K(x_0)$-n\\[0.1cm]
 Taylor formula\\[0.1cm] $n=1:\exists\xi:\underbrace{f(x)-(f(x_0)+f'(x_0)
-	(x-x_0))}_{l(x)}=\underbrace{\frac{f''(\xi)}{2!}(x-x_0)^2}_{\geq0}$\\[0.1cm]
+(x-x_0))}_{l(x)}=\underbrace{\frac{f''(\xi)}{2!}(x-x_0)^2}_{\geq0}$\\[0.1cm]
 $\Rightarrow l$ nem vált előjelet $\Rightarrow x_0$ nem inflexiós pont.\\[0.2cm]
 \textbf{ii,} Tfh. $f'''(x_0)>0\Rightarrow\exists K(x_0):f'''>0\quad K(x_0)$-n
 \\[0.1cm]Taylor formula $n=2:\\[0.1cm]\exists\xi:l(x)=f(x)-(f(x_0)+f'(x_0)(x-x_0)+
