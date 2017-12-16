@@ -1,0 +1,333 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[textwidth=170mm, textheight=230mm, inner=20mm, top=10mm, bottom=20mm]{geometry}
+\usepackage[normalem]{ulem}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{physics}
+\PassOptionsToPackage{defaults=hu-min}{magyar.ldf}
+\usepackage[magyar]{babel}
+\usepackage{amsmath, amsthm,amssymb,paralist,array, ellipsis, graphicx, float}
+
+\begin{document}
+	\def\R{\mathbb{R}}
+	\def\N{\mathbb{N}}
+	\def\dab{\in\D(a,b)}
+	\def\biz{\normalsize{\textbf{\underline{Bizonyítás:} }\hspace*{0.5cm}}}
+	\def\tetel{\normalsize \textbf{Tétel: }}
+	\def\rtr{\displaystyle\R\to\R}
+	\def\D{\displaystyle\mathcal{D}}
+	\def\bizva{\quad\blacksquare}
+	\def\limaj{\displaystyle\lim_{a+0}}
+	\def\limnj{\displaystyle\lim_{0+0}}
+	\def\limh{\displaystyle\lim_{h\to0}}
+	\def\Rv{\overline{\mathbb{R}}}
+	\def\fabr{f:(a,b)\to\R}
+	\def\itr{I\to\R}
+	\def\prfv{primitív függvény}
+	\def\rab{R[a,b]}
+	\def\te{\tau_1}
+	\def\tk{\tau_2}
+	\def\ftau{(f,\tau)}
+	\def\kab{K[a,b]}
+	\def\cab{\in C[a,b]}
+	\def\fab{F[a,b]}
+	\def\sumi{\sum\limits_{i=1}^{n}}
+	\def\intv{[x_{i-1},x_i]}
+	\def\intab{\int\limits_{a}^{b}}
+\begin{center}
+	{\LARGE \textbf{Analízis 2}}\\[0.2cm]
+	{\large Tételbizonyítások a 2. ZH-ra}
+\end{center}
+{\small A jegyzetet \textsc{Bauer Bence} készítette \textsc{Dr. Weisz Ferenc} előadása alapján.}
+\section{L'Hospital-szabályok}
+\subsection{L'Hospital szabály $\frac{0}{0}$ alakra}
+\tetel Tfh. \textbf{i,} $f,g\dab,\quad(-\infty\leq a<b<\infty)$\\[0.2cm]\hspace*{2cm}
+\textbf{ii,} $g'(x)\neq0,\quad x\in(a,b)$\\[0.2cm]\hspace*{2.1cm}\textbf{iii,} $\limaj f=\limaj
+g=0$\\[0.2cm]\hspace*{2.1cm}\textbf{iv,} $\exists\limaj \frac{f'}{g'}$ és
+$\limaj\frac{f'}{g'}=A\in\Rv$\\[0.2cm] Ekkor: $\exists\limaj \frac{f}{g}$ és
+$\limaj\frac{f}{g}=\limaj\frac{f'}{g'}$\\[0.2cm]\biz\textbf{i,} Tfh.
+$a\neq-\infty$\\[0.2cm]Tudjuk: $\limaj\frac{f'}{g'}=A\Rightarrow\forall \varepsilon>0,
+\exists x_0\in(a,b),\forall\xi\in(a,x_0):\frac{f'(\xi)}{g'(\xi)}
+\in K_{\varepsilon}(A)$\\[0.2cm]Legyen $f(a)=g(a)=0$ és legyen $x\in(a,x_0)$
+tetszőleges, ekkor $f,g\in C[a,x]$ és $f,g\in\D(a,x)$\\[0.2cm]$\Rightarrow$ a
+Cauchy-középértéktétel miatt: $\exists\xi\in(a,x):\frac{f(x)-f(a)}{g(x)-g(a)}=
+\frac{f'(\xi)}{g'(\xi)}\in K_{\varepsilon}(A)\\[0.2cm]\Rightarrow\forall\varepsilon >0,\exists
+x_0\in(a,b),\forall x\in(a,x_0):\frac{f(x)}{g(x)}\in K_{\varepsilon}(A)
+\Rightarrow\limaj\frac{f}{g}=A$\\[0.2cm]\textbf{ii,} Tfh. $a=-\infty\quad$
+Visszavezetjük \textbf{i,}-re\\[0.1cm]Legyen $F(y):=f(b+1-\frac{1}{y}),\quad
+y\in(0,1)$ és\\[0.1cm]$G(y):=g(b+1-\frac{1}{y}),\quad y\in(0,1)$\\[0.1cm]$y<1
+\Rightarrow b+1-\frac{1}{y}<b\Rightarrow f\text{ és }g$ értelmezve van a
+($b+1- \frac{1}{y}$) pontban.\\[0.1cm]$\limnj F=\lim\limits_{y\to0+0}f(b+1-
+\frac{1}{y})=\lim\limits_{-\infty} f=0\\[0.2cm]\limnj G=\lim\limits_{-\infty}
+g=0\quad$ Ha $\exists\limnj\frac{F}{G}$, ekkor\\[0.2cm]$
+\limnj\frac{F}{G}=\lim\limits_{y\to0+0}\frac{f}{g}(b+1-\frac{1}{y})=
+\lim\limits_{-\infty}\frac{f}{g}\\[0.2cm]F'(y)=f'(b+1-\frac{1}{y})\cdot
+\frac{1}{y^2}\\[0.2cm]G'(y)=g'(b+1-\frac{1}{y})\cdot\frac{1}{y^2}
+\neq0\quad\quad y\in(0,1)\\[0.2cm]\limnj\frac{F'}{G'}= \lim\limits_{-\infty}\frac{f'}{g'}\hspace{1.5cm}$ Alkalmazható \textbf{i,}
+$F$ és $G$-re\\[0.2cm]$\Rightarrow\limnj\frac{F}{G}=\limnj\frac{F'}{G'}
+\quad\Rightarrow\quad\lim\limits_{-\infty}\frac{f}{g}=\limnj\frac{F}{G} \text{ és }
+\lim\limits_{-\infty}\frac{f'}{g'}=\limnj
+\frac{F'}{G'}\bizva$\newpage
+\subsection{L'Hospital szabály $\frac{\infty}{\infty}$ alakra}\tetel Tfh. \textbf{i,}
+$f,g\dab,\quad(-\infty\leq a<b<\infty)$\\[0.2cm] \hspace*{2.1cm}\textbf{ii,}
+$g'(x)\neq0,\quad x\in(a,b)$\\[0.2cm] \hspace*{2.1cm}\textbf{iii,} $\limaj f=\limaj g=\infty$
+\\[0.2cm]\hspace*{2.1cm}\textbf{iv,} $\exists\limaj\frac{f'}{g'}$ és $\limaj
+\frac{f'}{g'}=A\in\Rv$\\[0.2cm] Ekkor: $\exists\limaj\frac{f}{g}$ és $\limaj
+\frac{f}{g}=\limaj\frac{f'}{g'}$\\[0.2cm]\biz\textbf{i,} Tfh.
+$a\neq-\infty,A\in\R$\\[0.2cm]Tudjuk: $\limaj\frac{f'}{g'}=A\Rightarrow \forall\varepsilon>0,\exists x_0\in(a,b),
+\forall\xi\in(a,x_0):\frac{f'(\xi)}{g'(\xi)}\in K_{\varepsilon}(A)$\\[0.1cm]Legyen $x\in(a,x_0)$
+és alkalmazzuk a Cauchy középérték-tételt az $[x,x_0]$ intervallumra\\[0.1cm]
+$\Rightarrow\exists\xi\in(x,x_0):\frac{f(x)-f(x_0)}{g(x)-g(x_0)}=
+\frac{f'(\xi)}{g'(\xi)}$\hspace{1cm} Felthető, hogy $f>0\quad(a,x_0)$-n,
+hiszen $\lim\limits_a f=\infty$\\[0.1cm]Hasonlóan $g>0\quad(a,x_0)$-n.\\[0.2cm]
+$\frac{f(x)}{g(x)}\cdot\frac{1-\frac{f(x_0)}{f(x)}}{1-\frac{g(x_0)}
+{g(x)}}=\frac{f'(\xi)}{g'(\xi)}\Rightarrow\frac{f(x)}{g(x)}=\frac{f'(\xi)}
+{g'(\xi)}\cdot\underbrace{\frac{1-\frac{g(x_0)}{g(x)}}{1-\frac{f(x_0)}
+{f(x)}}}_{T(x)}=\frac{f'(\xi)}{g'(\xi)}\cdot T(x)=\frac{f'(\xi)}{g'(\xi)}
+\cdot(T(x)-1)+ \frac{f'(\xi)}{g'(\xi)}\\[0.2cm]\limaj T=1\Rightarrow\limaj(T-1)=0
+\\[0.2cm]\frac{f'(\xi)}{g'(\xi)}\in K_{\varepsilon}
+(A)\quad\Rightarrow\quad A-\varepsilon<\frac{f'(\xi)}{g'(\xi)}
+<A+\varepsilon\quad\Rightarrow\quad \frac{f'(\xi)}{g'(\xi)}$ korlátos.
+\\[0.2cm]$\Rightarrow\limaj\frac{f'(\xi)}{g'(\xi)}\cdot(T(x)-1)=0
+\Rightarrow\forall\varepsilon>0,\exists x_1\in(a,x_0),\forall x\in(a,x_1):
+\abs{\frac{f'(\xi)}{g'(\xi)}\cdot(T(x)-1)}<\varepsilon\\[0.2cm]
+\frac{f(x)}{g(x)}-A=\frac{f'(\xi)}{g'(\xi)}\cdot(T(x)-1) +\frac{f'(\xi)}{g'(\xi)}-A
+\\[0.2cm]\Rightarrow\abs{\frac{f(x)}{g(x)}-A}
+\leq \underbrace{\abs{\frac{f'(\xi)}{g'(\xi)}\cdot(T(x)-1)}}_{<\varepsilon}
++\underbrace{\abs{\frac{f'(\xi)}{g'(\xi)}-A}}_{<\varepsilon}<2
+\varepsilon\\[0.2cm]\Rightarrow\forall\varepsilon>0,\exists x_1\in(a,x_0),
+\forall x\in(a,x_1):\abs{\frac{f(x)}{g(x)}-A}<2\varepsilon\Rightarrow\limaj \frac{f}{g}=A$
+\\[0.2cm]\textbf{ii,} $a\neq-\infty,A=\infty\quad$
+Láttuk:\\[0.1cm]$\frac{f(x)}{g(x)}=\frac{f'(x)}{g'(x)}\cdot
+T(x)\\[0.2cm]\limaj T=1 \Rightarrow\exists x_1\in(a,x_0),\forall x\in(a,x_1):T(x)>\frac{1}{2}
+\\[0.2cm]\frac{f'(x)}{g'(x)}\in K_{\varepsilon}
+(\infty)\Rightarrow\frac{f'(x)}{g'(x)}>\frac{1}{\varepsilon}\Rightarrow
+\frac{f(x)}{g(x)}>\frac{1}{2\varepsilon}\\[0.2cm]\forall\varepsilon>0
+,\exists x_1\in(a,x_0),\forall x\in(a,x_1):\frac{f(x)}{g(x)}>\frac{1}
+{2\varepsilon}\quad\Rightarrow\quad\limaj\frac{f}{g}=\infty=A$\\[0.2cm]
+\textbf{iii,} $a\neq-\infty,A=-\infty\quad$ Hasonló \textbf{ii,}-hez\\[0.2cm]
+\textbf{iv,} $a=-\infty$ Visszavezetjük az előzőre mint az előző tétel \textbf{ii,} részében. $\bizva$\newpage
+\section{Taylor-formula a Lagrange-féle maradéktaggal.}
+\tetel Ha $f\in\D^{(n+1)}(K(a))$, akkor \\[0.1cm] $\forall x\in K(a),\exists
+\xi\in(a,x)\cup(x,a):f(x)=\sum\limits_{k=0}^{n}\frac{f^{(k)}(a)}{k!}
+(x-a)^k+\frac{f^{(n+1)}(\xi)}{(n+1)!}(x-a)^{n+1}$\\[0.2cm]\biz
+Legyen $F(x):=f(x)-\sum\limits_{k=0}^{n}\frac{f^{(k)}(a)}{k!}(x-a)^k\\[0.1cm]
+F(a)=f(a)-f(a)=0\\[0.1cm]F'(x)=f'(x)-\sum\limits_{k=1}^{n}\frac{f^{(k)}(a)}{k!}
+\cdot k\cdot(x-a)^{k-1}\\[0.1cm]\Rightarrow F'(a)=f'(a)-f'(a)=0\\[0.1cm]
+F''(x)=f''(x)-\sum\limits_{k=2}^{n}\frac{f^{(k)}(a)}{k!}\cdot k\cdot(k-1)
+(x-a)^{k-2}\\[0.2cm]F''(a)=f''(a)-f''(a)=0\quad\Rightarrow\quad F^{(n)}(a)=0,\quad
+F^{(n+1)}(x)=f^{(n+1)}(x)$\\[0.2cm]Legyen $G(x)=(x-a)^{(n+1)}\Rightarrow G(a)=0
+\\[0.2cm]G'(x)=(n+1)(x-a)^n\Rightarrow G'(a)=0,...,G''(a)=0\\[0.2cm]\Rightarrow
+G^{(n)}(a)=0,\quad G^{(n+1)}(a)=(n+1)!$\\[0.2cm]Alkalmazzuk a Cauchy
+középértéktételt:$\quad\exists$ ilyen $\xi_1,\xi_2...\xi_{n+1}\\[0.2cm]$
+\[\frac{f(x)-\sum\limits_{k=0}^{n}\frac{f^{(k)}(a)}{k!}(x-a)^k}{(x-a)^{(n+1)}}=
+\frac{F(x)}{G(x)}=\frac{F(x)-F(a)}{G(x)-G(a)}=\frac{F'(\xi_1)}{G'(\xi_1)}=
+\frac{F'(\xi_1)-F'(a)}{G'(\xi_1)-G'(a)}=\frac{F''(\xi_2)}{G''(\xi_2)}=...=\] 
+\[=\frac{F^{(n)}(\xi_n)}{G^{(n)}(\xi_n)}=\frac{F^{(n)}(\xi_n)-F^{(n)}(a)}
+{G^{(n)}(\xi_n)-G^{(n)}(a)}=\frac{F^{(n+1)}(\xi_{n+1})}{G^{(n+1)}(\xi_{n+1})}=
+\frac{f^{(n+1)}(\xi_{n+1})}{(n+1)!}\]
+Legyen $\xi=\xi_{n+1}\bizva$
+\subsection{Egy elégséges feltétel arra, hogy egy függvény Taylor-sora előállítsa a \\ függvényt.}
+\tetel
+Tfh. $f\in\D^\infty(K(a))\text{ és }sup\{\abs{f^{(n)}(x)}\quad n\in\N,x\in 
+K(a)\}=M\text{ és }M<\infty$\\[0.2cm]Ekkor: $f(x)=\sum\limits_{k=0}^{\infty}\frac
+{f^{(k)}(a)}{k!}(x-a)^k\quad(x\in K(a))$\\\biz
+$\exists\xi\in(a,x):\abs{f-\sum\limits_{k=0}^{n}\frac{f^{(k)}(a)}{k!}(x-a)^k}=
+\abs{\frac{f^{(n+1)}(\xi)}{(n+1)!}\cdot(x-a)^{n+1}}\leq\\[0.2cm]\leq
+M\cdot\frac{\abs{x-a}^{n+1}}{(n+1)!}\to0\quad(n\to\infty)\quad\Rightarrow\quad
+f(x)=\sum\limits_{k=0}^{\infty}\frac{f^{(k)}(a)}{k!}(x-a)^k\bizva$\newpage
+\section{A konvexitásra és az inflexiós pontra vonatkozó szükséges és \\ elégséges feltételek többször differenciálható függvények esetében.}
+\subsection{Konvexitásra}
+\tetel $\fabr$\\[0.1cm]
+\hspace*{0.5cm}\textbf{i,} Ha $f\dab$, akkor\\[0.1cm]
+\hspace*{1cm}\textbf{a,} $f$ konvex $\Leftrightarrow f'\nearrow\quad(a,b)$-n
+\\[0.1cm]\hspace*{1cm}\textbf{b,} $f$ szigorúan konvex $\Leftrightarrow f'
+\uparrow\quad(a,b)$-n\\[0.2cm]
+\hspace*{0.5cm}\textbf{ii,} Ha $f\in\D^2(a,b)$, akkor\\[0.1cm]
+\hspace*{1cm}\textbf{a,} $f$ konvex $\Leftrightarrow f''\geq0\quad(a,b)$-n
+\\[0.1cm]\hspace*{1cm}\textbf{b,} $f$ szigorúan konvex $\Leftarrow f''>0\quad(a,b)$-n\\[0.2cm]
+\biz Elég \textbf{i,}-t bizonyítani\\[0.1cm]\hspace*{0.5cm}\textbf{a,}
+"$\Rightarrow$" Tfh. $f$ konvex\\[0.1cm]Legyen $x_1<x_2$ tetszőleges és 
+$x_1<y_1<y_2<x_2\\[0.2cm]\hspace*{1.3cm}\frac{f(y_1)-f(x_1)}{y_1-x_1}\quad
+\leq\quad\frac{f(x_2)-f(x_1)}{x_2-x_1}\quad\leq\quad\frac{f(y_2)-f(x_2)}
+{y_2-x_2}\\[0.2cm]\lim\limits_{y_1\to x_1+0}\frac{f(y_1)-f(x_1)}{y_1-x_1}=
+f'(x_1)\hspace{0.6cm}\text{és}\hspace{0.4cm}\lim\limits_
+{y_2\to x_2-0}\frac{f(y_2)-f(x_2)}{y_2-x_2}=f'(x_2)
+\Rightarrow f'(x_1)\leq f'(x_2)\Rightarrow f'\nearrow$\\[0.2cm]
+"$\Leftarrow$" Tfh. $f'\nearrow$ Elég:\\[0.2cm]
+$\forall x_1,x_2\in(a,b),x_1<x_2,x\in(x_1,x_2):f(x)\leq\frac{f(x_2)-f(x_1)}
+{x_2-x_1}\cdot(x-x_1)+f(x_1)$\\[0.1cm]Azaz 
+$r(x):=f(x)-(\frac{f(x_2)-f(x_1)}{x_2-x_1}\cdot(x-x_1)+f(x_1))\leq0
+\quad\Rightarrow\quad r(x_1)=0,\quad r(x_2)=0\\[0.2cm]\Rightarrow$
+Rolle középértéktétel miatt: $\exists\xi\in(x_1,x_2):r'(\xi)=0\\[0.2cm]
+r'(x)=f'(x)-\frac{f(x_2)-f(x_1)}{x_2-x_1}\quad\nearrow$\\[0.2cm]
+$\Rightarrow r'\leq0\quad(x_1,\xi)\text{-n}\quad\Rightarrow r\searrow
+\quad(x_1,\xi)\text{-n\quad és}\\[0.1cm]\hspace*{0.5cm}r'\geq0\quad(\xi,x_2)
+\text{-n}\quad\Rightarrow r\nearrow\quad(\xi,x_2)$-n\\[0.2cm]
+$\Rightarrow r\leq0\quad(x_1,x_2)\text{-n}$\\[0.2cm]
+\hspace*{0.5cm}\textbf{b,} Hasonló $\bizva$
+\subsection{Inflexiós pontra}
+\tetel $\fabr,x_0\in(a,b)$\\[0.1cm]\textbf{i,} Ha $f$ kétszer folytonosan
+deriválható és $x_0$ inflexiós pont, ekkor $f''(x_0)=0$\\[0.1cm]\textbf{ii,}
+Ha $f$ háromszor folytonosan deriválható és $f''(x_0)=0$ és $f'''(x_0)\neq0$, ekkor
+$x_0$ inflexiós pont.\\[0.2cm]\biz
+\textbf{i,} Indirekten Tfh. $f''(x_0)\neq0$, pl: $f''(x_0)>0$\\[0.1cm]
+$f''$ folytonos $\Rightarrow\exists K(x_0):f''>0\quad K(x_0)$-n\\[0.1cm]
+Taylor formula\\[0.1cm] $n=1:\exists\xi:\underbrace{f(x)-(f(x_0)+f'(x_0)
+(x-x_0))}_{l(x)}=\underbrace{\frac{f''(\xi)}{2!}(x-x_0)^2}_{\geq0}$\\[0.1cm]
+$\Rightarrow l$ nem vált előjelet $\Rightarrow x_0$ nem inflexiós pont.\\[0.2cm]
+\textbf{ii,} Tfh. $f'''(x_0)>0\Rightarrow\exists K(x_0):f'''>0\quad K(x_0)$-n
+\\[0.1cm]Taylor formula $n=2:\\[0.1cm]\exists\xi:l(x)=f(x)-(f(x_0)+f'(x_0)(x-x_0)+
+\frac{f''(x_0)}{2}(x-x_0)^2)=\underbrace{\frac{f'''(\xi)}{3!}}_{>0}
+\cdot(x-x_0)^3\quad x\in K(x_0)$\\[0.2cm]A jobb oldal szigorúan előjelet
+vált$\quad\Rightarrow\quad x_0$ inflexiós pont.$\bizva$\newpage
+\section{A primitív függvény létezésére vonatkozó szükséges feltétel.}
+\tetel Ha $I$ intervallum, és $f:\itr$ függvénynek $\exists$ \prfv e, akkor $f$ 
+Darboux \\ tulajdonságú, azaz $\forall a,b\in I,a<b,\forall c\in(f(a),f(b)),\exists\xi
+\in(a,b):f(\xi)=c$\\[0.2cm]\biz Tfh. $f(a)<f(b)$, legyen $f_1=f-c$, $f_1$-nek is
+$\exists$ \prfv e, mégpedig\\[0.2cm]$F_1(x)=F(x)-cx$, ahol $F$ az $f$ \prfv e,
+hiszen $F_1'(x)=F'(x)-c=f(x)-c=f_1(x)$\\[0.2cm]Ekkor:
+$F_1'(a)=f_1(a)=f(a)-c<0\\[0.2cm]\hspace*{1.3cm}F_1'(b)=f_1(b)=f(b)-c>0\\[0.2cm]
+\Rightarrow F_1'(a)=\lim\limits_{x\to a+0}\frac{F_1(x)-F_1(a)}{x-a}=f_1(a)<0
+\quad\Rightarrow\quad\exists\delta>0,\forall x\in(a,a+\delta):
+\frac{F_1(x)-F_1(a)}{x-a}<0$\\[0.2cm]itt $x-a>0\Rightarrow\exists\delta>0,
+\forall x\in(a,a+\delta):F_1(x)<F_1(a)\\[0.2cm]F_1'(b)=\lim
+\limits_{x\to b-0}\frac{F_1(x)-F_1(b)}{x-b}=f_1(b)>0\quad\Rightarrow\quad
+\exists\delta>0,\forall x\in(b-\delta,b):\frac{F_1(x)-F_1(b)}{x-b}>0
+\\[0.2cm]x-b<0\Rightarrow\exists\delta>0,\forall x\in(b-\delta,b):
+F_1(x)<F_1(b)\quad\Rightarrow F_1\in\D(I)\Rightarrow F_1\in C[a,b]$\\[0.2cm]
+A Weierstrass-tétel miatt $F_1$-nek $\exists$ abszolút minimuma, azaz
+$\exists\xi\in[a,b]:F_1(\xi)=\min\limits_{[a,b]}F_1\\[0.2cm]
+\xi\neq a,\xi\neq b\Rightarrow\xi\in(a,b)\Rightarrow\xi$-ben lokális minimum
+$\Rightarrow F_1'(\xi)=0\Rightarrow f_1(\xi)=f(\xi)-c=0\bizva$
+\section{Az integrálhatóság jellemzése az oszcillációs összegekkel.}
+\tetel
+$f\in\rab\Leftrightarrow\forall\varepsilon>0,\exists\tau\in\fab:\Omega\ftau<
+\varepsilon$\\[0.2cm]
+\biz "$\Leftarrow$" Tfh. $\varepsilon$-hoz $\exists\tau:\Omega\ftau<\varepsilon
+\\[0.2cm]I^*f-I_*f<\varepsilon,\quad\varepsilon$ tetszőleges\\[0.2cm]
+$\Rightarrow I^*f=I_*f$\\[0.2cm]
+"$\Rightarrow$" Tfh. $f\in\rab\Rightarrow\forall\varepsilon>0,\exists\te\in\fab
+:If-\frac{\varepsilon}{2}<s(f,\te)\leq If$\\[0.2cm]Hasonlóan:
+$\exists\tk\in\fab:If\leq S(f,\tk)<If+\frac{\varepsilon}{2}$\\[0.2cm]
+Legyen $\tau=\te\cup\tk\Rightarrow\\[0.2cm]If-\frac{\varepsilon}{2}<s(f,\te)\leq
+\underline{s\ftau}\leq If\leq \underline{S\ftau}\leq S(f,\tk)<If
++\frac{\varepsilon}{2}\\[0.3cm]\Rightarrow S\ftau-s\ftau<\varepsilon\bizva$
+\section{Az integrálhatóság jellemzése alsó és felső közelítő összegek \\ határértékével}
+\tetel\\[0.2cm]$f\in\rab$ és $\int\limits_{a}^{b}f=I\Leftrightarrow
+\exists\tau_n:\lim s(f,\tau_n)=\lim S(f,\tau_n)=I$\\[0.2cm]\biz
+"$\Rightarrow$" Tfh. $f\in\rab\Rightarrow\forall\varepsilon>0,\exists\tau\in\fab:
+If-\frac{\varepsilon}{2}<s\ftau\leq S\ftau<If+\frac{\varepsilon}{2}$
+\\[0.2cm]Legyen $\frac{\varepsilon}{2}=\frac{1}{n},\quad\tau=\tau_n\\[0.2cm]
+\underbrace{I-\frac{1}{n}}_{\to I}\leq\underbrace{s(f,\tau_n)}_{\to I}\leq
+\underbrace{S(f,\tau_n)}_{\to I}<\underbrace{I+\frac{1}{n}}_{\to I}$
+\\[0.2cm]"$\Leftarrow$" Tfh. $\lim s(f,\tau_n)=\lim S(f,\tau_n)=I\Rightarrow
+I_*f=I^*f=I\bizva$\newpage
+\section{Műveletek integrálható függvényekkel}
+\tetel Tfh. $f,g\in\rab$ Ekkor:\\[0.2cm]
+\textbf{i,} $f+g\in\rab$ és $\intab f+g=\intab f+\intab g$\\[0.2cm]
+\textbf{ii,} $\lambda\cdot f\in\rab$ és $\intab\lambda f=\lambda\cdot\intab f
+\quad\lambda\in\R$\\[0.2cm]
+\textbf{iii,} $f\cdot g\in\rab$\\[0.2cm]
+\textbf{iv,} Ha $\abs{g(x)}\geq m>0\quad\forall x\in[a,b]$, akkor $\frac{f}{g}\in\rab$\\[0.2cm]
+\biz Legyen $\tau=\{x_0,x_1,...,x_n\}\in\fab,\\[0.2cm]F_i:=\sup\limits_{\intv}f,
+\quad f_i:=\inf\limits_{\intv}f\quad G_i:=\sup\limits_{\intv}g\quad
+g_i:=\inf\limits_{\intv}g$\\[0.3cm]
+\textbf{i,}$\quad f_i+g_i\leq f(x)+g(x)\leq F_i+G_i,\quad x\in\intv\\[0.2cm]
+\Rightarrow f_i+g_i\leq\inf\limits_{\intv}(f+g)\leq\sup\limits_{\intv}(f+g)\leq
+F_i+G_i\quad\quad/\cdot(x_i-x_{i-1})\\[0.2cm]\Rightarrow
+s\ftau+s(g,\tau)\leq s(f+g,\tau)\leq S(f+g,\tau)\leq S\ftau+S(g,\tau)$\\[0.2cm]
+Legyen $\te,\tk\in\fab$ tetszőleges és $\tau=\te\cup\tk\\[0.2cm]\Rightarrow
+s(f,\te)+s(g,\tk)\leq s\ftau+s(g,\tau)\leq s(f+g,\tau)\leq I_*(f+g)\leq I^*
+(f+g)\leq S(f+g,\tau)\leq\\[0.2cm]\leq S\ftau+S(g,\tau)\leq S(f,\te)+S(g,\tk)
+\quad/\cdot\sup\limits_{\te},\inf\limits_{\te},\sup\limits_{\tk},\inf\limits_{\tk}
+\\[0.2cm]\Rightarrow I_*(f)+I_*(g)\leq I_*(f+g)\leq I^*(f+g)\leq I^*(f)+I^*(g),
+\quad\text{Mivel }I_*(f)=I^*(f)$ (ugyanez $g$-re)\\[0.2cm]
+$\Rightarrow I_*(f+g)=I^*(f+g)\text{ és }\intab f+g=\intab f+\intab g$\\[0.2cm]
+\textbf{ii,} Tfh. $\lambda\geq0\Rightarrow s(\lambda f,\tau)=\lambda\cdot s\ftau
+\quad\quad(\inf\limits_{\intv}\lambda f=\lambda\cdot\inf\limits_{\intv}f)\\[0.2cm]
+\Rightarrow I_*(\lambda f)=\lambda\cdot I_*(f)$\hspace{1cm}Hasonlóan:
+$S(\lambda f,\tau)=\lambda\cdot S\ftau\Rightarrow I^*(\lambda f)=
+\lambda\cdot I^*(f)\\[0.1cm]\Rightarrow I_*(\lambda f)=I^*(\lambda f)\text{ és }
+\intab\lambda f=\lambda\cdot\intab f$\\[0.1cm]Tfh. $\lambda<0\\[0.1cm]
+s(\lambda f,\tau)=\lambda\cdot S\ftau\Rightarrow I_*(\lambda f)=\lambda\cdot I^*(f)
+\quad\text{és}\quad S(\lambda f,\tau)=\lambda\cdot s\ftau\Rightarrow I^*(\lambda f)=
+\lambda\cdot I_*(f)\\[0.2cm]\Rightarrow I_*(\lambda f)=I^*(\lambda f)\text{ és }
+\intab\lambda f=\lambda\cdot\intab f$\\[0.2cm]\textbf{iii,}
+Oszcillációs összeggel: Tfh. $f,g\geq0\quad[a,b]$-n\\[0.1cm]
+$f_i\cdot g_i\leq f(x)\cdot g(x)\leq F_i\cdot G_i\quad x\in\intv\\[0.2cm]
+\Rightarrow f_i\cdot g_i\leq\inf\limits_{\intv}(f\cdot g)\leq
+\sup\limits_{\intv}(f\cdot g)\leq F_i\cdot G_i\\[0.1cm]\Omega(f\cdot g,\tau)=
+\sumi(\sup\limits_{\intv}(f\cdot g)-\inf\limits_{\intv}(f\cdot g))\cdot
+(x_i-x_{i-1})\leq\sumi(F_i\cdot G_i-f_i\cdot g_i)\cdot(x_i-x_{i-1})=\\[0.1cm]=
+\sumi(F_i\cdot G_i-F_i\cdot g_i+F_i\cdot g_i-f_i\cdot g_i)\cdot(x_i-x_{i-1})=
+\\[0.1cm]=\sumi F_i(G_i-g_i)\cdot(x_i-x_{i-1})+\sumi g_i(F_i-f_i)\cdot(x_i-x_{i-1})
+\\[0.2cm]f\in\rab\Rightarrow f$ korlátos $\Rightarrow F_i\leq M$ és $g_i\leq M\quad
+\forall i=1,...,n$\newpage
+$\Rightarrow\Omega(f\cdot g,\tau)\leq M\cdot\Omega(g,\tau)+M\cdot\Omega\ftau\\[0.2cm]
+\Rightarrow\forall\varepsilon>0,\exists\te:\Omega(g,\te)<\varepsilon\quad\text{és}
+\quad\forall\varepsilon>0,\exists\tk:\Omega(f,\tk)<\varepsilon$\\[0.2cm]Legyen
+$\tau=\te\cup\tk\Rightarrow\Omega(g,\tau)\leq\Omega(g,\te)<\varepsilon\quad$
+Hasonlóan: $\Omega\ftau\leq\Omega(f,\tk)<\varepsilon\\[0.2cm]\Rightarrow
+\Omega(f\cdot g,\tau)<2\varepsilon M\Rightarrow f\cdot g\in\rab$\\[0.2cm]
+Ha $f$ és $g$ tetszőleges, akkor legyen $m_f:=\inf\limits_{[a,b]}f,\quad
+m_g:=\inf\limits_{[a,b]}g\Rightarrow\underbrace{f-m_f}_{\in\rab}\geq0,
+\quad\underbrace{g-m_g}_{\in\rab}\geq0\\[0.2cm]\Rightarrow\underbrace{(f-m_f)(g-m_g)}
+_{\in\rab}=f\cdot g\underbrace{-g\cdot m_f-f\cdot m_g+m_f\cdot m_g}_{\in\rab}
+\Rightarrow f\cdot g\in\rab$\\[0.2cm]\textbf{iv,} Elég: $\frac{1}{g}\in\rab$\\[0.2cm]
+\[\frac{1}{g(x)}-\frac{1}{g(y)}=\frac{g(y)-g(x)}{g(x)\cdot g(y)}\leq
+\frac{\abs{g(y)-g(x)}}{\abs{g(x)\cdot g(y)}}\leq\frac{G_i-g_i}{m^2}\Rightarrow
+\sup\limits_{\intv}\frac{1}{g}-\inf\limits_{\intv}\frac{1}{g}\leq
+\frac{G_i-g_i}{m^2}\]
+$\Rightarrow\Omega(\frac{1}{g},\tau)=\sumi(\sup\limits_{\intv}\frac{1}{g}-
+\inf\limits_{\intv}\frac{1}{g})\cdot(x_i-x_{i-1})\leq
+\frac{1}{m^2}\Omega(g,\tau)\\[0.2cm]\forall\varepsilon>0,\exists\tau,\Omega(g,\tau)
+<\varepsilon\Rightarrow\Omega(\frac{1}{g},\tau)\leq\frac{\varepsilon}{m^2}\bizva$
+\section{Folytonos függvény integrálható}
+\tetel Ha $f\cab$, ekkor $f\in\rab$\\[0.2cm]
+\biz Ha $f\cab\Rightarrow$ Heine tétel miatt $f$ egyenletesen folytonos, azaz\\[0.2cm]
+$\forall\varepsilon>0,\exists\delta>0,\forall x,y\in[a,b],\abs{x-y}<\delta:
+\abs{f(x)-f(y)}<\varepsilon$\\[0.2cm]
+Legyen $\tau\in\fab$ olyan, hogy $\abs{\tau}<\delta\\[0.2cm]
+\Omega\ftau=\sumi(\sup\limits_{\intv}f-\inf\limits_{\intv}f)(x_i-x_{i-1})=\sumi
+\underbrace{\sup\limits_{x,y\in\intv}\abs{f(x)-f(y)}}_{<\varepsilon}\cdot(x_i-x_{i-1})
+\leq\varepsilon\cdot(b-a)\\[0.2cm]\Rightarrow f\in\rab\bizva$
+\section{Monoton függvény integrálható}
+\tetel $f:[a,b]\to\R$ monoton, ekkor $f\in\rab$\\[0.2cm]
+\biz Tfh. $f\nearrow$\\[0.2cm]$\Omega\ftau=\sumi
+(\sup\limits_{\intv}f-\inf\limits_{\intv}f)\cdot(x_i-x_{i-1})=\sumi
+(f(x_i)-f(x_{i-1}))\cdot(x_i-x_{i-1})$\\[0.2cm]Tfh. $\abs{\tau}<\delta\Rightarrow
+\Omega\ftau\leq\delta\cdot\sumi(f(x_i)-f(x_{i-1}))=\delta\cdot(f(b)-f(a))<\varepsilon$
+\\[0.2cm]Ha a $\delta<\frac{\varepsilon}{f(b)-f(a)}\Rightarrow f\in\rab\bizva$
+\newpage
+\section{Newton-Leibniz-tétel}
+\tetel Ha $f\in\rab$ és $f$-nek $\exists F$ \prfv e, akkor: $\intab f=F(b)-F(a)$\\[0.1cm]
+\biz Legyen $\tau=\{a=x_0<x_1<...<x_n=b\}\in\fab\\[0.2cm]\Rightarrow F(b)-F(a)=
+F(x_n)-F(x_0)=F(x_n)-F(x_{n-1})+F(x_{n-1})-F(x_{n-2})+...+F(x_1)-F(x_0)=\\[0.2cm]=
+\sumi(F(x_i)-F(x_{i-1}))$ Alkalmazzuk a Lagrange középértéktételt az $\intv$
+intervallumon\\[0.2cm]$\exists\xi_i\in\intv:F(x_i)-F(x_{i-1})=F'(\xi_i)
+(x_i-x_{i-1})=f(\xi_i)(x_i-x_{i-1})\\[0.2cm]\Rightarrow
+s\ftau\leq F(b)-F(a)=\sumi(f(\xi_i)\cdot(x_i-x_{i-1}))\leq S\ftau\quad$
+/sup a bal oldalon és inf a jobb oldalon\\
+$\Rightarrow I_*f\leq F(b)-F(a)\leq I^*f\quad\quad$
+Mivel $I_*f=I^*f=\intab f\Rightarrow F(b)-F(a)=\intab f\bizva$
+\section{A differenciál- és integrálszámítás alaptétele}
+\tetel Legyen $f\in\rab,x_0\in[a,b],F(x)=\int\limits_{x_0}^xf\quad(x\in[a,b])$, ekkor:
+\\[0.2cm]\textbf{i,} $F\cab$\\[0.2cm]
+\textbf{ii,} Ha $f\in C(d)$, akkor $F\in D(d)$ és $F'(d)=f(d)\quad(d\in[a,b])$\\[0.2cm]
+\biz \textbf{i,} $f\in\rab\Rightarrow f$ korlátos $\Rightarrow\exists M:\abs{f}\leq M
+\\[0.2cm]\abs{F(x_2)-F(x_1)}=\abs{\int\limits_{x_0}^{x_2}f-\int\limits_{x_0}^{x_1}f}=
+\abs{\int\limits_{x_1}^{x_2}f}\leq\abs{\int\limits_{x_1}^{x_2}\abs{f}}\leq M\cdot
+\abs{x_2-x_1}\Rightarrow x_2\to x_1\Rightarrow F(x_2)\to F(x_1)\\[0.2cm]
+\Rightarrow F\in C(x_1)\quad x_1$ tetszőleges\\[0.2cm]
+\textbf{ii,} Igazolni kell, hogy $f(d)=F'(d)=\limh\frac{F(d+h)-F(d)}{h}$, azaz
+$\limh\abs{\frac{F(d+h)-F(d)}{h}-f(d)}=0\\[0.2cm]
+\abs{\frac{F(d+h)-F(d)}{h}-f(d)}=\abs{\frac{1}{h}\cdot\int\limits_d^{d+h}f(t)dt-f(d)}=
+\abs{\frac{1}{h}\cdot\int\limits_d^{d+h}f(t)-f(d)dt}\leq\frac{1}{h}\cdot
+\int\limits_d^{d+h}\abs{f(t)-f(d)}dt\\[0.2cm]
+f\in C(d)\Rightarrow\forall\varepsilon>0,\exists\delta>0,\forall t\in[a,b],
+\abs{t-d}<\delta:\abs{f(t)-f(d)}<\varepsilon$\\[0.3cm]Legyen
+$\abs{h}<\delta\Rightarrow\abs{t-d}\leq\abs{h}<\delta\Rightarrow\forall\varepsilon>0,
+\exists\delta>0,\forall\abs{h}<\delta:\abs{\frac{F(d+h)-F(d)}{h}-f(d)}<\varepsilon
+\\[0.2cm]\Rightarrow\limh\abs{\frac{F(d+h)-F(d)}{h}-f(d)}=0\bizva$
+\end{document}
