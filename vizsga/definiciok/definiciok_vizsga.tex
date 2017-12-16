@@ -1,0 +1,314 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[textwidth=170mm, textheight=230mm, inner=20mm, top=10mm, bottom=20mm]{geometry}
+\usepackage[normalem]{ulem}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{physics}
+\PassOptionsToPackage{defaults=hu-min}{magyar.ldf}
+\usepackage[magyar]{babel}
+\usepackage{amsmath, amsthm,amssymb,paralist,array, ellipsis, graphicx, float}
+
+\begin{document}
+\def\Z{\mathbb{Z}}
+\def\R{\mathbb{R}}
+\def\N{\mathbb{N}}
+\def\Q{\mathbb{Q}}
+\def\Ra{\overline{\mathbb{R}}}
+\def\sume{\displaystyle\sum_{n=1}^{+\infty}}
+\def\sumn{\displaystyle\sum_{n=0}^{+\infty}}
+\def\sumun{\displaystyle\sum_{n=0}}
+\def\limn{\displaystyle\lim_{n\to +\infty}}
+\def\limh{\displaystyle\lim_{h\to0}}
+\def\limxa{\displaystyle\lim_{x\to a}}
+\def\limxatelj{\displaystyle\lim_{x\to a}\frac{f(x)-f(a)}{x-a}}
+\def\rtr{\displaystyle\R\to\R}
+\def\D{\mathcal{D}}
+\def\lima{\displaystyle\lim_{a}}
+\def\fda{f\in\D(a)}
+\def\cab{\in C[a,b]}
+\def\dab{\in\D(a,b)}
+\def\limaj{\displaystyle\lim_{a+0}}
+\def\Rv{\overline{\mathbb{R}}}
+\def\fabr{f:(a,b)\to\R}
+\def\prfv{primitív függvény}
+\def\itr{I\to\R}
+\def\fab{F[a,b]}
+\def\kab{K[a,b]}
+\def\rab{R[a,b]}
+\def\te{\tau_1}
+\def\tk{\tau_2}
+\def\ftau{(f,\tau)}
+\def\sumi{\sum\limits_{i=1}^{n}}
+\def\intv{[x_{i-1},x_i]}
+\def\intab{\int\limits_{a}^{b}}
+\begin{center}
+	{\LARGE\textbf{Analízis 2.}}\\[0.2cm]
+	
+	{\Large Vizsgán kért definíciók és tételkimondások}\\[0.5cm]	
+\end{center}
+\textbf{{\large Függyvények folytonossága}}
+\begin{enumerate}
+	\item \textbf{Definiálja egy $f\in\rtr$ függvény pontbeli folytonosságát.}\\[0.2cm] $f\in\R\to\R$ folytonos az $a\in D_f$ pontban, ha\\[0.2cm] $\forall\varepsilon>0,\exists\delta>0,\forall x\in D_f, |x-a|<\delta : |f(x)-f(a)|<\varepsilon$
+	\item \textbf{Mi a kapcsolat a pontbeli folytonosság és a határérték között?}\\[0.2cm]Ha $a\in D_f\cap D_f'$, akkor: \[ f\in C(a)\Leftrightarrow \exists\lim_a f \text{ és } \lim_a f=f(a)\]
+	\item \textbf{Hogyan szól a folytonosságra vonatkozó átviteli elv?}\\[0.2cm] Tfh. $a\in D_f$, ekkor: \[f\in C(a)\Leftrightarrow\forall(x_n):\N\to D_f, \lim(x_n)=a:\quad\lim(f(x_n))=f(a)\]
+	\item \textbf{Definiálja a megszüntethető szakadási hely fogalmát.}\\[0.1cm]
+	Az $f\in\R\to\R$ függvénynek az $a\in D_f$ pontban megszüntethető szakadása van, ha \[ \exists\lim_{a} f\text{\quad véges, és\quad } \lim_a f\not=f(a)\]
+	\item \textbf{Definiálja az elsőfajú szakadási hely fogalmát.}\\[0.1cm]
+	Az $f\in\R\to\R$ függvénynek az $a\in D_f$ pontban elsőfajú szakadása van, ha \[ \exists \lim_{a+0} f,\quad \exists\lim_{a-0}f \text{\quad végesek, és\quad } \lim_{a+0} f \not= \lim_{a-0}f \]
+	\item \textbf{Mit tud mondani a korlátos és zárt $[a,b]\subset\R$ intervallumon folytonos függvény értékkészletéről?}\\[0.1cm]Ha $f:[a,b]\to\R$ függvény folytonos, akkor $R_f$ intervallum.
+	\item \textbf{Hogyan szól a Weierstrass-tétel?}\\[0.1cm]
+	Ha $ f:[a,b]\to\R\text{ folytonos, akkor } f$-nek létezik abszolút maximuma és minimuma is.
+	\item \textbf{Mit mond ki a Bolzano-tétel?}\\[0.1cm]
+	Tfh. $f: [a,b] \to \R$ folytonos.\\[0.1cm]Ha $f(a)\cdot f(b) < 0$ akkor $\exists x \in [a,b]: f(x) = 0$
+	\item \textbf{Mit tud mondani intervallumon értelmezett folytonos függvény értékkészletéről?}\\[0.1cm]Ha $I\subset\R$ intervallum, $f: I \to\R$ függyvény folytonos, ekkor $R_f$ intervallum.
+	\item \textbf{Mikor nevez egy függvényt egyenletesen folytonosnak?}\\[0.1cm]$f: A\to\R$ függyvény egyneletesen folytonos, ha \\[0.1cm] $\forall\varepsilon > 0, \exists\delta > 0, \forall x,y\in A: |x-y|<\delta : |f(x)-f(y)|<\varepsilon$
+	\item \textbf{Írja le a Heine-tételt.}\\[0.1cm]Ha $f:[a,b]\to\R$ folytonos, akkor $f$ egyenletesen folytonos.
+	\item \textbf{Milyen állításokat ismer az inverz függvény folytonosságáról?}\\[0.1cm]Ha $f:[a,b]\to\R$ folytonos és injektív, akkor $f^{-1}$ is folytonos.\newpage
+	\item \textbf{Legyen az $f:[a,b]\to\R$ $(a<b,a,b\in\R)$ függvény folytonos és invertálható.\\[0.1cm] Mit mondhatunk ekkor az $f$ függvény monotonitásáról?}\\[0.1cm]$f:[a,b]\to\R$ folytonos és injektív $\Rightarrow f$ szig. mon.\\
+\end{enumerate}
+\textbf{{\large Nevezetes függvények értelmezése és tulajdonságai}}
+\begin{enumerate}
+	\setcounter{enumi}{13}
+	\item \textbf{Értelmezze az $ln$ függvényt.}\\[0.1cm] $ln:=exp^{-1}:\R_+\to\R$
+	\item \textbf{Mi a definíciója az $a^x\text{  }(a,x\in\R,a>0)$ hatványnak?}\\[0.1cm]$exp_a(x)=exp(x\cdot\ln(a))=a^x$, ahol $x\in\R$ és $a>0$
+	\item \textbf{Értelmezze az $log_a$ függvényt.}\\[0.1cm] $\log_a=(exp_a)^{-1}:\R_+\to\R\quad(a>0,a\neq1)$
+	\item \textbf{Mi a definíciója az $x^{\alpha}\text{  }(x>0,\alpha\in\R)$ hatványfüggvénynek?}\\[0.1cm]$x^{\alpha}:=exp(\alpha\cdot\ln(x)) \quad\alpha\in\R,x\in(0,+\infty)$
+\end{enumerate}
+\textbf{{\large Differenciálszámítás}}
+\begin{enumerate}
+	\setcounter{enumi}{17}
+	\item \textbf{Mikor mondja, hogy egy $f\in\rtr$ függvény differenciálható valamely pontban?}\\[0.1cm]Az $f\in\rtr$ deriválható (differenciálható) az $a\in int D_f$ pontban, ha $\exists$ és véges a\\[0.1cm]$\limh\frac{f(a+h)-f(a)}{h}=f'(a)$ határérték.
+	\item \textbf{Milyen ekvivalens átfogalmazást ismer a pontbeli deriválhatóságra a lineáris közelítéssel?}\\[0.1cm]$f\in\rtr,\quad a\in int\D_f\quad$ Ekkor\\[0.1cm]$\fda\Leftrightarrow\exists A\in\R, \exists\varepsilon:\D_f\to\R,\lima\varepsilon=0$ és $f(x)-f(a)=A(x-a)+ \varepsilon(x)(x-a)\quad(x\in\D_f)$\\[0.1cm]Ekkor $A=f'(a)$
+	\item \textbf{Mi a kapcsolat a pontbeli differenciálhatóság és a folytonosság között?}\\[0.1cm]$f\in\rtr,\quad a\in int\D_f$, ekkor\hspace{1cm} $\fda\Rightarrow f\in C(a)$
+	\item \textbf{Milyen tételt ismer két függvény szorzatának valamely pontbeli differenciálhatóságáról és a deriváltjáról?}\\[0.1cm]Legyen $f,g\in\rtr,a\in int(\D_f\cap\D_g),\quad f,g\in\D(a)$ Ekkor:\\[0.1cm] $f\cdot g\in\D(a)\text{ és }(f\cdot g)'(a)= f'(a)\cdot g(a)+f(a)\cdot g'(a)$
+	\item \textbf{Milyen tételt ismer két függvény hányadosának valamely pontbeli differenciálhatóságáról és a deriváltjáról?}\\[0.1cm]Legyen $f,g\in\rtr,a\in int(\D_f\cap\D_g),\quad f,g\in\D(a)$ Ekkor:\\[0.1cm] Ha $g(a)\neq0$, akkor $\frac{f}{g}\in\D(a)\text{ és } (\frac{f}{g})'(a) =\frac{(f'(a)\cdot g(a)-f(a)\cdot g'(a))}{g^2(a)}$
+	\item \textbf{Milyen tételt ismer két függvény kompozíciójának valamely pontbeli differenciálhatóságáról és a deriváltjáról?}\\[0.1cm] $f,g\in\rtr,R_g\subset D_f,g \in\D(a),f\in\D(g(a))$, ekkor\\[0.1cm] $f\circ g\in\D(a)\text{ és }(f\circ g)'(a)= f'(g(a))\cdot g'(a)$\newpage
+	\item \textbf{Milyen tételt tanult az inverz függvény differenciálhatóságáról és a deriváltjáról?}\\[0.1cm]Legyen $f:(a,b)\to\R$, szig. mon. növő és folytonos függvény.\\[0.1cm]Ha $\xi\in(a,b),f\in\D(\xi) \text{ és }f'(\xi)\neq0$, akkor\\[0.1cm] $(f^{-1})\in\D(\eta)\text{ és }(f^{-1})'(\eta)=\frac{1}{f'(\xi)}\text{, ahol }\eta=f(\xi)$
+	\item \textbf{Milyen állítást tud mondani hatványsor összegfüggvényének a deriválhatóságáról és a deriváltjáról?}\\[0.1cm]Legyen $\sumun\alpha_n(x-a)^n$ hatványsor konvergenciasugara $R>0$ és legyen $f(x):=\sumn\alpha_n(x-a)^n\quad\\x\in K_R(a)$. Ekkor $f\in\D(x_0)\quad\forall x_0\in K_R(a)$ és $f'(x_0)=\sume n\cdot\alpha_n\cdot(x_0-a)^{n-1},\quad$ahol $x_0\in K_R(a)$
+	\item \textbf{Mi az egyoldali derivált definíciója?}\\[0.1cm]$f\in\rtr, \quad a\in\D_f\text{  és  }\exists\delta>0:[a,a+\delta) \subset\D_f$ \\[0.2cm]Ekkor: $f$ jobbról deriválható $a$-ban, ha\\[0.2cm] $f_+'(a)=\displaystyle\lim_{x\to a+0}\frac{f(x)-f(a)}{x-a}$ határérték létezik és véges.\\[0.2cm]Hasonló az $f_-'(a)$ definíciója.
+	\item \textbf{Mi a kétszer deriválható függvény fogalma?}\\[0.1cm]$f$ kétszer deriválható $a$-ban, ha $\exists K(a)$, hogy $f\in\D(K(a))$ és $f'\in\D(a)$
+	\item \textbf{Mi az $n$-szer deriválható függvény fogalma?}\\[0.1cm]Az $f$ függvény $n$-szer differenciálható $a$-ban, ha \\[0.2cm] $\exists K(a)$, hogy $f\in\D^{n-1}(K(a))$ és $f^{(n-1)}\in\D(a)$
+	\item \textbf{Fogalmazza meg a szorzatfüggvény deriváltjaira vonatkozó} \textit{Leibniz-tételt}.\\[0.2cm]$f,g\in\D^n(a)\Rightarrow f\cdot g\in\D^n(a)$ és $(f\cdot g)^{(n)}(a)=\displaystyle\sum_{k=0}^{n}\binom{n}{k}\cdot f^{(k)} (a)\cdot g^{(n-k)}(a)$
+	\item \textbf{Mondja ki a} \textit{Rolle-tételt}.\\[0.1cm]Tfh. $f\cab$ és $f\dab$\\[0.2cm]Ha $f(a)=f(b)$, ekkor $\exists\xi\in(a,b):f'(\xi)=0$
+	\item \textbf{Mondja ki a} \textit{Cauchy-féle középértéktételt.}\\[0.1cm]
+	Tfh. $f,g\cab$, $f,g\dab$ és $g'(x)\neq0\quad(x\in(a,b))$\\[0.2cm]Ekkor: $\exists\xi\in(a,b): \frac{f(b)-f(a)}{g(b)-g(a)}=\frac{f'(\xi)}{g'(\xi)}$
+	\item \textbf{Mondja ki a} \textit{Lagrange-féle középértéktételt.}\\[0.1cm]
+	Tfh. $f\cab,f\dab$\\[0.2cm]Ekkor $\exists\xi\in(a,b):\frac{f(b)-f(a)}{b-a}= f'(\xi)$
+	\item \textbf{Mit ért azon, hogy az $f\in\rtr$ függvénynek valamely helyen lokális minimuma van?}\\[0.1cm]Az $f\in\rtr$ függvénynek a $c\in int\D_f$ pontban lokális minimuma van, ha\\[0.1cm]$\exists K(c)\subset\D_f,\forall x\in K(c): f(x)\geq f(c)$
+	\item \textbf{Mit ért azon, hogy egy függvény valamely helyen jelet vált?}\\[0.1cm]
+	%Bizonytalanság
+	\newpage\item \textbf{Hogyan szól a lokális szélsőértékre vonatkozó} 
+	\textit{elsőrendű szükséges} \textbf{feltétel}.\\[0.1cm]$f\in\rtr,f\in\D(c)$ és
+	$f$-nek lokális szélső értéke van $c$-ben $\Rightarrow f'(c)=0$
+	\item \textbf{Hogyan szól a lokális szélsőértékre vonatkozó} 
+	\textit{elsőrendű elégséges} \textbf{feltétel}.\\[0.1cm]Tfh. 
+	$f\dab,c\in(a,b)$ és $f'(c)=0$\\[0.1cm]Ha $f'$ előjelet vált $c$-ben, akkor 
+	lokális szélső értéke van $c$-ben.
+	\item\textbf{Írja le a lokális minimumra vonatkozó másodrendű elégséges feltételt.}
+	\\[0.1cm]Tfh. $f\dab,c\in(a,b),f'(c)=0,f\in\D^2(c)\\[0.2cm]$Ha 
+	$f''(c)>0\quad\Rightarrow\quad$lokális minimum
+	\item\textbf{Milyen} \textit{szükséges és elégséges} \textbf{feltételt ismer
+	differenciálható függvény} \textit{monoton \\ növekedésével} \textbf{
+	kapcsolatban?}\\[0.1cm]Tfh. $f\dab$ Ekkor: $f'\geq0\quad(a,b)$-n $\Leftrightarrow f$ monoton nő $(a,b)$-n
+	\item \textbf{Írja le a $\frac{0}{0}$ esetre vonatkozó}
+	\textit{L'Hospital szabályt.}\\[0.1cm]
+	Tfh. \textbf{i,} $f,g\dab,\quad(-\infty\leq a<b<\infty)$
+	\\[0.2cm]\hspace*{0.7cm} \textbf{ii,} $g'(x)\neq0,\quad x\in(a,b)$
+	\\[0.2cm]\hspace*{0.8cm}\textbf{iii,} $\limaj f=\limaj g=0$
+	\\[0.2cm]\hspace*{0.8cm}\textbf{iv,} $\exists\limaj \frac{f'}{g'}$ és $\limaj\frac{f'}{g'}=A\in\Rv$\\[0.2cm] Ekkor: $\exists\limaj
+	\frac{f}{g}$ és $\limaj\frac{f}{g}=\limaj\frac{f'}{g'}$
+	\item \textbf{Írja le a $\frac{\infty}{\infty}$ esetre vonatkozó}
+	\textit{L'Hospital szabályt.}\\[0.1cm]
+	Tfh. \textbf{i,} $f,g\dab,\quad(-\infty\leq a<b<\infty)$\\[0.2cm] 
+	\hspace*{0.8cm}\textbf{ii,} $g'(x)\neq0,\quad x\in(a,b)$\\[0.2cm] 
+	\hspace*{0.8cm}\textbf{iii,} $\limaj f=\limaj g=\infty$\\[0.2cm]
+	\hspace*{0.8cm}\textbf{iv,} $\exists\limaj\frac{f'}{g'}$ és $\limaj
+	\frac{f'}{g'}=A\in\Rv$\\[0.2cm] Ekkor: $\exists\limaj\frac{f}{g}$ és $\limaj\frac{f}{g}=\limaj\frac{f'}{g'}$
+	\item \textbf{Mi a kapcsolat a hatványsor összegfüggvénye és a hatványsor együtthatói között?}\\[0.1cm]
+	Legyen $a\in\R\text{ és }\alpha_n\in\R(n=0,1,2,...).$ Tfh. $\sum\alpha_n
+	(x-a)^n(x\in\R)$ hatványsor $R$\\konvergenciasugara pozitív, és jelölje
+	$f$ az összegfüggvényét:\\$f(x):=\sumn\alpha_n(x-a)^n(x\in K_R(a))$ és
+	$\alpha_n=\frac{f^{(n)}(a)}{n!}(n=0,1,2,...)$
+	\item\textbf{Hogyan definiálja egy függvény} \textit{Taylor-sorát}?\\[0.1cm]
+	Ha $f\in\D^{\infty}(a)$, ekkor a $\sum\frac{f^{(n)}(a)}{n!} 
+	\cdot(x-a)^{n}$ sort, az $f$ függyvény Taylor sorának nevezzük.
+	\item\textbf{Fogalmazza meg a} \textit{Taylor-formula Lagrange maradéktaggal}
+	\textbf{néven tanult tételt.}\\[0.1cm]
+	Ha $f\in\D^{(n+1)}(K(a))$, akkor\\[0.1cm]$\forall x\in K(a),\exists\xi\in(a,x)
+	\cup(x,a):f(x)=\sum\limits_{k=0}^{n}\frac{f^{(k)}(a)}{k!}(x-a)^k+
+	\frac{f^{(n+1)}(\xi)}{(n+1)!}(x-a)^{n+1}$
+	\item \textbf{Mi a konvex függvény definíciója?}\\[0.1cm]Az $\fabr$ függvény konvex, ha\\[0.1cm] $\forall x_1,x_2\in(a,b),x_1<x_2,\forall\lambda\in[0,1]: f(\lambda x_1+(1-\lambda)x_2)\leq\lambda f(x_1)+(1-\lambda)f(x_2)$\newpage
+	\item \textbf{Jellemezze egy függvény konvexitását (konkávitását) az első derivált segítségével.}\\[0.1cm]$\fabr$ Ha $f\dab$, akkor:\\[0.1cm] $f$ konvex $\Leftrightarrow f'\nearrow\quad(a,b)$-n.\\[0.1cm]$f$ konkáv $\Leftrightarrow f'\searrow\quad(a,b)$-n.
+	\item \textbf{Jellemezze egy függvény \textit{konkávitását} a második derivált segítségével.}\\[0.1cm]$\fabr$ Ha $f\in\D^2(a,b)$, akkor:\\[0.1cm] $f$ konkáv $\Leftrightarrow f''\leq0\quad(a,b)$-n.
+	\item\textbf{Mi az inflexiós pont definíciója?}\\[0.1cm]
+	$\fabr,x_0\in(a,b),f\in\D(x_0)\\[0.2cm]x_0$ infelxiós pontja $f$-nek, ha
+	$l(x):=f(x)-(\underbrace{f'(x_0)(x-x_0)+f(x_0)}_{\text{érintő}})\quad$
+	szigorúan előjelet vált\\[0.2cm]azaz $\exists\delta>0,l(x)<0,\forall x\in
+	(x_0-\delta,x_0)\quad\text{és}\quad l(x)>0,\forall x\in(x_0,x_0+\delta)\quad$
+	vagy fordítva
+	\item\textbf{Milyen szükséges feltételt ismer a második derivált és az
+	inflexiós pont kapcsolatáról?}\\[0.1cm]
+	$\fabr,x_0\in(a,b)$\\[0.1cm]Ha $f$ kétszer folytonosan
+	deriválható és $x_0$ inflexiós pont, ekkor $f''(x_0)=0$
+	\item\textbf{Milyen elégséges feltételt ismer a harmadrendű derivált és az
+	inflexiós pont kapcsolatáról?}\\[0.1cm]$\fabr,x_0\in(a,b)$
+	\\[0.1cm]Ha $f$ háromszor folytonosan deriválható és $f''(x_0)=0$ és $f'''(x_0)\neq0$, ekkor	$x_0$ inflexiós pont.
+\end{enumerate}
+\textbf{{\large A határozatlan integrál (\prfv ek)}}
+\begin{enumerate}
+	\setcounter{enumi}{49}
+	\item\textbf{Definiálja a \prfv t.}\\[0.1cm]$I\subset\R$ intervallum, $f:\itr$\\[0.1cm]Az $F:\itr$ függvény az $f$ \prfv e, ha $F\in\D(I)$ és $F'(x)=f(x),\quad\forall x\in I$
+	\item\textbf{Adjon meg olyan függyvényt, amelyiknek nincs \prfv e.}\\[0.1cm]$f(x)=sign(x)$
+	\item\textbf{Definiálja egy adott pontban eltűnő primitív függvény fogalmát.}\\[0.1cm]$\int\limits_{x_0}f$ jelöli azt az egyetlen $F$
+	\prfv t, amelyre $F(x_0)=0$
+	\item\textbf{A primitív függvény létezésére vonatkozó szükséges feltétel.}\\[0.1cm]Ha $I$ intervallum, és $f:\itr$ függvénynek $\exists$ \prfv e, akkor $f$ Darboux tulajdonságú.
+	\item\textbf{Mit jelent egy függvény határozatlan integrálja?}\\[0.1cm]
+	Ha az $f:\itr$ függvény \prfv e $F$, akkor legyen:
+	$\int f:=\{F+c:c\in\R\}$\\[0.1cm]neve határozatlan integrál.
+	\item\textbf{Mit ért a határozatlan integrál linearitásán?}\\[0.1cm]
+	%Bizonytalanság
+	\item\textbf{Milyen állítást ismer hatványsor összegfüggvényének a \prfv éről?}\\[0.1cm]
+	A $\sum\alpha_n(x-a)^n,x\in K_R(a),R>0$, hatványsor \prfv e:\\[0.2cm]
+	$\sum\limits_{n=0}\alpha_n\frac{(x-a)^{n+1}}{n+1}+c,\quad x\in K_R(a)$
+	\newpage
+	\item\textbf{Mit mond ki a \prfv ekkel kapcsolatos}
+	\textit{parciális integrálás tétele?}\\[0.1cm]
+	$\quad\text{Tfh. }f,g:\itr,f,g\in\D(I)$\\[0.2cm]
+	Ha $\exists f'\cdot g$ \prfv e, akkor $\exists f\cdot g'$ \prfv e, 
+	és\\[0.2cm]$\int f\cdot g'=f\cdot g-\int f'\cdot g\text{ és }
+	\int\limits_{x_0}f\cdot g'=	f\cdot g-f(x_0)\cdot g(x_0)-
+	\int\limits_{x_0}f'\cdot g$
+	\item\textbf{Hogyan szól a \prfv ekkel kapcsolatos}
+	\textit{első helyettesítési szabály?}\\[0.1cm]
+	$g:I\to J,g\in\D(I),f:J\to\R,I,J\subset\R
+	\quad$ intervallum\\[0.1cm]Ha $\exists f$-nek \prfv e, akkor\\[0.2cm]
+	$\int f\circ g\cdot g'=(\int f)\circ g\quad\text{és}\\[0.2cm]
+	\int\limits_{t_0}f\circ g\cdot g'=(\int\limits_{g(t_0)}f)\circ g$
+	\item\textbf{Fogalmazza meg a \prfv ekkel kapcsolatos}
+	\textit{második helyettesítési szabályt.}\\[0.1cm]
+	Tfh. $g:I\to J$ bijekció,$\quad g\in\D(I),\quad g'(x)\neq0,\quad x\in I,\quad
+	f:I\to J$\\[0.2cm]Ha $\exists f\circ g\cdot g'$ \prfv, ekkor:\\[0.2cm]
+	$\int f=(\int f\circ g\cdot g')\circ g^{-1}\quad\text{és}\quad\quad
+	\int\limits_{x_0}f=(\int\limits_{x_0} f\circ g\cdot g')\circ g^{-1}$
+	\item\textbf{Adjon meg legalább három olyan függvényt, amelyiknek
+	a \prfv e \\ nem elemi függvény.}\\[0.1cm]
+	$\int\frac{\sin x}{x}dx,\quad\int\frac{\cos x}{x}dx,\quad
+	\int e^{-x^2}dx$
+\end{enumerate}
+\textbf{{\large A határozott integrál}}
+\begin{enumerate}
+	\setcounter{enumi}{60}
+	\item\textbf{Definiálja az intervallum egy felosztását.}\\[0.1cm]
+	A $\tau=\{x_0,x_1,...x_n\}$ halmaz felosztása az $[a,b]$
+	intervallumnak, ha\\[0.2cm]$a=x_0<x_1<...<x_n=b$\hspace{2cm}Jelölés: $\fab$
+	\item\textbf{Mit jelent egy felosztás finomítása?}\\[0.1cm]
+	$\tk$ finomabb felbontás mint $\te$, ha $\tk\supset\te$
+	\item\textbf{Mi az alsó közelítő összeg definíciója?}\\[0.1cm]
+	$f\in\kab,\tau\in\fab$\\[0.2cm]$s\ftau:=\sum\limits_{i=1}^{n}
+	\inf\limits_{[x_{i-1},x_i]}f\cdot(x_i-x_{i-1})$
+	\item\textbf{Mi a felső közelítő összeg definíciója?}\\[0.1cm]
+	$f\in\kab,\tau\in\fab$\\[0.2cm]$S\ftau:=\sum\limits_{i=1}^{n}
+	\sup\limits_{[x_{i-1},x_i]}f\cdot(x_i-x_{i-1})$
+	\item\textbf{Mi történik egy alsó közelítő összeggel, ha a neki
+	megfelelő felosztást finomítjuk?}\\[0.1cm]
+	$f\in\kab,\te,\tk\in\fab$, ekkor,
+	ha $\tk\supset\te$, akkor $s(f,\te)\leq s(f,\tk)$
+	\item\textbf{Mi történik egy felső közelítő összeggel, ha a neki
+	megfelelő felosztást finomítjuk?}\\[0.1cm]
+	$f\in\kab,\te,\tk\in\fab$, ekkor,
+	ha $\tk\supset\te$, akkor $S(f,\te)\geq S(f,\tk)$
+	\item\textbf{Milyen viszony van az alsó és a felső közelítő értékek
+	között?}\\[0.1cm]$f\in\kab,\te,\tk\in\fab$, ekkor $s(f,\te)\leq S(f,\tk)$
+	\item\textbf{Mi a} \textit{Darboux-féle alsó integrál}
+	\textbf{definíciója?}\\[0.1cm]$f\in\kab\\[0.1cm]
+	I_*f:=\sup\limits_{\tau\in\fab}s\ftau$
+	\newpage
+	\item\textbf{Mi a} \textit{Darboux-féle felső integrál}
+	\textbf{definíciója?}\\[0.1cm]$f\in\kab\\[0.1cm]
+	I^*f:=\inf\limits_{\tau\in\fab}S\ftau$
+	\item\textbf{Mikor nevez egy függvényt (Riemann)-integrálhatónak?}\\[0.1cm]
+	$f\in\kab$ függvény Riemann integrálható, ha $I_*f=I^*f$
+	\item\textbf{Hogyan értelmezi egy függvény határozott (vagy
+	Riemann-) integrálját?}\\[0.1cm]
+	$I_*f=I^*f=If=\int\limits_{a}^{b}f=\int\limits_{a}^{b}f(x)dx$
+	\item\textbf{Adjon meg egy példát} \textit{nem integrálható}
+	\textbf{függvényre.}\\[0.1cm]
+	$x\in[0,1]$
+	\[\displaystyle f(x) := 
+	\left\{
+	\begin{gathered}
+	\quad 1\quad:\quad x\in\Q\hspace{5.7cm} \\
+	\quad 0\quad:\quad x\notin\Q\hspace{5.7cm}
+	\end{gathered}\right. \]\\[0.2cm]
+	$\Rightarrow f\notin R[0,1],\quad s\ftau=0,\quad S\ftau=1$
+	\item\textbf{Mi az} \textit{oszcillációs összeg} \textbf{definíciója?}
+	\\[0.1cm]$\Omega\ftau:=S\ftau-s\ftau$
+	\item\textbf{Hogyan szól a Riemann-integrálhatósággal kapcsolatban
+	tanult kritérium az \\ oszcillációs összegekkel megfogalmazva?}\\[0.1cm]
+	$f\in\rab\Leftrightarrow\forall\varepsilon>0,\exists\tau\in\fab:\Omega\ftau<
+	\varepsilon$
+	\item\textbf{Felosztássorozatok segítségével adja meg a Riemann-integrálhatóság
+	egy ekvivalens átfogalmazását.}\\[0.1cm]
+	$f\in\rab$ és $\int\limits_{a}^{b}f=I\Leftrightarrow
+	\exists\tau_n:\lim s(f,\tau_n)=\lim S(f,\tau_n)=I$
+	\item\textbf{Hogyan szól a Riemann-integrálható függvények összegével kapcsolatban
+	\\ tanult tétel?}\\[0.1cm]
+	Tfh. $f,g\in\rab$ Ekkor: $f+g\in\rab$ és $\intab f+g=\intab f+\intab g$
+	\item\textbf{Hogyan szól a Riemann-integrálható függvények szorzatával kapcsolatban
+	\\ tanult tétel?}\\[0.1cm]
+	Tfh. $f,g\in\rab$ Ekkor: $f\cdot g\in\rab$
+	\item\textbf{Hogyan szól a Riemann-integrálható függvények hányadosával kapcsolatban
+	\\ tanult tétel?}\\[0.1cm]
+	Tfh. $f,g\in\rab$ Ekkor, ha $\abs{g(x)}\geq m>0\quad\forall x\in[a,b]$, akkor $\frac{f}{g}\in\rab$
+	\item\textbf{Mit ért a Riemann-integrál intervallum szerinti additivitásán?}\\[0.1cm]
+	$f\in R[A,B],\quad a,b,c\in[A,B]$ Ekkor: $\intab f=\int\limits_a^cf+
+	\int\limits_c^bf$
+	\item\textbf{Mi a kapcsolat a folytonosság és a Riemann-integrálhatóság között?}\\[0.1cm]
+	Ha $f\cab$, ekkor $f\in\rab$
+	\item\textbf{Mi a kapcsolat a monotonitás és a Riemann-integrálhatóság között?}\\[0.1cm]
+	$f:[a,b]\to\R$ monoton, ekkor $f\in\rab$
+	\item\textbf{Milyen tételt tanult Riemann-integrálható függvény
+	megváltoztatását illetően?}\\[0.1cm]
+	$f$ értékeit véges sok pontban megváltoztatom $(\tilde{f})$,\\[0.2cm]ha
+	$f\in\rab$, akkor $\tilde{f}\in\rab\text{ és }\intab\tilde{f}=\intab f$\newpage
+	\item\textbf{Mit ért azon, hogy a Riemann-integrál az integrandusban
+	monoton?}\\[0.1cm]
+	%Bizonytalanság
+	\item\textbf{Mit lehet mondani Riemann-integrálható függvény abszolút
+	értékéről \\ integrálhatóság szempontjából?}\\[0.1cm]
+	Ha $f\in\rab$, akkor $\abs{f}\in\rab$ és $\quad-\abs{\int f}\leq\abs{\int f}
+	\leq\int\abs{f}$
+	\item\textbf{Mi az integrálszámítás első középértéktétele?}\\[0.1cm]
+	Tfh. $f,g\in\rab,g\geq0,m:=\inf f\text{ és }M:=\sup f$, ekkor:
+	$\quad m\cdot\intab g\leq\intab f\cdot g\leq M\cdot\intab g$
+	\item\textbf{Mi az integrálszámítás második középértéktétele?}\\[0.1cm]
+	Tfh. $g\in\rab,g\geq0,f\cab$, ekkor: $\exists\xi\in[a,b]:\intab f\cdot g=
+	f(\xi)\cdot\intab g$
+	\item\textbf{Hogyan szól a} \textit{Newton-Leibniz-tétel?}\\[0.1cm]
+	Ha $f\in\rab$ és $f$-nek $\exists F$ \prfv e, akkor: $\intab f=F(b)-F(a)$
+	\item\textbf{Definiálja az integrálfüggvényt.}\\[0.1cm]
+	Ha $f\in\rab$ és $x_0\in[a,b]$, akkor:
+	$\quad F(x)=\int\limits_{x_0}^xf\quad(x\in[a,b])\quad$ az $f$ integrál függvénye
+	\item\textbf{Fogalmazza meg a differenciál- és integrálszámítás alaptételét.}
+	\\[0.1cm]
+	Legyen $f\in\rab,x_0\in[a,b],F(x)=\int\limits_{x_0}^xf\quad(x\in[a,b])$, ekkor:
+	\\\textbf{i,} $F\cab$\\[0.2cm]
+	\textbf{ii,} Ha $f\in C(d)$, akkor $F\in D(d)$ és $F'(d)=f(d)\quad(d\in[a,b])$
+	\item\textbf{Mit ért parciális integráláson a Riemann-integrálokkal kapcsolatban?}
+	\\[0.1cm]
+	Ha $f,g\in\D[a,b]$ és $f',g'\in\rab$, akkor $\intab f'\cdot g=f(b)\cdot g(b)-
+	f(a)\cdot g(a)-\intab f\cdot g'$
+	\item\textbf{Mit mond ki a helyettesítétes integrálás tétele Riemann-integrálokra \\ vonatkozóan?}\\[0.1cm]
+	Tfh. $f\in\rab,g:[\alpha,\beta]\to[a,b]$ differenciálható bijekció és $g'\neq0$,
+	ekkor: $\intab f=\int\limits_{\alpha}^{\beta}f\circ g\cdot g'$
+	\item\textbf{Mit tud mondani függvénygrafikon hosszának a kiszámításáról?}\\[0.1cm]
+	Ha $f:[a,b]\to\R$ folytonos és differenciálható, ekkor $l(\gamma)=
+	\intab\sqrt{1+(f'(x))^2}dx$
+	\item\textbf{Hogyan számítja ki forgástest térfogatát?}\\[0.1cm]
+	$f\geq0\quad H:=\{(x,y,z):a\leq x\leq b,\quad y^2+z^2\leq f^2(x)\}$
+	forgástest\\$V(H)=\pi\cdot\intab f^2\quad(f\in\rab)$
+	\item\textbf{Hogyan számítja ki forgástest felszínét?}\\[0.1cm]
+	Ha $f$ folytonosan differenciálható, akkor:
+	$F(H)=2\pi\intab f(x)\cdot\sqrt{1+(f'(x))^2}dx$
+\end{enumerate}
+\end{document}
